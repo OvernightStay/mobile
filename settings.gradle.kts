@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "OffOvernightStay"
+rootProject.name = "OvernightStay"
 include(":app")
  
