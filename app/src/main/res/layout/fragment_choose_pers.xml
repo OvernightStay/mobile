@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="328dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/background_auth"
+    tools:context=".view.choose_pers.ChoosePersFragment">
+
+    <ImageView
+        android:id="@+id/tv_overnightstay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/img_overnightstay_black"
+        android:contentDescription="Ночлежка"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Выбери героя"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay" />
+
+    <ImageView
+        android:id="@+id/iv_woman"
+        android:layout_width="116dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/img_woman"
+        android:contentDescription="Женщина"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_overnightstay"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"/>
+
+    <ImageView
+        android:id="@+id/iv_man"
+        android:layout_width="116dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/img_man"
+        android:contentDescription="Мужчина"
+        app:layout_constraintEnd_toEndOf="@+id/tv_overnightstay"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="200dp"
+        android:hint="Петров Иван"
+        app:endIconMode="clear_text"
+        android:textColorHint="@color/stroke"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_input"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_begin"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="273dp"
+        android:backgroundTint="@color/button_active"
+        android:fontFamily="sans-serif"
+        android:text="Начать игру"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+        app:layout_constraintEnd_toEndOf="@+id/til_login"
+        app:layout_constraintStart_toStartOf="@+id/til_login"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

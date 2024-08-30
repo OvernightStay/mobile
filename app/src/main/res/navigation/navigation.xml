@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.overnightstay.view.splash.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.overnightstay.view.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regFragment"
+        android:name="com.overnightstay.view.reg.RegFragment"
+        android:label="fragment_reg"
+        tools:layout="@layout/fragment_reg" >
+        <action
+            android:id="@+id/action_regFragment_to_congrFragment"
+            app:destination="@id/congrFragment" />
+        <action
+            android:id="@+id/action_regFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.overnightstay.view.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_authFragment_to_choosePersFragment"
+            app:destination="@id/choosePersFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_regFragment"
+            app:destination="@id/regFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_restoreFragment"
+            app:destination="@id/restoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choosePersFragment"
+        android:name="com.overnightstay.view.choose_pers.ChoosePersFragment"
+        android:label="fragment_choose_pers"
+        tools:layout="@layout/fragment_choose_pers" />
+    <fragment
+        android:id="@+id/congrFragment"
+        android:name="com.overnightstay.view.congr.CongrFragment"
+        android:label="fragment_congr"
+        tools:layout="@layout/fragment_congr" >
+        <action
+            android:id="@+id/action_congrFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restoreFragment"
+        android:name="com.overnightstay.view.restore.RestoreFragment"
+        android:label="fragment_restore"
+        tools:layout="@layout/fragment_restore" >
+        <action
+            android:id="@+id/action_restoreFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+</navigation>

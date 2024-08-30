@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="328dp"
+    android:layout_height="548dp"
+    android:layout_gravity="center"
+    android:background="@drawable/background_auth"
+    tools:context=".view.restore.RestoreFragment">
+
+    <ImageView
+        android:id="@+id/tv_overnightstay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/img_overnightstay_black"
+        android:contentDescription="Ночлежка"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_congr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="168dp"
+        android:textAlignment="center"
+        android:text="Поздравляем,\nВы успешно изменили\nпароль !"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back" />
+
+    <TextView
+        android:id="@+id/tv_new_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:text="Придумайте\nновый пароль"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay" />
+
+    <TextView
+        android:id="@+id/tv_restore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Восстановелние пароля"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Введите адрес Вашей электронной\nпочты, на него мы вышлем код для\nсброса пароля"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:visibility="invisible"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_restore" />
+
+    <TextView
+        android:id="@+id/tv_enter_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textAlignment="center"
+        android:text="Ведите 6-значный код,\nкоторый мы отправили на почту\nwannabe@mail.ru "
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_restore" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="212dp"
+        android:hint="Адрес эл. почты"
+        app:endIconMode="clear_text"
+        android:textColorHint="@color/stroke"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_input"
+            android:maxLines="1"
+            android:padding="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/til_code"-->
+<!--        android:layout_width="288dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:hint="Введите код"-->
+<!--        app:endIconMode="clear_text"-->
+<!--        android:textColorHint="@color/stroke"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_message"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/et_code"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:background="@drawable/background_input"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="0dp" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <com.jakode.verifycodeedittext.VerifyCodeEditText
+        android:id="@+id/vcet_verify"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layoutDirection="ltr"
+        android:paddingBottom="12dp"
+        app:BottomErrorIcon="@drawable/bottom_error_icon"
+        app:BottomSelectedIcon="@drawable/bottom_selected_icon"
+        app:BottomUnSelectedIcon="@drawable/bottom_unselected_icon"
+        app:BottomIconHeight="2dp"
+        app:BottomIconWidth="20dp"
+        app:ItemSpaceSize="20dp"
+        app:TextColor="@color/black"
+        app:TextSize="14sp"
+        android:fontFamily="sans-serif"
+        app:ViewCount="Six"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_new_pass"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:hint="Новый папроль"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/stroke"
+            app:layout_constraintTop_toBottomOf="@+id/tv_new_pass"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_new_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:background="@drawable/background_input"
+                android:maxLines="1"
+                android:padding="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_repeat_pass"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:hint="Подтвердите папроль"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/stroke"
+            app:layout_constraintTop_toBottomOf="@+id/til_new_pass"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_repeat_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:background="@drawable/background_input"
+                android:maxLines="1"
+                android:padding="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Введен неверный код. Попробуйте снова"
+            android:textColor="@color/error_text"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vcet_verify" />
+
+        <Button
+            android:id="@+id/btn_get_code"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="316dp"
+            android:backgroundTint="@color/button_active"
+            android:fontFamily="sans-serif"
+            android:text="Получить код"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+            app:layout_constraintEnd_toEndOf="@+id/til_email"
+            app:layout_constraintStart_toStartOf="@+id/til_email"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="316dp"
+            android:backgroundTint="@color/button_active"
+            android:fontFamily="sans-serif"
+            android:text="Подтвердить"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+            app:layout_constraintEnd_toEndOf="@+id/til_email"
+            app:layout_constraintStart_toStartOf="@+id/til_email"/>
+
+        <Button
+            android:id="@+id/btn_restore"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="316dp"
+            android:backgroundTint="@color/button_active"
+            android:fontFamily="sans-serif"
+            android:text="Восстановить пароль"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+            app:layout_constraintEnd_toEndOf="@+id/til_email"
+            app:layout_constraintStart_toStartOf="@+id/til_email"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_back"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_marginTop="316dp"-->
+<!--            android:backgroundTint="@color/button_active"-->
+<!--            android:fontFamily="sans-serif"-->
+<!--            android:text="Назад"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="16sp"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/til_email"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/til_email"/>-->
+
+        <TextView
+            android:id="@+id/tv_problem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Если у вас нет электронной почты, обратитесь\nк администрации НКО Ночлежка"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/btn_get_code"
+            app:layout_constraintTop_toBottomOf="@+id/btn_get_code" />
+
+        <TextView
+            android:id="@+id/tv_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textAlignment="center"
+            android:text="Если код не пришел в течение\n3 минут, нажмите “получить код” еще раз"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_get_code" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textAlignment="center"
+            android:text="00:00"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repeat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
