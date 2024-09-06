@@ -7,7 +7,6 @@ import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.onboarding.OnboardingFragment
 import com.overnightstay.view.reg.RegFragment
 import com.overnightstay.view.restore.RestoreFragment
-import com.overnightstay.view.splash.SplashScreenFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -15,8 +14,6 @@ import dagger.android.ContributesAndroidInjector
 interface MainModule {
     @ContributesAndroidInjector
     fun bindMainActivity(): MainActivity
-    @ContributesAndroidInjector
-    fun bindSplashScreenFragment(): SplashScreenFragment
     @ContributesAndroidInjector
     fun bindOnboardingFragment(): OnboardingFragment
     @ContributesAndroidInjector

@@ -3,26 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/authFragment">
 
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.overnightstay.view.splash.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_onboardingFragment"
-            app:destination="@id/onboardingFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="com.overnightstay.view.onboarding.OnboardingFragment"
-        android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" >
-        <action
-            android:id="@+id/action_onboardingFragment_to_authFragment"
-            app:destination="@id/authFragment" />
-    </fragment>
     <fragment
         android:id="@+id/regFragment"
         android:name="com.overnightstay.view.reg.RegFragment"

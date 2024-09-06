@@ -39,7 +39,6 @@ class OnboardingFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             delay(3000L)
-            findNavController().navigate(R.id.action_onboardingFragment_to_authFragment)
         }
     }
 }
