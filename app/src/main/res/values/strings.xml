@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OvernightStay</string>
+    <string name="cat_status">Привет!\nЯ - кот Статус, расскажу, что тебя ждет в игре.\nСейчас я работаю волонтером в Ночлежке.</string>
 </resources>
