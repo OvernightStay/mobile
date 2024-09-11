@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.overnightstay.R
 import com.overnightstay.databinding.FragmentOnboardingBinding
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
