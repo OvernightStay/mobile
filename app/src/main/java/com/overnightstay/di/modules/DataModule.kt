@@ -1,6 +1,8 @@
 package com.overnightstay.di.modules
 
-import com.overnightstay.data.repository.AuthRepository
+import com.overnightstay.data.api.UserApi
+import com.overnightstay.data.repository.UserRepository
+import com.overnightstay.domain.irepository.IUserRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -9,5 +11,7 @@ import javax.inject.Singleton
 class DataModule {
     @Provides
     @Singleton
-    fun provideAuthRepository() = AuthRepository()
+    fun provideUserRepository(userApi: UserApi) : IUserRepository{
+        return UserRepository(userApi = userApi)
+    }
 }

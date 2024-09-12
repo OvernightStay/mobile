@@ -6,16 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentRegBinding
 import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class RegFragment : Fragment() {
     private var _binding: FragmentRegBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var viewModel: RegViewModel
+
+    @Inject
+    lateinit var vmFactory: RegViewModel.Factory
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -32,6 +37,9 @@ class RegFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel =
+            ViewModelProvider(this, vmFactory)[RegViewModel::class.java]
 
         initBtnListeners()
     }

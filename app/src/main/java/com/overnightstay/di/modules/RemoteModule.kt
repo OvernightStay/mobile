@@ -1,5 +1,6 @@
 package com.overnightstay.di.modules
 
+import com.overnightstay.data.api.UserApi
 import com.skydoves.retrofit.adapters.result.ResultCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -37,9 +38,12 @@ class RemoteModule {
         .client(okHttpClient)
         .build()
 
+    @Provides
+    @Singleton
+    fun provideAuthApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
 
     companion object {
         private const val HALF_MINUTE_FOR_SLOW_INTERNET = 30L
-        const val BASE_URL = "https://grikoandrey.pythonanywhere.com/"
+        const val BASE_URL = "https://overnightapp.pythonanywhere.com/"
     }
 }

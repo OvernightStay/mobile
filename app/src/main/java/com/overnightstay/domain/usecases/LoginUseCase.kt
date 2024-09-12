@@ -1,13 +1,13 @@
 package com.overnightstay.domain.usecases
 
-import com.overnightstay.data.repository.AuthRepository
-import kotlinx.coroutines.flow.Flow
+import com.overnightstay.domain.irepository.IUserRepository
+import com.overnightstay.domain.models.User
 
 class LoginUseCase(
-    private val repository: AuthRepository
+    private val repository: IUserRepository
 ) {
-    suspend operator fun invoke(login: String): Boolean {
-        val result = repository.login(login)
+    suspend operator fun invoke(user: User): Boolean {
+        val result = repository.login(user)
         return true
     }
 }

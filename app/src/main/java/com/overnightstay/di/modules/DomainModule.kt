@@ -1,7 +1,8 @@
 package com.overnightstay.di.modules
 
-import com.overnightstay.data.repository.AuthRepository
+import com.overnightstay.domain.irepository.IUserRepository
 import com.overnightstay.domain.usecases.LoginUseCase
+import com.overnightstay.domain.usecases.RegisterUseCase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -10,7 +11,13 @@ import javax.inject.Singleton
 class DomainModule {
     @Singleton
     @Provides
-    fun provideLoginUseCase(repository: AuthRepository): LoginUseCase {
+    fun provideLoginUseCase(repository: IUserRepository): LoginUseCase {
         return LoginUseCase(repository = repository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideRegisterUser(repository: IUserRepository): RegisterUseCase {
+        return RegisterUseCase(repository = repository)
     }
 }
