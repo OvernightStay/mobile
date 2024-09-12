@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDatingBinding
 import dagger.android.support.AndroidSupportInjection
 
@@ -49,7 +51,11 @@ class DatingFragment : Fragment() {
 
             binding.dialogNext.setOnClickListener{
                 count++
-                binding.text.animateCharacterByCharacter(array[count], 50L)
+                if (count > 8) {
+                    findNavController().navigate(R.id.action_datingFragment_to_nightBusFragment)
+                    count = 0
+                }
+                else binding.text.animateCharacterByCharacter(array[count], 50L)
             }
 
     }
