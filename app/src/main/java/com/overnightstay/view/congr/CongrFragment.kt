@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.overnightstay.R
 import com.overnightstay.databinding.FragmentCongrBinding
 import dagger.android.support.AndroidSupportInjection
 
@@ -31,5 +33,13 @@ class CongrFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+
+        initBtnListeners()
+    }
+
+    private fun initBtnListeners() = with(binding) {
+        btnMain.setOnClickListener {
+            findNavController().navigate(R.id.action_congrFragment_to_authFragment)
+        }
     }
 }

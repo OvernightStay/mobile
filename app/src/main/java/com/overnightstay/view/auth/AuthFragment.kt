@@ -6,16 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentAuthBinding
+import com.overnightstay.domain.models.User
+import com.overnightstay.view.reg.RegViewModel
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class AuthFragment : Fragment() {
     private var _binding: FragmentAuthBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var  viewModel: AuthViewModel
+    private lateinit var viewModel: AuthViewModel
+
+    @Inject
+    lateinit var vmFactory: AuthViewModel.Factory
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -33,7 +43,30 @@ class AuthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel =
+            ViewModelProvider(this, vmFactory)[AuthViewModel::class.java]
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
+            viewModel.isEntry.collect {
+                if (it) {
+                    findNavController().navigate(R.id.action_authFragment_to_choosePersFragment)
+                } else {
+                    Snackbar.make(
+                        binding.root,
+                        "Ошибка сервера.",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+
         initBtnListeners()
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun initBtnListeners() = with(binding) {
@@ -46,7 +79,7 @@ class AuthFragment : Fragment() {
         }
 
         btnEnter.setOnClickListener {
-            findNavController().navigate(R.id.action_authFragment_to_choosePersFragment)
+            viewModel.login(User(binding.etLogin.text.toString(), binding.etPass.text.toString()))
         }
     }
 }
