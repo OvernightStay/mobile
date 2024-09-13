@@ -41,6 +41,22 @@ class ChoosePersFragment : Fragment() {
 
 
     private fun initBtnListeners() = with(binding) {
+        ivWoman.setOnClickListener {
+            if (ivWoman.isSelected) {
+                ivWoman.isSelected = false
+            } else {
+                ivMan.isSelected = false
+                ivWoman.isSelected = true
+            }
+        }
+        ivMan.setOnClickListener {
+            if (ivMan.isSelected) {
+                ivMan.isSelected = false
+            } else {
+                ivWoman.isSelected = false
+                ivMan.isSelected = true
+            }
+        }
         btnBegin.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 startActivity(Intent(activity, MainActivity::class.java))

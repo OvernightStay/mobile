@@ -21,20 +21,20 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/iv_woman"
+        android:id="@+id/iv_cat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@drawable/img_hands"
+        android:background="@drawable/img_photo_cat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"/>
 
     <TextView
-        android:id="@+id/tv_forgot"
+        android:id="@+id/tv_congratulation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:text="Поздравляем,\nВы успешно\nзарегистрировались!"
         android:textColor="@color/black"
@@ -42,15 +42,13 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/iv_cat" />
 
     <Button
         android:id="@+id/btn_main"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="273dp"
+        android:layout_marginTop="280dp"
         android:backgroundTint="@color/button_active"
         android:fontFamily="sans-serif"
         android:text="Главная"

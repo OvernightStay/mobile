@@ -8,6 +8,6 @@ class RegisterUseCase(
 ) {
     suspend operator fun invoke(user: User): Boolean {
         val result = repository.reg(user)
-        return true
+        return result
     }
 }

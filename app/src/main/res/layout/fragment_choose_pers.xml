@@ -35,22 +35,24 @@
 
     <ImageView
         android:id="@+id/iv_woman"
-        android:layout_width="116dp"
-        android:layout_height="96dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
-        android:background="@drawable/img_woman"
+        android:layout_marginStart="48dp"
+        android:background="@drawable/background_avatar_woman"
         android:contentDescription="Женщина"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_overnightstay"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"/>
 
     <ImageView
         android:id="@+id/iv_man"
-        android:layout_width="116dp"
-        android:layout_height="96dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
-        android:background="@drawable/img_man"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/background_avatar_man"
         android:contentDescription="Мужчина"
-        app:layout_constraintEnd_toEndOf="@+id/tv_overnightstay"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"/>
 
     <com.google.android.material.textfield.TextInputLayout

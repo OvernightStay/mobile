@@ -8,6 +8,6 @@ class LoginUseCase(
 ) {
     suspend operator fun invoke(user: User): Boolean {
         val result = repository.login(user)
-        return true
+        return result
     }
 }

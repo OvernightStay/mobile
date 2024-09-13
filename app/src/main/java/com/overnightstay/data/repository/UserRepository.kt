@@ -11,14 +11,14 @@ class UserRepository(private val userApi: UserApi) : IUserRepository {
     override suspend fun reg(user: User): Boolean {
         if (user.checkFields()) return false
         val x = userApi.reg(mapperUserToRegisterRequest(user))
-//        println("Result: $x")
-        return true
+        println("Result: $x")
+        return x.isSuccess
     }
 
     override suspend fun login(user: User): Boolean {
         val x = userApi.login(mapperUserTologinRequest(user))
         println("Result: $x")
-        return true
+        return x.isSuccess
     }
 
     fun mapperUserToRegisterRequest(user: User): RegisterRequest {
