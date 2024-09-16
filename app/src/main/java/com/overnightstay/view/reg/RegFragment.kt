@@ -75,13 +75,27 @@ class RegFragment : Fragment() {
         etRepeatpass.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 tvError.isVisible = etRepeatpass.text.toString().trim().isNotEmpty() &&
-                    (etPass.text.toString().trim() != etRepeatpass.text.toString().trim())
+                        (etPass.text.toString().trim() != etRepeatpass.text.toString().trim())
             }
         }
     }
 
     private fun initBtnListeners() = with(binding) {
         btnReg.setOnClickListener {
+            if (binding.etLogin.text.toString().isEmpty() ||
+                binding.etPass.text.toString().isEmpty() ||
+                binding.etPhone.text.toString().isEmpty() ||
+                binding.etName.text.toString().isEmpty() ||
+                binding.etSecname.text.toString().isEmpty() ||
+                binding.etRepeatpass.text.toString().isEmpty()
+            ) {
+                Snackbar.make(
+                    binding.root,
+                    "Заполните обязательные поля.",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
             viewModel.reg(
                 User(
                     binding.etLogin.text.toString(),
