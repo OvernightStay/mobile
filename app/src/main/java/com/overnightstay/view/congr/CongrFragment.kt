@@ -34,6 +34,8 @@ class CongrFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
+        println("Аргументы: ${arguments.toString()}")
+
         initBtnListeners()
     }
 

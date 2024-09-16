@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -50,7 +51,9 @@ class RegFragment : Fragment() {
             println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
             viewModel.isEntry.collect {
                 if (it) {
-                    findNavController().navigate(R.id.action_regFragment_to_congrFragment)
+                    val bundle = bundleOf("amount" to it)
+
+                    findNavController().navigate(R.id.action_regFragment_to_congrFragment, bundle)
                 } else {
                     Snackbar.make(
                         binding.root,
