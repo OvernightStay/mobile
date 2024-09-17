@@ -84,6 +84,15 @@ class RegFragment : Fragment() {
     }
 
     private fun initBtnListeners() = with(binding) {
+        chbAgree.setOnClickListener {
+            if (chbAgree.isSelected) {
+                chbAgree.isSelected = false
+            } else {
+                chbAgree.isSelected = true
+            }
+            btnReg.isEnabled = chbAgree.isSelected
+        }
+
         btnReg.setOnClickListener {
             if (binding.etLogin.text.toString().isEmpty() ||
                 binding.etPass.text.toString().isEmpty() ||

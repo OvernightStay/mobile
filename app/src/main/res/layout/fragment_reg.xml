@@ -210,11 +210,11 @@
         app:layout_constraintTop_toBottomOf="@+id/til_repeatpass" />
 
     <ImageView
-        android:id="@+id/iv_check_agree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/chb_agree"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="28dp"
-        android:background="@drawable/check"
+        android:background="@drawable/background_agree"
         app:layout_constraintLeft_toLeftOf="@+id/tv_mem"
         app:layout_constraintTop_toBottomOf="@+id/tv_mem"/>
 
@@ -227,16 +227,15 @@
         android:textColor="@color/black"
         android:fontFamily="sans-serif"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_check_agree"
-        app:layout_constraintTop_toTopOf="@+id/iv_check_agree" />
-
+        app:layout_constraintStart_toEndOf="@+id/chb_agree"
+        app:layout_constraintTop_toTopOf="@+id/chb_agree" />
 
     <Button
         android:id="@+id/btn_reg"
         android:layout_width="288dp"
         android:layout_height="48dp"
         android:layout_marginTop="160dp"
-        android:backgroundTint="@color/button_active"
+        android:backgroundTint="@color/btn_submit_background"
         android:fontFamily="sans-serif"
         android:text="Зарегистрироваться"
         android:textColor="@color/white"

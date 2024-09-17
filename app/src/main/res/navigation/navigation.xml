@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_congrFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_congrFragment_to_choosePersFragment"
+            app:destination="@id/choosePersFragment" />
     </fragment>
     <fragment
         android:id="@+id/restoreFragment"
