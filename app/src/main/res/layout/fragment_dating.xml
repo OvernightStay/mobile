@@ -41,14 +41,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/status"
+    <TextView
+        android:id="@+id/status_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/ic_status_name"
-        android:importantForAccessibility="no"
+        android:background="@drawable/user_name"
+        android:paddingStart="10dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="10dp"
+        android:text="Статус"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
@@ -69,7 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
