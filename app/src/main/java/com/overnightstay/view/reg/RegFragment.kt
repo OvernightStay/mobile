@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -49,8 +50,10 @@ class RegFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
             viewModel.isEntry.collect {
-                if (it) {
-                    findNavController().navigate(R.id.action_regFragment_to_congrFragment)
+                if (it.first) {
+                    val bundle = bundleOf("arg1" to it.second, "arg2" to it.third)
+
+                    findNavController().navigate(R.id.action_regFragment_to_congrFragment, bundle)
                 } else {
                     Snackbar.make(
                         binding.root,
@@ -75,13 +78,36 @@ class RegFragment : Fragment() {
         etRepeatpass.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 tvError.isVisible = etRepeatpass.text.toString().trim().isNotEmpty() &&
-                    (etPass.text.toString().trim() != etRepeatpass.text.toString().trim())
+                        (etPass.text.toString().trim() != etRepeatpass.text.toString().trim())
             }
         }
     }
 
     private fun initBtnListeners() = with(binding) {
+        chbAgree.setOnClickListener {
+            if (chbAgree.isSelected) {
+                chbAgree.isSelected = false
+            } else {
+                chbAgree.isSelected = true
+            }
+            btnReg.isEnabled = chbAgree.isSelected
+        }
+
         btnReg.setOnClickListener {
+            if (binding.etLogin.text.toString().isEmpty() ||
+                binding.etPass.text.toString().isEmpty() ||
+                binding.etPhone.text.toString().isEmpty() ||
+                binding.etName.text.toString().isEmpty() ||
+                binding.etSecname.text.toString().isEmpty() ||
+                binding.etRepeatpass.text.toString().isEmpty()
+            ) {
+                Snackbar.make(
+                    binding.root,
+                    "Заполните обязательные поля.",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
             viewModel.reg(
                 User(
                     binding.etLogin.text.toString(),

@@ -9,6 +9,7 @@ import com.overnightstay.di.modules.RemoteModule
 import com.overnightstay.di.modules.DataModule
 import com.overnightstay.di.modules.DatabaseModule
 import com.overnightstay.di.modules.AppModule
+import com.overnightstay.di.modules.SharedPreferencesModule
 
 import dagger.BindsInstance
 import dagger.Component
@@ -28,6 +29,7 @@ import javax.inject.Singleton
         DomainModule::class,
         MappersModule::class,
         RemoteModule::class,
+        SharedPreferencesModule::class,
     ]
 )
 
