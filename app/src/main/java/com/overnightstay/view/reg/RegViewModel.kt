@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 class RegViewModel(private val registerUseCase: RegisterUseCase) : ViewModel() {
-    private var _isEntry = MutableSharedFlow<Boolean>()
-    val isEntry: SharedFlow<Boolean>
+    private var _isEntry = MutableSharedFlow<Triple<Boolean,String,String>>()
+    val isEntry: SharedFlow<Triple<Boolean,String,String>>
         get() = _isEntry.asSharedFlow()
 
     fun reg(user: User) {
@@ -21,7 +21,7 @@ class RegViewModel(private val registerUseCase: RegisterUseCase) : ViewModel() {
         viewModelScope.launch {
             val result = registerUseCase(user)
             println("MVVM result: $result")
-            _isEntry.emit(result)
+            _isEntry.emit(Triple(result,user.login,user.password))
 
         }
     }

@@ -50,8 +50,8 @@ class RegFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
             viewModel.isEntry.collect {
-                if (it) {
-                    val bundle = bundleOf("amount" to it)
+                if (it.first) {
+                    val bundle = bundleOf("arg1" to it.second, "arg2" to it.third)
 
                     findNavController().navigate(R.id.action_regFragment_to_congrFragment, bundle)
                 } else {
