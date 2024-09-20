@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="328dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/background_auth"
+    tools:context=".view.auth.AuthFragment">
+
+    <ImageView
+        android:id="@+id/tv_overnightstay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/img_overnightstay_black"
+        android:contentDescription="Ночлежка"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:hint="Логин"
+        app:endIconMode="clear_text"
+        android:textColorHint="@color/stroke"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_input"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pass"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Пароль"
+        app:endIconMode="clear_text"
+        android:textColorHint="@color/stroke"
+        app:layout_constraintTop_toBottomOf="@+id/til_login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_input"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Введен нервный логин или пароль"
+        android:textColor="@color/error_text"
+        android:fontFamily="sans-serif"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/til_pass"
+        app:layout_constraintTop_toBottomOf="@+id/til_pass" />
+
+    <TextView
+        android:id="@+id/tv_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:text="Зарегистрироваться"
+        android:textColor="@color/button_active"
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_overnightstay"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay" />
+
+    <TextView
+        android:id="@+id/tv_forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Забыл пароль"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_overnightstay"
+        app:layout_constraintTop_toTopOf="@+id/tv_reg" />
+
+    <Button
+        android:id="@+id/btn_enter"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="273dp"
+        android:backgroundTint="@color/button_default"
+        android:fontFamily="sans-serif"
+        android:text="Войти"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
+        app:layout_constraintEnd_toEndOf="@+id/til_login"
+        app:layout_constraintStart_toStartOf="@+id/til_login"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
