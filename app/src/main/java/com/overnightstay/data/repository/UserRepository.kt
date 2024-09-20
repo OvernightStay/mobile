@@ -23,7 +23,7 @@ class UserRepository(
         return x.isSuccess
     }
 
-    fun mapperUserToRegisterRequest(user: User): RegisterRequest {
+    private fun mapperUserToRegisterRequest(user: User): RegisterRequest {
         return RegisterRequest(
             login = user.login,
             password = user.password,
@@ -35,7 +35,7 @@ class UserRepository(
         )
     }
 
-    fun mapperUserTologinRequest(user: User): LoginRequest {
+    private fun mapperUserTologinRequest(user: User): LoginRequest {
         return LoginRequest(
             login = user.login,
             password = user.password

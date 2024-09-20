@@ -9,13 +9,13 @@ import javax.inject.Inject
 class UserStorage @Inject constructor(
     private val sharedPreferences: SharedPreferences
 ) : IUserStorage{
-//    override fun get(): User {
-//        val first_name = sharedPreferences.getString(USER_NAME, "") ?: ""
-//        val last_nam = sharedPreferences.getString(USER_LASTNAME, "") ?: ""
-//        val phone = sharedPreferences.getString(USER_PHONE, "") ?: ""
-//        val email= sharedPreferences.getString(USER_EMAIL, "") ?: ""
-//        return UserSM(first_name = first_name, last_name = last_nam, phone = phone, email = email)
-//    }
+    override fun get(): User {
+        val first_name = sharedPreferences.getString(USER_NAME, "") ?: ""
+        val last_nam = sharedPreferences.getString(USER_LASTNAME, "") ?: ""
+        val phone = sharedPreferences.getString(USER_PHONE, "") ?: ""
+        val email= sharedPreferences.getString(USER_EMAIL, "") ?: ""
+        return mapperUserSMToUser(UserSM(first_name = first_name, last_name = last_nam, phone = phone, email = email))
+    }
 
     override fun save(user: User) {
         sharedPreferences.edit().putString(USER_NAME, user.first_name).apply()
@@ -24,17 +24,10 @@ class UserStorage @Inject constructor(
         sharedPreferences.edit().putString(USER_EMAIL, user.email).apply()
     }
 
-//    fun mapperUserSMToUser(user: UserSM): User {
-//        return User(
-//            email = user.email ?: "",
-//            phone = user.phone ?: "",
-//            first_name = user.first_name ?: "",
-//            last_name = user.last_name ?: ""
-//        )
-//    }
-
-    fun mapperUserToUserSM(user: User): UserSM {
-        return UserSM(
+    private fun mapperUserSMToUser(user: UserSM): User {
+        return User(
+            login = "",
+            password = "",
             email = user.email ?: "",
             phone = user.phone ?: "",
             first_name = user.first_name ?: "",
