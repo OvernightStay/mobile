@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentNightBusBinding
 import dagger.android.support.AndroidSupportInjection
@@ -55,47 +56,48 @@ class NightBusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch {
+        binding.text.animateCharacterByCharacter(array[0])
+        binding.dialogNext.isClickable = true
 
-            for (i in array) {
-                count++
-                binding.text.animateCharacterByCharacter(i)
-                delay(20L * i.length.toLong() + 600L)
-                when(count) {
-                    1 -> binding.statusName.visibility = View.VISIBLE
-                    2 -> user()
-                    3 -> status()
-                    4 -> user()
-                    5 -> {
-                        status()
-                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_02)
+
+        binding.dialogNext.setOnClickListener {
+            count++
+            if (count < array.size) {
+                lifecycleScope.launch {
+                    binding.dialogNext.isClickable = false
+                    when(count) {
+                        2, 4, 7, 10, 13 -> user()
+                        3, 8 -> status()
+                        5 -> {
+                            status()
+                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_02)
+                        }
+                        6 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
+                        9 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_04)
+                        11-> {
+                            status()
+                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
+                        }
+                        12 -> {
+                            status()
+                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_05)
+                            binding.cards.visibility = View.VISIBLE
+                        }
+                        14 -> {
+                            status()
+                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
+                            binding.cards.visibility = View.INVISIBLE
+                        }
                     }
-                    6 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
-                    7 -> user()
-                    8 -> status()
-                    9 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_04)
-                    10 -> user()
-                    11-> {
-                        status()
-                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
-                    }
-                    12 -> {
-                        status()
-                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_05)
-                        binding.cards.visibility = View.VISIBLE
-                    }
-                    13 -> user()
-                    14 -> {
-                        status()
-                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
-                        binding.cards.visibility = View.INVISIBLE
-                    }
-                }
-            }
+                    binding.text.animateCharacterByCharacter(array[count])
+                    delay(25L * array[count].length.toLong())
+                    binding.dialogNext.isClickable = true }
+
+            } else findNavController().navigate(R.id.action_nightBusFragment_to_locationMapFragment)
         }
     }
 
-    private fun TextView.animateCharacterByCharacter(text: String, delay: Long = 20L) {
+    private fun TextView.animateCharacterByCharacter(text: String, delay: Long = 25L) {
         if (text.isEmpty()) return
 
         val charAnimation = ValueAnimator.ofInt(0, text.length)
@@ -109,7 +111,6 @@ class NightBusFragment : Fragment() {
                 this@animateCharacterByCharacter.text = animatedText
             }
         }
-
         charAnimation.start()
     }
 

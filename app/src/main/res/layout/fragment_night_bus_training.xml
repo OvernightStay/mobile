@@ -7,7 +7,19 @@
     android:layout_height="360dp"
     android:layout_gravity="center"
     android:background="@drawable/bg_night_bus_01"
-    tools:context=".view.night_bus.NightBusFragment">
+    tools:context=".view.night_bus.NightBusTrainingFragment">
+
+    <ImageView
+        android:id="@+id/stress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_stress"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/gear_wheel"
@@ -21,11 +33,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/img_rules"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@id/gear_wheel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/michael"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/img_michael"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/cat_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="18dp"
         android:background="@drawable/cat_status"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,14 +135,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialog_next"
+        android:background="@drawable/dating_dialog_next"
+        android:textColorHint="#A5D38D"
         android:layout_width="28dp"
         android:layout_height="29dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="35dp"
-        android:background="@drawable/dating_dialog_next"
-        android:clickable="false"
         android:importantForAccessibility="no"
-        android:textColorHint="#A5D38D"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toEndOf="@id/rectangle" />
 
