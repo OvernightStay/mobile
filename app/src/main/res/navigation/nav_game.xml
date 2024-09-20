@@ -18,5 +18,19 @@
         android:id="@+id/nightBusFragment"
         android:name="com.overnightstay.view.night_bus.NightBusFragment"
         android:label="fragment_night_bus"
-        tools:layout="@layout/fragment_night_bus" />
+        tools:layout="@layout/fragment_night_bus" >
+        <action
+            android:id="@+id/action_nightBusFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationMapFragment"
+        android:name="com.overnightstay.view.location_map.LocationMapFragment"
+        android:label="fragment_location_map"
+        tools:layout="@layout/fragment_location_map" />
+    <fragment
+        android:id="@+id/nightBusTrainingFragment2"
+        android:name="com.overnightstay.view.night_bus.NightBusTrainingFragment"
+        android:label="fragment_night_bus_training"
+        tools:layout="@layout/fragment_night_bus_training" />
 </navigation>
