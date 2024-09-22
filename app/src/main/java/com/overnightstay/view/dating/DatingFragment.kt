@@ -66,7 +66,8 @@ class DatingFragment : Fragment() {
                     delay(25L * array[count].length.toLong())
                     binding.dialogNext.isClickable = true
                 }
-            } else findNavController().navigate(R.id.action_datingFragment_to_nightBusFragment)
+//            } else findNavController().navigate(R.id.action_datingFragment_to_nightBusFragment)
+            } else findNavController().navigate(R.id.action_datingFragment_to_locationMapFragment)
         }
 
     }
