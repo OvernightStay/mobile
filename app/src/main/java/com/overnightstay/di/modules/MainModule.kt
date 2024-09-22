@@ -35,8 +35,8 @@ interface MainModule {
     @ContributesAndroidInjector
     fun bindNightBusFragment(): NightBusFragment
     @ContributesAndroidInjector
-    fun bindLocationMapFragment(): LocationMapFragment
-    @ContributesAndroidInjector
     fun bindNightBusTrainingFragment(): NightBusTrainingFragment
+    @ContributesAndroidInjector
+    fun bindLocationMapFragment(): LocationMapFragment
 
 }

@@ -17,7 +17,7 @@
         android:layout_marginTop="14dp"
         android:importantForAccessibility="no"
         android:src="@drawable/img_stress"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +40,7 @@
         android:layout_marginEnd="70dp"
         android:background="@drawable/img_rules"
         android:importantForAccessibility="no"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/gear_wheel"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,6 +56,38 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/michael_transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="18dp"
+        android:visibility="gone"
+        android:background="@drawable/img_michael"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/man"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/bg_transparent"
+        android:layout_width="800dp"
+        android:layout_height="360dp"
+        android:background="#90000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/cat_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +99,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/psycholog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:visibility="gone"
+        android:background="@drawable/img_psychologist"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/user"
+        app:layout_constraintStart_toEndOf="@id/cat_status" />
+
+    <ImageView
         android:id="@+id/cards"
         android:layout_width="190dp"
         android:layout_height="309.15dp"
@@ -75,17 +119,8 @@
         android:importantForAccessibility="no"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/user"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/man"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/rectangle"
@@ -125,7 +160,7 @@
         android:paddingStart="10dp"
         android:paddingTop="2dp"
         android:paddingEnd="10dp"
-        android:text="Имя пользователя"
+        android:text="Пользователь"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:visibility="invisible"
@@ -135,15 +170,42 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialog_next"
-        android:background="@drawable/dating_dialog_next"
-        android:textColorHint="#A5D38D"
         android:layout_width="28dp"
         android:layout_height="29dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="35dp"
+        android:background="@drawable/dating_dialog_next"
         android:importantForAccessibility="no"
+        android:textColorHint="#A5D38D"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toEndOf="@id/rectangle" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle"
+        app:layout_constraintStart_toStartOf="@id/rectangle">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Как хотите. Я здесь только чтобы раздавать еду."
+            android:textSize="16sp" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_button_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textColor="@color/black"
+            android:text="Не откладывайте. Чем раньше вы начнете, тем быстрее мы сможем вам помочь.\nЯ здесь, чтобы поддержать вас."
+            android:textSize="16sp" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/text"
@@ -154,6 +216,7 @@
         android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 

@@ -93,7 +93,7 @@ class NightBusFragment : Fragment() {
                     delay(25L * array[count].length.toLong())
                     binding.dialogNext.isClickable = true }
 
-            } else findNavController().navigate(R.id.action_nightBusFragment_to_locationMapFragment)
+            } else findNavController().navigate(R.id.action_nightBusFragment_to_nightBusTrainingFragment2)
         }
     }
 
