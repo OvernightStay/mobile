@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDatingBinding
+import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -21,6 +22,11 @@ class DatingFragment : Fragment() {
 
     private var _binding: FragmentDatingBinding? = null
     private val binding get() = _binding!!
+
+    val currentAnimator: ValueAnimator by lazy {
+        ValueAnimator.ofInt(0, 0)
+    }
+
     private lateinit var viewModel: DatingViewModel
 
     private var array = mutableListOf(
@@ -54,18 +60,37 @@ class DatingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.text.animateCharacterByCharacter(array[0])
+        binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
 
         binding.dialogNext.setOnClickListener {
+            if (currentAnimator.isRunning) {
+
+                currentAnimator.end()
+                return@setOnClickListener
+            }
+
             count++
+            if (count < array.size) {
+
+//                    binding.dialogNext.isClickable = false
+//                when (count) {
+//                    1 -> binding.catAvatar.visibility = View.VISIBLE
+//                }
+                binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
+
+                lifecycleScope.launch {
+                    delay(25L * array[count].length.toLong())
+//                    binding.dialogNext.isClickable = true
+                }
+/*            count++
             if (count < array.size) {
                 lifecycleScope.launch {
                     binding.dialogNext.isClickable = false
-                    binding.text.animateCharacterByCharacter(array[count])
+                    binding.text.animateCharacterByCharacter2(text = array[count],  animator = currentAnimator)
                     delay(25L * array[count].length.toLong())
                     binding.dialogNext.isClickable = true
-                }
+                }*/
 //            } else findNavController().navigate(R.id.action_datingFragment_to_nightBusFragment)
             } else findNavController().navigate(R.id.action_datingFragment_to_locationMapFragment)
         }
