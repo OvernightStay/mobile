@@ -8,10 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentLocationMapBinding
+import com.overnightstay.domain.models.User
+import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -20,6 +23,11 @@ class LocationMapFragment : Fragment() {
 
     private var _binding: FragmentLocationMapBinding? = null
     private val binding get() = _binding!!
+
+    val currentAnimator: ValueAnimator by lazy {
+        ValueAnimator.ofInt(0, 0)
+    }
+
     private var array = mutableListOf(
         "У тебя появился Домик Опыта\nПри успешном прохождении локаций, у тебя будет накапливаться опыт. В дальнейшем,\nты можешь зайти в свой дом и расставить там предметы из рюкзака.",
         "Карта поможет тебе вернуться на главный экран и выбрать следующую локацию.\nЖми на меня, если нужна будет помощь.",
@@ -52,40 +60,51 @@ class LocationMapFragment : Fragment() {
 //                    1 -> binding.catAvatar.visibility = View.VISIBLE
 //                }
 //            }
-        binding.text.animateCharacterByCharacter(array[0])
+        binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
 
         binding.dialogNext.setOnClickListener {
-            lifecycleScope.launch {
-                count++
-                if (count < array.size) {
-                    lifecycleScope.launch {
-                        binding.dialogNext.isClickable = false
-                        when(count) {
-                            1 -> binding.catAvatar.visibility = View.VISIBLE
-                        }
-                        binding.text.animateCharacterByCharacter(array[count])
-                        delay(25L * array[count].length.toLong())
-                        binding.dialogNext.isClickable = true
-                    }
-                } else if (count == 3) {
-                    binding.rectangle.visibility = View.INVISIBLE
-                    binding.catStatus.visibility = View.INVISIBLE
-                    binding.statusName.visibility = View.INVISIBLE
-                    binding.text.visibility = View.INVISIBLE
-                    binding.dialogNext.visibility = View.INVISIBLE
+            if (currentAnimator.isRunning) {
+
+                currentAnimator.end()
+                return@setOnClickListener
+            }
+
+            count++
+            if (count < array.size) {
+
+//                    binding.dialogNext.isClickable = false
+                when (count) {
+                    1 -> binding.catAvatar.visibility = View.VISIBLE
                 }
+                binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
+
+                lifecycleScope.launch {
+                    delay(25L * array[count].length.toLong())
+//                    binding.dialogNext.isClickable = true
+                }
+
+            } else if (count == 3) {
+                binding.rectangle.visibility = View.INVISIBLE
+                binding.catStatus.visibility = View.INVISIBLE
+                binding.statusName.visibility = View.INVISIBLE
+                binding.text.visibility = View.INVISIBLE
+                binding.dialogNext.visibility = View.INVISIBLE
             }
         }
 
+        initBtnListeners()
     }
 
     private fun TextView.animateCharacterByCharacter(text: String, delay: Long = 30L) {
         if (text.isEmpty()) return
 
-        val charAnimation = ValueAnimator.ofInt(0, text.length)
+        currentAnimator.removeAllUpdateListeners()
 
-        charAnimation.apply {
+        currentAnimator.setIntValues(0, text.length)
+//        val charAnimation = ValueAnimator.ofInt(0, text.length)
+
+        currentAnimator.apply {
             this.duration = delay * text.length.toLong()
             this.repeatCount = 0
             addUpdateListener {
@@ -94,7 +113,20 @@ class LocationMapFragment : Fragment() {
                 this@animateCharacterByCharacter.text = animatedText
             }
         }
-        charAnimation.start()
+        currentAnimator.start()
     }
 
+    private fun initBtnListeners() = with(binding) {
+        nightBus.setOnClickListener {
+            if (nightBus.alpha == 0f) {
+                nightBus.alpha = 1f
+                lifecycleScope.launch {
+                    delay(1000L)
+                    findNavController().navigate(R.id.action_locationMapFragment_to_nightBusFragment)
+                }
+            } else {
+                nightBus.alpha = 0f
+            }
+        }
+    }
 }
