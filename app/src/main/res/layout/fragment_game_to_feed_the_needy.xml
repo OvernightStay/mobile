@@ -280,7 +280,8 @@
         android:src="@drawable/dating_dialog_next"
         android:textColorHint="#A5D38D"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
-        app:layout_constraintEnd_toEndOf="@id/rectangle" />
+        app:layout_constraintEnd_toEndOf="@id/rectangle"
+        android:stateListAnimator="@animator/anim_btn_next" />
 
     <TextView
         android:id="@+id/text"

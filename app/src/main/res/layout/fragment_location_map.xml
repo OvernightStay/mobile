@@ -158,7 +158,8 @@
         android:clickable="false"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
-        app:layout_constraintEnd_toEndOf="@id/rectangle" />
+        app:layout_constraintEnd_toEndOf="@id/rectangle"
+        android:stateListAnimator="@animator/anim_btn_next" />
 
     <TextView
         android:id="@+id/text"

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.animation.AnimationUtils
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDatingBinding
 import com.overnightstay.utils.animateCharacterByCharacter2

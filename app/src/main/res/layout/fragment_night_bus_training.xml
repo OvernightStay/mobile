@@ -168,7 +168,7 @@
         app:layout_constraintTop_toTopOf="@+id/rectangle"
         tools:ignore="RtlSymmetry" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/dialog_next"
         android:layout_width="28dp"
         android:layout_height="29dp"
@@ -178,7 +178,8 @@
         android:importantForAccessibility="no"
         android:textColorHint="#A5D38D"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
-        app:layout_constraintEnd_toEndOf="@id/rectangle" />
+        app:layout_constraintEnd_toEndOf="@id/rectangle"
+        android:stateListAnimator="@animator/anim_btn_next" />
 
     <RadioGroup
         android:id="@+id/radio_group"
