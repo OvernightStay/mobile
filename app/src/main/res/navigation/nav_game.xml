@@ -41,7 +41,16 @@
         android:label="fragment_night_bus_training"
         tools:layout="@layout/fragment_night_bus_training" >
         <action
-            android:id="@+id/action_nightBusTrainingFragment2_to_locationMapFragment"
+            android:id="@+id/action_nightBusTrainingFragment2_to_gameToFeedTheNeedyFragment"
+            app:destination="@id/gameToFeedTheNeedyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameToFeedTheNeedyFragment"
+        android:name="com.overnightstay.view.mini_games.GameToFeedTheNeedyFragment"
+        android:label="fragment_game_to_feed_the_needy"
+        tools:layout="@layout/fragment_game_to_feed_the_needy" >
+        <action
+            android:id="@+id/action_gameToFeedTheNeedyFragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
     </fragment>
 </navigation>

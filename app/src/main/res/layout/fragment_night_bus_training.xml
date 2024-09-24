@@ -194,7 +194,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="Как хотите. Я здесь только чтобы раздавать еду."
             android:textSize="16sp" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
@@ -203,7 +202,6 @@
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
             android:textColor="@color/black"
-            android:text="Не откладывайте. Чем раньше вы начнете, тем быстрее мы сможем вам помочь.\nЯ здесь, чтобы поддержать вас."
             android:textSize="16sp" />
     </RadioGroup>
 

@@ -52,14 +52,6 @@ class LocationMapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //            for (i in array) {
-//                count++
-//                binding.text.animateCharacterByCharacter(i)
-//                delay(30L * i.length.toLong() + 1000L)
-//                when(count) {
-//                    1 -> binding.catAvatar.visibility = View.VISIBLE
-//                }
-//            }
         binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
 
@@ -73,15 +65,16 @@ class LocationMapFragment : Fragment() {
             count++
             if (count < array.size) {
 
-//                    binding.dialogNext.isClickable = false
                 when (count) {
                     1 -> binding.catAvatar.visibility = View.VISIBLE
                 }
-                binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
+                binding.text.animateCharacterByCharacter2(
+                    text = array[count],
+                    animator = currentAnimator
+                )
 
                 lifecycleScope.launch {
                     delay(25L * array[count].length.toLong())
-//                    binding.dialogNext.isClickable = true
                 }
 
             } else if (count == 3) {
@@ -94,26 +87,6 @@ class LocationMapFragment : Fragment() {
         }
 
         initBtnListeners()
-    }
-
-    private fun TextView.animateCharacterByCharacter(text: String, delay: Long = 30L) {
-        if (text.isEmpty()) return
-
-        currentAnimator.removeAllUpdateListeners()
-
-        currentAnimator.setIntValues(0, text.length)
-//        val charAnimation = ValueAnimator.ofInt(0, text.length)
-
-        currentAnimator.apply {
-            this.duration = delay * text.length.toLong()
-            this.repeatCount = 0
-            addUpdateListener {
-                val charCount = it.animatedValue as Int
-                val animatedText = text.substring(0, charCount)
-                this@animateCharacterByCharacter.text = animatedText
-            }
-        }
-        currentAnimator.start()
     }
 
     private fun initBtnListeners() = with(binding) {

@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentNightBusBinding
+import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -20,6 +21,10 @@ class NightBusFragment : Fragment() {
 
     private var _binding: FragmentNightBusBinding? = null
     private val binding get() = _binding!!
+
+    val currentAnimator: ValueAnimator by lazy {
+        ValueAnimator.ofInt(0, 0)
+    }
 
     private var array = mutableListOf("Приветствую тебя на первой локации!\nХочу рассказать тебе о проекте Ночной автобус",
         "Это мобильный пункт социальной помощи от благотворительной\nорганизации Ночлежка, где любой нуждающийся может  бесплатно получить горячий\nужин, консультацию водителя-соцработника и помощь медиков-волонтёров",
@@ -56,62 +61,54 @@ class NightBusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.text.animateCharacterByCharacter(array[0])
+        binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
 
 
         binding.dialogNext.setOnClickListener {
-            count++
-            if (count < array.size) {
-                lifecycleScope.launch {
-                    binding.dialogNext.isClickable = false
-                    when(count) {
-                        2, 4, 7, 10, 13 -> user()
-                        3, 8 -> status()
-                        5 -> {
-                            status()
-                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_02)
-                        }
-                        6 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
-                        9 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_04)
-                        11-> {
-                            status()
-                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
-                        }
-                        12 -> {
-                            status()
-                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_05)
-                            binding.cards.visibility = View.VISIBLE
-                        }
-                        14 -> {
-                            status()
-                            binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
-                            binding.cards.visibility = View.INVISIBLE
-                        }
-                    }
-                    binding.text.animateCharacterByCharacter(array[count])
-                    delay(25L * array[count].length.toLong())
-                    binding.dialogNext.isClickable = true }
+            if (currentAnimator.isRunning) {
+                currentAnimator.end()
+                return@setOnClickListener
+            }
 
+            count++
+
+            if (count < array.size) {
+                binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
+
+                lifecycleScope.launch {
+                    delay(25L * array[count].length.toLong())
+                }
+
+                when (count) {
+                    2, 4, 7, 10, 13 -> user()
+                    3, 8 -> status()
+                    5 -> {
+                        status()
+                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_02)
+                    }
+
+                    6 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
+                    9 -> binding.main.setBackgroundResource(R.drawable.bg_night_bus_04)
+                    11 -> {
+                        status()
+                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
+                    }
+
+                    12 -> {
+                        status()
+                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_05)
+                        binding.cards.visibility = View.VISIBLE
+                    }
+
+                    14 -> {
+                        status()
+                        binding.main.setBackgroundResource(R.drawable.bg_night_bus_03)
+                        binding.cards.visibility = View.INVISIBLE
+                    }
+                }
             } else findNavController().navigate(R.id.action_nightBusFragment_to_nightBusTrainingFragment2)
         }
-    }
-
-    private fun TextView.animateCharacterByCharacter(text: String, delay: Long = 25L) {
-        if (text.isEmpty()) return
-
-        val charAnimation = ValueAnimator.ofInt(0, text.length)
-
-        charAnimation.apply {
-            this.duration = delay * text.length.toLong()
-            this.repeatCount = 0
-            addUpdateListener {
-                val charCount = it.animatedValue as Int
-                val animatedText = text.substring(0, charCount)
-                this@animateCharacterByCharacter.text = animatedText
-            }
-        }
-        charAnimation.start()
     }
 
     private fun status() {
