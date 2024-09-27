@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="800dp"
-    android:layout_height="360dp"
-    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_night_bus_01"
     tools:context=".view.night_bus.NightBusTrainingFragment">
 
     <ImageView
         android:id="@+id/stress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="14dp"
@@ -23,18 +22,18 @@
 
     <ImageView
         android:id="@+id/gear_wheel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="14dp"
-        android:background="@drawable/gear_wheel"
+        android:background="@drawable/img_gear_wheel"
         android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/rules"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="70dp"
@@ -46,31 +45,20 @@
 
     <ImageView
         android:id="@+id/michael"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/img_michael"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/michael_transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="18dp"
-        android:visibility="gone"
-        android:background="@drawable/img_michael"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/cat_status"
+        app:layout_goneMarginStart="14dp" />
 
     <ImageView
         android:id="@+id/user"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
         android:background="@drawable/man"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,8 +66,8 @@
 
     <View
         android:id="@+id/bg_transparent"
-        android:layout_width="800dp"
-        android:layout_height="360dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#90000000"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,11 +77,10 @@
 
     <ImageView
         android:id="@+id/cat_status"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/cat_status"
+        android:layout_marginStart="14dp"
+        android:background="@drawable/img_cat_status"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -103,17 +90,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
-        android:visibility="gone"
         android:background="@drawable/img_psychologist"
         android:importantForAccessibility="no"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/user"
         app:layout_constraintStart_toEndOf="@id/cat_status" />
 
     <ImageView
         android:id="@+id/cards"
-        android:layout_width="190dp"
-        android:layout_height="309.15dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:background="@drawable/cards"
         android:importantForAccessibility="no"
@@ -124,9 +111,9 @@
 
     <ImageView
         android:id="@+id/rectangle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_margin="14dp"
         android:background="@drawable/rectangle_100"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -135,7 +122,7 @@
 
     <TextView
         android:id="@+id/status_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
@@ -145,13 +132,12 @@
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
     <TextView
         android:id="@+id/user_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
@@ -168,20 +154,21 @@
 
     <ImageView
         android:id="@+id/dialog_next"
-        android:layout_width="28dp"
-        android:layout_height="29dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="35dp"
         android:background="@drawable/dating_dialog_next"
         android:importantForAccessibility="no"
+        android:src="@drawable/dating_dialog_next"
+        android:stateListAnimator="@animator/anim_btn_next"
         android:textColorHint="#A5D38D"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
-        app:layout_constraintEnd_toEndOf="@id/rectangle"
-        android:stateListAnimator="@animator/anim_btn_next" />
+        app:layout_constraintEnd_toEndOf="@id/rectangle" />
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:visibility="gone"
@@ -192,29 +179,28 @@
             android:id="@+id/radio_button_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/black" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_button_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/black" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="46dp"
         android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/rectangle"
-        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+        android:lineHeight="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_next"
+        app:layout_constraintStart_toEndOf="@+id/radio_group"
+        app:layout_constraintTop_toTopOf="@+id/rectangle"
+
+        app:layout_goneMarginStart="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

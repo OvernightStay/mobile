@@ -27,8 +27,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
     private var array = mutableListOf(
         "В Ночлежке мы следим, чтобы наши сотрудники и волонтеры чувствовали себя\nкомфортно, отдыхали.\nЯ тоже предлагаю тебе отдохнуть. Давай сыграем в мини игру.",
-        "Нужно накормить нуждающихся. Будь внимателен. На подносе должны быть все три\nсоставляющих ужина. Нужно поторопиться, у клиентов есть шкала ожидания.\nЖелаю удачи!",
-        " "
+        "Нужно накормить нуждающихся. Будь внимателен. На подносе должны быть все три\nсоставляющих ужина. Нужно поторопиться, у клиентов есть шкала ожидания.\nЖелаю удачи!"
     )
     private var count: Int = 0
 
@@ -63,12 +62,9 @@ class GameToFeedTheNeedyFragment : Fragment() {
             when (count) {
                 1 -> {
                     binding.main.setBackgroundResource(R.drawable.bg_game_to_feed_the_needy)
-                    binding.text.animateCharacterByCharacter2(
-                        text = array[1],
-                        animator = currentAnimator
-                    )
+                    binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
                     lifecycleScope.launch {
-                        delay(25L * array[1].length.toLong())
+                        delay(25L * array[count].length.toLong())
                     }
                 }
 
@@ -79,12 +75,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
                         statusName.visibility = View.GONE
                         text.visibility = View.GONE
                         dialogNext.visibility = View.GONE
-                        stressBar1.visibility = View.VISIBLE
-                        stressBar2.visibility = View.VISIBLE
-                        stressBar3.visibility = View.VISIBLE
-                        theNeedy1.visibility = View.VISIBLE
-                        theNeedy2.visibility = View.VISIBLE
-                        theNeedy3.visibility = View.VISIBLE
+                        needy.visibility = View.VISIBLE
                         teapod.visibility = View.VISIBLE
                         cup1.visibility = View.VISIBLE
                         cup2.visibility = View.VISIBLE
