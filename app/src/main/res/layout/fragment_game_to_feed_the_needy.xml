@@ -283,7 +283,6 @@
         android:src="@drawable/dating_dialog_next"
         android:stateListAnimator="@animator/anim_btn_next"
         android:textColorHint="#A5D38D"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toEndOf="@id/rectangle" />
 

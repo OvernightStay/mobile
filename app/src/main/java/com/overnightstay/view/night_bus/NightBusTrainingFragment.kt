@@ -145,7 +145,7 @@ class NightBusTrainingFragment : Fragment() {
                             radioGroup.visibility = View.GONE
                             text.visibility = View.VISIBLE
                             michael.visibility = View.VISIBLE
-                            catStatus.setBackgroundResource(R.drawable.img_cat_status)
+                            catStatus.visibility = View.VISIBLE
                             statusName.text = "Статус"
                         }
                     }

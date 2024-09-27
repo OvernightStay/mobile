@@ -75,7 +75,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
                         statusName.visibility = View.GONE
                         text.visibility = View.GONE
                         dialogNext.visibility = View.GONE
-                        needy.visibility = View.GONE
+                        needy.visibility = View.VISIBLE
                         teapod.visibility = View.VISIBLE
                         cup1.visibility = View.VISIBLE
                         cup2.visibility = View.VISIBLE
