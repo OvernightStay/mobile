@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="800dp"
-    android:layout_height="360dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/bg_game_to_feed_the_needy"
+    android:maxHeight="420dp"
+    android:background="@drawable/bg_dating"
     tools:context=".view.mini_games.GameToFeedTheNeedyFragment">
 
     <ImageView
@@ -15,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="14dp"
-        android:background="@drawable/gear_wheel"
+        android:background="@drawable/img_gear_wheel"
         android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,81 +44,84 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/gear_wheel" />
 
-    <View
-        android:id="@+id/stress_bar_1"
-        android:layout_width="80dp"
-        android:layout_height="12dp"
-        android:layout_marginStart="195dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/stress_bar_the_needy"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/needy"
+        android:layout_width="520dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="80dp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/stress_bar_2"
-        android:layout_width="80dp"
-        android:layout_height="12dp"
-        android:layout_marginStart="368dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/stress_bar_the_needy"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/stress_bar_3"
-        android:layout_width="80dp"
-        android:layout_height="12dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="190dp"
-        android:background="@drawable/stress_bar_the_needy"
-        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/the_needy_1"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginBottom="126dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_the_needy_1"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/stress_bar_1"
+            android:layout_width="100dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/stress_bar_the_needy"
+            app:layout_constraintBottom_toTopOf="@+id/the_needy_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/the_needy_2"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="320dp"
-        android:layout_marginBottom="126dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_the_needy_2"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/stress_bar_2"
+            android:layout_width="100dp"
+            android:layout_height="12dp"
+            android:background="@drawable/stress_bar_the_needy"
+            app:layout_constraintBottom_toTopOf="@+id/the_needy_2"
+            app:layout_constraintEnd_toStartOf="@id/stress_bar_3"
+            app:layout_constraintStart_toEndOf="@id/stress_bar_1"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/the_needy_3"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginEnd="145dp"
-        android:layout_marginBottom="126dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_the_needy_3"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <View
+            android:id="@+id/stress_bar_3"
+            android:layout_width="100dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/stress_bar_the_needy"
+            app:layout_constraintBottom_toTopOf="@+id/the_needy_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/the_needy_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_the_needy_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/the_needy_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_the_needy_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/the_needy_3"
+            app:layout_constraintStart_toEndOf="@id/the_needy_1" />
+
+        <ImageView
+            android:id="@+id/the_needy_3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/img_the_needy_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/teapod"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="45dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="75dp"
         android:background="@drawable/img_teapod"
         android:importantForAccessibility="no"
         android:visibility="gone"
@@ -128,7 +132,7 @@
         android:id="@+id/cup_1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="180dp"
         android:layout_marginBottom="45dp"
         android:background="@drawable/img_cup"
         android:importantForAccessibility="no"
@@ -140,7 +144,7 @@
         android:id="@+id/cup_2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="110dp"
+        android:layout_marginStart="120dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/img_cup"
         android:importantForAccessibility="no"
@@ -152,7 +156,7 @@
         android:id="@+id/cup_3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="165dp"
+        android:layout_marginStart="175dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/img_cup"
         android:importantForAccessibility="no"
@@ -187,7 +191,7 @@
         android:id="@+id/meal_3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="140dp"
+        android:layout_marginEnd="135dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/img_meal"
         android:importantForAccessibility="no"
@@ -199,8 +203,8 @@
         android:id="@+id/bread_1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/img_bread"
         android:importantForAccessibility="no"
         android:visibility="gone"
@@ -211,8 +215,8 @@
         android:id="@+id/bread_2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="54dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/img_bread"
         android:importantForAccessibility="no"
         android:visibility="gone"
@@ -221,10 +225,10 @@
 
     <ImageView
         android:id="@+id/bread_3"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="42dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/img_bread"
         android:importantForAccessibility="no"
         android:visibility="gone"
@@ -233,20 +237,19 @@
 
     <ImageView
         android:id="@+id/cat_status"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/cat_status"
         android:importantForAccessibility="no"
+        android:src="@drawable/img_cat_status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/rectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_width="0dp"
+        android:layout_height="132dp"
+        android:layout_margin="14dp"
         android:background="@drawable/rectangle_100"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -255,7 +258,7 @@
 
     <TextView
         android:id="@+id/status_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
@@ -270,27 +273,30 @@
 
     <ImageView
         android:id="@+id/dialog_next"
-        android:layout_width="28dp"
-        android:layout_height="29dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="35dp"
         android:background="@drawable/dating_dialog_next"
+        android:clickable="false"
         android:importantForAccessibility="no"
         android:src="@drawable/dating_dialog_next"
+        android:stateListAnimator="@animator/anim_btn_next"
         android:textColorHint="#A5D38D"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
-        app:layout_constraintEnd_toEndOf="@id/rectangle"
-        android:stateListAnimator="@animator/anim_btn_next" />
+        app:layout_constraintEnd_toEndOf="@id/rectangle" />
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
