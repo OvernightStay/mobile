@@ -3,10 +3,10 @@ package com.overnightstay.view.location_map
 import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
@@ -87,16 +87,54 @@ class LocationMapFragment : Fragment() {
     }
 
     private fun initBtnListeners() = with(binding) {
-        nightBus.setOnClickListener {
-            if (nightBus.alpha == 0f) {
-                nightBus.alpha = 1f
+        // Устанавливаем общий обработчик клика на все ImageView элементы
+        val onClickListener = View.OnClickListener { view ->
+            if (view.alpha == 0f) {
+                view.alpha = 1f
                 lifecycleScope.launch {
-                    delay(1000L)
-                    findNavController().navigate(R.id.action_locationMapFragment_to_nightBusFragment)
+                    delay(2000L)
+
+                    // Ищем в enum элемент по id
+                    val enumValue = ImageViewElements.entries.find { it.imageViewId == view.id }
+                    if(enumValue?.actionId != null) {
+                        enumValue.onClickImage {
+                            findNavController().navigate(enumValue.actionId)
+                        }
+                    }
                 }
             } else {
-                nightBus.alpha = 0f
+                view.alpha = 0f
             }
+        }
+
+        nightBus.setOnClickListener(onClickListener)
+        imgHouseShower.setOnClickListener(onClickListener)
+        imgHouseLaundry.setOnClickListener(onClickListener)
+        imgHouseNursing.setOnClickListener(onClickListener)
+        imgHouseRehabilitation.setOnClickListener(onClickListener)
+        imgHouseConsultation.setOnClickListener(onClickListener)
+        imgHouseHalfpath.setOnClickListener(onClickListener)
+        imgHouseWarm.setOnClickListener(onClickListener)
+        imgHouseOfDistribution.setOnClickListener(onClickListener)
+        imgHouseNight.setOnClickListener(onClickListener)
+        imgHousePsychologist.setOnClickListener(onClickListener)
+    }
+
+    enum class ImageViewElements(val imageViewId: Int, val actionId: Int? = null) {
+        NIGHT_BUS(R.id.night_bus, R.id.action_locationMapFragment_to_nightBusFragment),
+        IMG_HOUSE_SHOWER(R.id.img_house_shower),
+        IMG_HOUSE_LAUNDRY(R.id.img_house_laundry),
+        IMG_HOUSE_NURSING(R.id.img_house_nursing),
+        IMG_HOUSE_REHABILITATION(R.id.img_house_rehabilitation),
+        IMG_HOUSE_CONSULTATION(R.id.img_house_consultation),
+        IMG_HOUSE_HALFPATH(R.id.img_house_halfpath),
+        IMG_HOUSE_WARM(R.id.img_house_warm),
+        IMG_HOUSE_OF_DISTRIBUTION(R.id.img_house_of_distribution),
+        IMG_HOUSE_NIGHT(R.id.img_house_night),
+        IMG_HOUSE_PSYCHOLOGIST(R.id.img_house_psychologist);
+
+        fun onClickImage(onClick: () -> Unit) {
+            onClick()
         }
     }
 }
