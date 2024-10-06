@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.dating.DatingFragment">
 
+
     <ImageView
         android:id="@+id/location_map"
         android:layout_width="800dp"
@@ -25,6 +26,136 @@
         android:layout_marginStart="260dp"
         android:importantForAccessibility="no"
         android:src="@drawable/img_night_bus"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_shower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="221dp"
+        android:layout_marginStart="125dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_shower"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_laundry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="164dp"
+        android:layout_marginStart="237dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_laundry"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_nursing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="210dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_nursing"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_rehabilitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="317dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_rehabilitation"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_consultation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="186dp"
+        android:layout_marginStart="353dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_consultation"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_halfpath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:layout_marginStart="506dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_halfpath"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_warm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="278dp"
+        android:layout_marginStart="380dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_warm"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_of_distribution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginStart="487dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_of_distribution"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="141dp"
+        android:layout_marginStart="429dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_night"
+        android:alpha="0"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/location_map"
+        app:layout_constraintTop_toTopOf="@id/location_map"/>
+
+    <ImageView
+        android:id="@+id/img_house_psychologist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:layout_marginStart="526dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_house_psychologist"
         android:alpha="0"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="@id/location_map"
