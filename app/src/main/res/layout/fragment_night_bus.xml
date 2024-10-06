@@ -3,30 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="800dp"
-    android:layout_height="360dp"
-    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_night_bus_01"
     tools:context=".view.night_bus.NightBusFragment">
 
     <ImageView
         android:id="@+id/gear_wheel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="14dp"
-        android:background="@drawable/gear_wheel"
+        android:layout_margin="14dp"
+        android:background="@drawable/img_gear_wheel"
         android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/cat_status"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/cat_status"
+        android:background="@drawable/img_cat_status"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,13 +37,14 @@
         android:importantForAccessibility="no"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/user"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/user"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
         android:background="@drawable/man"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,9 +52,9 @@
 
     <ImageView
         android:id="@+id/rectangle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_margin="14dp"
         android:background="@drawable/rectangle_100"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,18 +63,16 @@
 
     <TextView
         android:id="@+id/status_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
-        android:paddingTop="2dp"
         android:paddingEnd="10dp"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
@@ -88,9 +84,8 @@
         android:layout_marginEnd="15dp"
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
-        android:paddingTop="2dp"
         android:paddingEnd="10dp"
-        android:text="Имя пользователя"
+        android:text="Пользователь"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:visibility="invisible"
@@ -98,28 +93,30 @@
         app:layout_constraintTop_toTopOf="@+id/rectangle"
         tools:ignore="RtlSymmetry" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/dialog_next"
-        android:layout_width="28dp"
-        android:layout_height="29dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="35dp"
         android:background="@drawable/dating_dialog_next"
-        android:clickable="false"
         android:importantForAccessibility="no"
+        android:src="@drawable/dating_dialog_next"
+        android:stateListAnimator="@animator/anim_btn_next"
         android:textColorHint="#A5D38D"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toEndOf="@id/rectangle" />
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 

@@ -6,6 +6,7 @@ import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
 import com.overnightstay.view.location_map.LocationMapFragment
+import com.overnightstay.view.mini_games.GameToFeedTheNeedyFragment
 import com.overnightstay.view.night_bus.NightBusFragment
 import com.overnightstay.view.night_bus.NightBusTrainingFragment
 import com.overnightstay.view.onboarding.OnboardingFragment
@@ -35,8 +36,10 @@ interface MainModule {
     @ContributesAndroidInjector
     fun bindNightBusFragment(): NightBusFragment
     @ContributesAndroidInjector
+    fun bindNightBusTrainingFragment(): NightBusTrainingFragment
+    @ContributesAndroidInjector
     fun bindLocationMapFragment(): LocationMapFragment
     @ContributesAndroidInjector
-    fun bindNightBusTrainingFragment(): NightBusTrainingFragment
+    fun bindGameToFeedTheNeedy(): GameToFeedTheNeedyFragment
 
 }
