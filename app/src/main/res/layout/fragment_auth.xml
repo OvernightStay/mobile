@@ -105,11 +105,11 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="273dp"
-        android:backgroundTint="@color/button_default"
+        android:backgroundTint="@color/button_active"
         android:fontFamily="sans-serif"
         android:text="Войти"
-        android:textColor="@color/white"
         android:textSize="16sp"
+        android:enabled="false"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
         app:layout_constraintEnd_toEndOf="@+id/til_login"
         app:layout_constraintStart_toStartOf="@+id/til_login"/>
