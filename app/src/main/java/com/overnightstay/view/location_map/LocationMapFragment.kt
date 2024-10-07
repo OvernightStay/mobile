@@ -122,7 +122,7 @@ class LocationMapFragment : Fragment() {
 
     enum class ImageViewElements(val imageViewId: Int, val actionId: Int? = null) {
         NIGHT_BUS(R.id.night_bus, R.id.action_locationMapFragment_to_nightBusFragment),
-        IMG_HOUSE_SHOWER(R.id.img_house_shower),
+        IMG_HOUSE_SHOWER(R.id.img_house_shower, R.id.action_locationMapFragment_to_dialogOnTheStreetFragment),
         IMG_HOUSE_LAUNDRY(R.id.img_house_laundry),
         IMG_HOUSE_NURSING(R.id.img_house_nursing),
         IMG_HOUSE_REHABILITATION(R.id.img_house_rehabilitation),

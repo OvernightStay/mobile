@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_locationMapFragment_to_nightBusFragment"
             app:destination="@id/nightBusFragment" />
+        <action
+            android:id="@+id/action_locationMapFragment_to_dialogOnTheStreetFragment"
+            app:destination="@id/dialogOnTheStreetFragment" />
     </fragment>
     <fragment
         android:id="@+id/nightBusTrainingFragment2"
@@ -51,6 +54,27 @@
         tools:layout="@layout/fragment_game_to_feed_the_needy" >
         <action
             android:id="@+id/action_gameToFeedTheNeedyFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dialogOnTheStreetFragment"
+        android:name="com.overnightstay.view.house_shower.DialogOnTheStreetFragment"
+        android:label="fragment_dialog_on_the_street"
+        tools:layout="@layout/fragment_dialog_on_the_street" >
+        <action
+            android:id="@+id/action_dialogOnTheStreetFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_dialogOnTheStreetFragment_to_dialogInTheBuildingFragment"
+            app:destination="@id/dialogInTheBuildingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dialogInTheBuildingFragment"
+        android:name="com.overnightstay.view.house_shower.DialogInTheBuildingFragment"
+        android:label="fragment_dialog_in_the_building"
+        tools:layout="@layout/fragment_dialog_in_the_building" >
+        <action
+            android:id="@+id/action_dialogInTheBuildingFragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
     </fragment>
 </navigation>
