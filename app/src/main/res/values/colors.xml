@@ -10,4 +10,5 @@
     <color name="stroke">#FFBFBFBF</color>
     <color name="stroke_check">#FFB3B3B3</color>
     <color name="shadow">#FF9D9D9D</color>
+    <color name="download_color">#D3BF46</color>
 </resources>
