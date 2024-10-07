@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.OvernightStay" parent="Base.Theme.OvernightStay" />
+    <style name="CircularProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/download_color</item>
+    </style>
 </resources>
