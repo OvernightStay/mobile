@@ -1,11 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
     <style name="Base.Theme.OvernightStay" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/button_active</item>
+        <item name="colorPrimaryVariant">@color/button_default</item>
+        <!-- Основной цвет текста на кнопках -->
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <!--        <item name="colorSecondary">@color/brand_orange</item>-->
+        <!--        <item name="colorSecondaryVariant">@android:color/holo_red_dark</item>-->
+                <item name="colorOnSecondary">@color/black</item>
+
+        <!--         Status bar color.-->
+<!--        <item name="android:statusBarColor">?attr/colorOnPrimary</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <!-- Основной цвет текста -->
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+
     </style>
 
     <style name="Theme.OvernightStay" parent="Base.Theme.OvernightStay" />
+
     <style name="CircularProgress" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/download_color</item>
     </style>

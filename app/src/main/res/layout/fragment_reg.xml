@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Регистрация"
-        android:textColor="@color/black"
         android:fontFamily="sans-serif"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -202,7 +201,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Для создания вашего аккаунта необходимо\nввести данные со знаком *"
-        android:textColor="@color/black"
         android:fontFamily="sans-serif"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -224,22 +222,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Я ознакомлен(а) с Политикой\nконфидециальности"
-        android:textColor="@color/black"
         android:fontFamily="sans-serif"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/chb_agree"
         app:layout_constraintTop_toTopOf="@+id/chb_agree" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/PrimaryBigButton"
         android:id="@+id/btn_reg"
-        android:layout_width="288dp"
-        android:layout_height="48dp"
         android:layout_marginTop="160dp"
-        android:backgroundTint="@color/btn_submit_background"
-        android:fontFamily="sans-serif"
+        android:clickable="true"
+        android:enabled="false"
+        android:focusable="true"
         android:text="Зарегистрироваться"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/til_repeatpass"
         app:layout_constraintEnd_toEndOf="@+id/tv_reg"
         app:layout_constraintStart_toStartOf="@+id/tv_reg"/>

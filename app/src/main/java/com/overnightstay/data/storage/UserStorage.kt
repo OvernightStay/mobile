@@ -47,5 +47,6 @@ class UserStorage @Inject constructor(
         private const val USER_LASTNAME = "userLastname"
         private const val USER_PHONE = "userPhone"
         private const val USER_EMAIL = "userEmail"
+        private const val USER_GENDER = "userGender"
     }
 }
