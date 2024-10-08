@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- colorOnSecondary color. -->
+    <!-- Основной цвет текста приложения -->
     <color name="black">#FF000000</color>
+    <!-- colorOnPrimary color. -->
+    <!-- Основной цвет текста на кнопках -->
     <color name="white">#FFFFFFFF</color>
     <color name="onboarding_background">#FFBFDAF7</color>
 
+    <!-- Primary brand color. -->
+    <!-- Основной цвет кнопок -->
     <color name="button_active">#FF629F42</color>
+    <!-- PrimaryVariant brand color. -->
+    <!-- Цвет не активных кнопок -->
     <color name="button_default">#FFA5D38D</color>
     <color name="button_pressed">#FF327111</color>
     <color name="error_text">#FFD21212</color>
