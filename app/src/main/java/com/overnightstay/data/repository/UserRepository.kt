@@ -4,6 +4,7 @@ import com.overnightstay.data.api.UserApi
 import com.overnightstay.data.dto.user.request.LoginRequest
 import com.overnightstay.data.dto.user.request.RegisterRequest
 import com.overnightstay.domain.irepository.IUserRepository
+import com.overnightstay.domain.models.Token
 import com.overnightstay.domain.models.User
 
 class UserRepository(
@@ -17,10 +18,16 @@ class UserRepository(
         return x.isSuccess
     }
 
-    override suspend fun login(user: User): Boolean {
-        val x = userApi.login(mapperUserTologinRequest(user))
-        println("Result: $x")
-        return x.isSuccess
+    override suspend fun login(user: User): Result<Token> {
+        val result = userApi.login(mapperUserTologinRequest(user))
+        println("Result UserRepository -> login: $result")
+        return result.map { Token(access = it.tokens?.access, refresh = it.tokens?.refresh) }
+    }
+
+    override suspend fun getPlayer(token: String): Boolean {
+        val result = userApi.getPlayer("Bearer $token")
+        println("Result: UserRepository -> player: $result")
+        return true
     }
 
     fun mapperUserToRegisterRequest(user: User): RegisterRequest {

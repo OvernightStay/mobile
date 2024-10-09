@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.overnightstay.domain.models.User
+import com.overnightstay.domain.usecases.GetPlayerFromApiUseCase
 import com.overnightstay.domain.usecases.LoginUseCase
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -11,7 +12,8 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
-    private val loginUseCase: LoginUseCase
+    private val loginUseCase: LoginUseCase,
+    private val getPlayerFromApiUseCase: GetPlayerFromApiUseCase
 ) : ViewModel() {
 
     private var _isEntry = MutableSharedFlow<Boolean>()
@@ -35,13 +37,15 @@ class AuthViewModel(
 
     class Factory(
         private val loginUseCase: LoginUseCase,
-
+        private val getPlayerFromApiUseCase: GetPlayerFromApiUseCase
         ) : ViewModelProvider.Factory {
 
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AuthViewModel::class.java)) {
                 return AuthViewModel(
                     loginUseCase = loginUseCase,
+                    getPlayerFromApiUseCase = getPlayerFromApiUseCase
+
                 ) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
