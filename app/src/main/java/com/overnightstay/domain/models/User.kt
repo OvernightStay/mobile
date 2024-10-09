@@ -7,4 +7,5 @@ data class User(
     val phone: String? = null,
     val first_name: String? = null,
     val last_name: String? = null,
+    val gender: String? = null
 )

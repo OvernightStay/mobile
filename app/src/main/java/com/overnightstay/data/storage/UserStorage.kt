@@ -22,6 +22,7 @@ class UserStorage @Inject constructor(
         sharedPreferences.edit().putString(USER_LASTNAME, user.last_name).apply()
         sharedPreferences.edit().putString(USER_PHONE, user.phone).apply()
         sharedPreferences.edit().putString(USER_EMAIL, user.email).apply()
+        sharedPreferences.edit().putString(USER_GENDER, user.gender).apply()
     }
 
 //    fun mapperUserSMToUser(user: UserSM): User {
