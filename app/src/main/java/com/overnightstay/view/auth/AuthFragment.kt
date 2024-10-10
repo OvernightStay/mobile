@@ -1,6 +1,7 @@
 package com.overnightstay.view.auth
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentAuthBinding
 import com.overnightstay.domain.models.User
+import com.overnightstay.view.MainActivity
 import com.overnightstay.view.reg.RegViewModel
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.launch
@@ -49,8 +51,13 @@ class AuthFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
             viewModel.isEntry.collect {
-                if (it) {
-                    findNavController().navigate(R.id.action_authFragment_to_choosePersFragment)
+                if (it.first) {
+                    if (it.second == null) {
+                        findNavController().navigate(R.id.action_authFragment_to_choosePersFragment)
+                    } else {
+                        startActivity(Intent(activity, MainActivity::class.java))
+                        activity?.finish()
+                    }
                 } else {
                     Snackbar.make(
                         binding.root,

@@ -2,6 +2,7 @@ package com.overnightstay.data.storage
 
 import android.content.SharedPreferences
 import com.overnightstay.domain.istorage.ITokenStorage
+import com.overnightstay.domain.models.Token
 import javax.inject.Inject
 
 class TokenStorage @Inject constructor(
@@ -15,9 +16,9 @@ class TokenStorage @Inject constructor(
         return sharedPreferences.getString(REFRESHTOKEN, "") ?: ""
     }
 
-    override fun saveAll(tokens: Pair<String, String>) {
-        sharedPreferences.edit().putString(ACCESSTOKEN, tokens.first).apply()
-        sharedPreferences.edit().putString(REFRESHTOKEN, tokens.second).apply()
+    override fun saveAll(token: Token) {
+        sharedPreferences.edit().putString(ACCESSTOKEN, token.access).apply()
+        sharedPreferences.edit().putString(REFRESHTOKEN, token.refresh).apply()
     }
 
     override fun saveAccessToken(token: String) {

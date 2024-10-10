@@ -59,7 +59,7 @@
         android:layout_width="288dp"
         android:layout_height="48dp"
         android:layout_marginTop="200dp"
-        android:hint="Петров Иван"
+        android:hint="имя персонажа"
         app:endIconMode="clear_text"
         android:textColorHint="@color/stroke"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
