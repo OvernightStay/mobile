@@ -1,8 +1,10 @@
 package com.overnightstay.di.modules
 
 import com.overnightstay.domain.usecases.GetPlayerFromApiUseCase
+import com.overnightstay.domain.usecases.GetPlayerFromPrefUseCase
 import com.overnightstay.domain.usecases.LoginUseCase
 import com.overnightstay.domain.usecases.RegisterUseCase
+import com.overnightstay.domain.usecases.UpdatePlayerOnApiUseCase
 import com.overnightstay.view.auth.AuthViewModel
 import com.overnightstay.view.choose_pers.ChoosePersViewModel
 import com.overnightstay.view.congr.CongrViewModel
@@ -39,10 +41,12 @@ class AppModule() {
 
     @Provides
     fun provideChoosePersViewModelFactory(
-        getPlayerFromApiUseCase: GetPlayerFromApiUseCase,
+        getPlayerFromPrefUseCase: GetPlayerFromPrefUseCase,
+        updatePlayerOnApiUseCase: UpdatePlayerOnApiUseCase,
 
         ) = ChoosePersViewModel.Factory(
-        getPlayerFromApiUseCase = getPlayerFromApiUseCase,
+        getPlayerFromPrefUseCase = getPlayerFromPrefUseCase,
+        updatePlayerOnApiUseCase = updatePlayerOnApiUseCase,
     )
 
 }

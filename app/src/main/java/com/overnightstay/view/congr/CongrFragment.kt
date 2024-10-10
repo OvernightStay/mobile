@@ -68,14 +68,19 @@ class CongrFragment : Fragment() {
             }
         }
 
-        initBtnListeners()
-
-        if (arg1 != null && arg2 != null) viewModel.login(User(login = arg1, password = arg2))
-    }
-
-    private fun initBtnListeners() = with(binding) {
-        btnMain.setOnClickListener {
-            if (!isAuth) findNavController().navigate(R.id.action_congrFragment_to_authFragment)
+        binding.btnMain.setOnClickListener {
+            if (arg1 != null && arg2 != null) {
+                viewModel.login(User(login = arg1, password = arg2))
+            }
+//            if (!isAuth) findNavController().navigate(R.id.action_congrFragment_to_authFragment)
         }
+//
+//        if (arg1 != null && arg2 != null) {
+////            viewModel.login(User(login = arg1, password = arg2))
+//        }
     }
+
+//    private fun initBtnListeners() = with() {
+//
+//    }
 }

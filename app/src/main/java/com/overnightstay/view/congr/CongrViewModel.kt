@@ -19,8 +19,8 @@ class CongrViewModel(private val loginUseCase: LoginUseCase) : ViewModel() {
     fun login(user: User) {
         viewModelScope.launch {
             val result = loginUseCase(user)
-            println("MVVM result: $result")
-            _isEntry.emit(result)
+            println("CongrViewModel result: $result")
+            _isEntry.emit(result.first)
         }
     }
 

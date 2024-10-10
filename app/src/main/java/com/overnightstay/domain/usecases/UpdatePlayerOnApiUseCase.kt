@@ -3,34 +3,25 @@ package com.overnightstay.domain.usecases
 import com.overnightstay.domain.irepository.IUserRepository
 import com.overnightstay.domain.istorage.ITokenStorage
 import com.overnightstay.domain.istorage.IUserStorage
-import com.overnightstay.domain.models.User
 
-class GetPlayerFromApiUseCase(
+class UpdatePlayerOnApiUseCase(
     private val repository: IUserRepository,
     private val tokenStorage: ITokenStorage,
     private val userStorage: IUserStorage,
 ) {
-    suspend operator fun invoke(tokenAccess: String): Pair<Boolean, User?> {
-        return getPlayer(tokenAccess)
-    }
-
-    suspend operator fun invoke(): Pair<Boolean, User?> {
+    suspend operator fun invoke(userName: String, gender: String): Boolean {
         val token = tokenStorage.getAccessToken()
-        return getPlayer(token)
-    }
 
-    //получили игрока с сервера и сохранили его в pref
-    private suspend fun getPlayer(token: String): Pair<Boolean, User?> {
         if (token.isNotEmpty()) {
-            val result = repository.getPlayer(token)
+            val result = repository.updatePlayer(token = token, userName = userName, gender = gender)
             if (result.isSuccess) {
                 val user = result.getOrNull()
                 user?.let {
                     userStorage.save(user)
                 }
-                return Pair(result.isSuccess, user)
+                return result.isSuccess
             }
         }
-        return Pair(false, null)
+        return false
     }
 }
