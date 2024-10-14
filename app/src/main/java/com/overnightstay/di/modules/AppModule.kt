@@ -17,10 +17,8 @@ class AppModule() {
     @Provides
     fun provideAuthViewModelFactory(
         loginUseCase: LoginUseCase,
-        getPlayerFromApiUseCase: GetPlayerFromApiUseCase,
     ) = AuthViewModel.Factory(
         loginUseCase = loginUseCase,
-        getPlayerFromApiUseCase = getPlayerFromApiUseCase
     )
 
     @Provides

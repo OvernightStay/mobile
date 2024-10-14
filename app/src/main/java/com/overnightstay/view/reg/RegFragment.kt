@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentRegBinding
+import com.overnightstay.domain.AppState
 import com.overnightstay.domain.models.User
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.launch
@@ -49,18 +51,51 @@ class RegFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
-            viewModel.isEntry.collect {
-                if (it.first) {
-                    val bundle = bundleOf("arg1" to it.second, "arg2" to it.third)
+            viewModel.appState.collect {
+                when (it) {
+                    is AppState.Success<*> -> {
+                        if (it.data is Triple<*, *, *>) {
+                            if (it.data.first as Boolean) {
+                                val bundle = bundleOf("arg1" to it.data.second, "arg2" to it.data.third)
 
-                    findNavController().navigate(R.id.action_regFragment_to_congrFragment, bundle)
-                } else {
-                    Snackbar.make(
-                        binding.root,
-                        "Ошибка сервера.",
-                        Snackbar.LENGTH_LONG
-                    ).show()
+                                findNavController().navigate(R.id.action_regFragment_to_congrFragment, bundle)
+                            } else {
+                                binding.btnReg.isEnabled = true
+                                binding.loadingLayout.root.isGone = true
+
+                                Snackbar.make(
+                                    binding.root,
+                                    "Ошибка сервера.",
+                                    Snackbar.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
+
+                    is AppState.Error -> {
+
+                    }
+
+                    AppState.Loading -> {
+                        binding.btnReg.isEnabled = false
+                        binding.loadingLayout.root.isGone = false
+                    }
+
+                    AppState.None -> {}
                 }
+
+
+//                if (it.first) {
+//                    val bundle = bundleOf("arg1" to it.second, "arg2" to it.third)
+//
+//                    findNavController().navigate(R.id.action_regFragment_to_congrFragment, bundle)
+//                } else {
+//                    Snackbar.make(
+//                        binding.root,
+//                        "Ошибка сервера.",
+//                        Snackbar.LENGTH_LONG
+//                    ).show()
+//                }
             }
         }
 
@@ -110,12 +145,12 @@ class RegFragment : Fragment() {
             }
             viewModel.reg(
                 User(
-                    binding.etLogin.text.toString(),
-                    binding.etPass.text.toString(),
-                    binding.etEmail.text.toString(),
-                    binding.etPhone.text.toString(),
-                    binding.etName.text.toString(),
-                    binding.etSecname.text.toString()
+                    login = binding.etLogin.text.toString(),
+                    password = binding.etPass.text.toString(),
+                    email = binding.etEmail.text.toString(),
+                    phone = binding.etPhone.text.toString(),
+                    first_name = binding.etName.text.toString(),
+                    last_name = binding.etSecname.text.toString()
                 )
             )
         }
