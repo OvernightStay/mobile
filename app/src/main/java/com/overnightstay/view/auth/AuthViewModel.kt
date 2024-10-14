@@ -22,12 +22,12 @@ class AuthViewModel(
 
         viewModelScope.launch {
 
-            _appState.emit(AppState.Loading)
-
             /*** На время разработки пропускаем пустую строку*/
             if (user.login?.isEmpty() == true) {
-                _appState.emit(AppState.Success(Pair(true, null)))
+//                _appState.emit(AppState.Success(Pair(true, null)))
             } else {
+
+                _appState.emit(AppState.Loading)
                 val result = loginUseCase(user)
                 println("AuthViewModel result: $result")
                 _appState.emit(AppState.Success(Pair(result.first, result.second?.gender)))
