@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.overnightstay.R
 import com.overnightstay.databinding.FragmentContentsOfBookBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -40,6 +42,10 @@ class ContentsOfBookFragment : Fragment() {
 
         viewModel =
             ViewModelProvider(this, vmFactory)[ContentsOfBookViewModel::class.java]
+
+        binding.tvProjects.setOnClickListener {
+            findNavController().navigate(R.id.action_contentsOfBookFragment_to_overNightStayProjectsFragment)
+        }
 
 //        viewLifecycleOwner.lifecycleScope.launch {
 //            viewModel.appState.collect {

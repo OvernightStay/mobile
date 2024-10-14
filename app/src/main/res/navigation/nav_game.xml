@@ -93,5 +93,14 @@
         android:id="@+id/contentsOfBookFragment"
         android:name="com.overnightstay.view.book.contents.ContentsOfBookFragment"
         android:label="ContentsOfBookFragment"
-        tools:layout="@layout/fragment_contents_of_book" />
+        tools:layout="@layout/fragment_contents_of_book" >
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_overNightStayProjectsFragment"
+            app:destination="@id/overNightStayProjectsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overNightStayProjectsFragment"
+        android:name="com.overnightstay.view.book.overnightstay_projects.OverNightStayProjectsFragment"
+        android:label="fragment_over_night_stay_projects"
+        tools:layout="@layout/fragment_over_night_stay_projects" />
 </navigation>
