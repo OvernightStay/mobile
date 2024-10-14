@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentNightBusTrainingBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
@@ -43,7 +45,8 @@ class NightBusTrainingFragment : Fragment() {
         "Спасибо за помощь... Я подумаю над вашими словами.",
         "Как хотите. Я здесь только чтобы раздавать еду.\n\nНе откладывайте. Чем раньше вы начнете, тем быстрее мы сможем вам помочь. \nЯ здесь, чтобы поддержать вас.",
         "Отличная работа! Ты молодец!",
-        "Мы называем Ночной автобус «Точкой входа» в организацию. Придя за тарелкой супа,\nклиент узнает о других наших проектах и о том, как можно улучшить свою жизнь,\nрешить юридические и медицинские проблемы.")
+        "Мы называем Ночной автобус «Точкой входа» в организацию. Придя за тарелкой супа,\nклиент узнает о других наших проектах и о том, как можно улучшить свою жизнь,\nрешить юридические и медицинские проблемы."
+    )
     private var count = 0
 
     override fun onAttach(context: Context) {
@@ -73,34 +76,49 @@ class NightBusTrainingFragment : Fragment() {
                 return@setOnClickListener
             }
 
+            if (!binding.radioGroup.isGone && !binding.radioButton1.isChecked && !binding.radioButton2.isChecked) {
+                Snackbar.make(
+                    binding.root,
+                    "Выберите одну из опций.",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+
             count++
 
             if (count < array.size) {
-                binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
+                binding.text.animateCharacterByCharacter2(
+                    text = array[count],
+                    animator = currentAnimator
+                )
 
                 lifecycleScope.launch {
                     delay(25L * array[count].length.toLong())
                 }
 
-                when(count) {
+                when (count) {
                     2 -> {
                         binding.stress.visibility = View.VISIBLE
                         binding.rules.visibility = View.VISIBLE
                     }
+
                     3 -> {
                         with(binding) {
                             catStatus.visibility = View.GONE
                             statusName.text = "Михаил"
                         }
                     }
+
                     4, 6, 8, 11, 15 -> animateChoise()
                     5, 7 -> {
                         status()
                         binding.radioGroup.visibility = View.GONE
                         binding.text.visibility = View.VISIBLE
                     }
+
                     9 -> {
-                        with(binding)  {
+                        with(binding) {
                             bgTransparent.visibility = View.VISIBLE
                             catStatus.visibility = View.VISIBLE
                             statusName.text = "Статус"
@@ -109,6 +127,7 @@ class NightBusTrainingFragment : Fragment() {
                             text.visibility = View.VISIBLE
                         }
                     }
+
                     10 -> {
                         status()
                         with(binding) {
@@ -120,25 +139,29 @@ class NightBusTrainingFragment : Fragment() {
                             text.visibility = View.VISIBLE
                         }
                     }
+
                     12 -> {
                         status()
-                        with(binding)  {
+                        with(binding) {
                             radioGroup.visibility = View.GONE
                             text.visibility = View.VISIBLE
                         }
                     }
+
                     13 -> {
                         binding.cards.visibility = View.VISIBLE
                         animateChoise()
                     }
+
                     14 -> {
                         status()
-                        with(binding)  {
+                        with(binding) {
                             radioGroup.visibility = View.GONE
                             text.visibility = View.VISIBLE
                             cards.visibility = View.GONE
                         }
                     }
+
                     16 -> {
                         with(binding) {
                             status()
@@ -149,12 +172,14 @@ class NightBusTrainingFragment : Fragment() {
                             statusName.text = "Статус"
                         }
                     }
+
                     17 -> binding.michael.visibility = View.GONE
                 }
             } else findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_gameToFeedTheNeedyFragment)
         }
 
     }
+
 
     private fun status() {
         with(binding) {
@@ -169,6 +194,8 @@ class NightBusTrainingFragment : Fragment() {
             userName.visibility = View.VISIBLE
             statusName.visibility = View.INVISIBLE
             rectangle.setBackgroundResource(R.drawable.rectangle_user)
+            radioButton1.isChecked = false
+            radioButton2.isChecked = false
             radioGroup.visibility = View.VISIBLE
         }
     }
