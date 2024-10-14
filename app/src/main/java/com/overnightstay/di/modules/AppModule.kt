@@ -6,6 +6,7 @@ import com.overnightstay.domain.usecases.LoginUseCase
 import com.overnightstay.domain.usecases.RegisterUseCase
 import com.overnightstay.domain.usecases.UpdatePlayerOnApiUseCase
 import com.overnightstay.view.auth.AuthViewModel
+import com.overnightstay.view.book.contents.ContentsOfBookViewModel
 import com.overnightstay.view.choose_pers.ChoosePersViewModel
 import com.overnightstay.view.congr.CongrViewModel
 import com.overnightstay.view.reg.RegViewModel
@@ -47,4 +48,9 @@ class AppModule() {
         updatePlayerOnApiUseCase = updatePlayerOnApiUseCase,
     )
 
+    @Provides
+    fun provideContentsOfBookViewModelFactory(
+
+        ) = ContentsOfBookViewModel.Factory(
+    )
 }

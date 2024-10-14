@@ -94,5 +94,9 @@ class GameToFeedTheNeedyFragment : Fragment() {
                 findNavController().navigate(R.id.action_gameToFeedTheNeedyFragment_to_locationMapFragment)
             }
         }
+
+        binding.rules.setOnClickListener {
+            findNavController().navigate(R.id.action_gameToFeedTheNeedyFragment_to_contentsOfBookFragment)
+        }
     }
 }

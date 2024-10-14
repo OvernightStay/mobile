@@ -87,6 +87,10 @@ class LocationMapFragment : Fragment() {
     }
 
     private fun initBtnListeners() = with(binding) {
+        rules.setOnClickListener {
+            findNavController().navigate(R.id.action_locationMapFragment_to_contentsOfBookFragment)
+        }
+
         // Устанавливаем общий обработчик клика на все ImageView элементы
         val onClickListener = View.OnClickListener { view ->
             if (view.alpha == 0f) {

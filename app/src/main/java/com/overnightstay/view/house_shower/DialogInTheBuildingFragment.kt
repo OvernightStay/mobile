@@ -95,6 +95,10 @@ class DialogInTheBuildingFragment : Fragment() {
 
             } else findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_locationMapFragment)
         }
+
+        binding.rules.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_contentsOfBookFragment)
+        }
     }
 
 }

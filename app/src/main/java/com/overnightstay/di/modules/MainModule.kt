@@ -2,6 +2,7 @@ package com.overnightstay.di.modules
 
 import com.overnightstay.view.MainActivity
 import com.overnightstay.view.auth.AuthFragment
+import com.overnightstay.view.book.contents.ContentsOfBookFragment
 import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
@@ -47,5 +48,7 @@ interface MainModule {
     fun bindDialogOnTheStreet(): DialogOnTheStreetFragment
     @ContributesAndroidInjector
     fun bindDialogInTheBuilding(): DialogInTheBuildingFragment
+    @ContributesAndroidInjector
+    fun bindContentsOfBookFragment(): ContentsOfBookFragment
 
 }
