@@ -87,5 +87,9 @@ class DialogOnTheStreetFragment : Fragment() {
 
             } else findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_dialogInTheBuildingFragment)
         }
+
+        binding.rules.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_contentsOfBookFragment)
+        }
     }
 }
