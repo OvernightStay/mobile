@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -91,20 +92,28 @@ class LocationMapFragment : Fragment() {
             findNavController().navigate(R.id.action_locationMapFragment_to_contentsOfBookFragment)
         }
 
+        map.setOnClickListener {
+            findNavController().navigate(R.id.action_contentsOfBookFragment_to_locationMapFragment)
+        }
+
         // Устанавливаем общий обработчик клика на все ImageView элементы
         val onClickListener = View.OnClickListener { view ->
             if (view.alpha == 0f) {
                 view.alpha = 1f
                 lifecycleScope.launch {
+                    binding.loadingLayout.root.isGone = false
+
                     delay(2000L)
 
                     // Ищем в enum элемент по id
                     val enumValue = ImageViewElements.entries.find { it.imageViewId == view.id }
                     if(enumValue?.actionId != null) {
                         enumValue.onClickImage {
+                            binding.loadingLayout.root.isGone = true
                             findNavController().navigate(enumValue.actionId)
                         }
                     }
+                    binding.loadingLayout.root.isGone = true
                 }
             } else {
                 view.alpha = 0f
