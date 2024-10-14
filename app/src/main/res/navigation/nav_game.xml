@@ -97,6 +97,9 @@
         <action
             android:id="@+id/action_contentsOfBookFragment_to_overNightStayProjectsFragment"
             app:destination="@id/overNightStayProjectsFragment" />
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
     </fragment>
     <fragment
         android:id="@+id/overNightStayProjectsFragment"

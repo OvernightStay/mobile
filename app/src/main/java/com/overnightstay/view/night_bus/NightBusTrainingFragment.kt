@@ -190,12 +190,17 @@ class NightBusTrainingFragment : Fragment() {
     }
 
     private fun animateChoise() {
+
+        println("animateChoise radioButton1.isChecked = ${binding.radioButton1.isChecked}")
+
         with(binding) {
             userName.visibility = View.VISIBLE
             statusName.visibility = View.INVISIBLE
             rectangle.setBackgroundResource(R.drawable.rectangle_user)
+
             radioButton1.isChecked = false
             radioButton2.isChecked = false
+
             radioGroup.visibility = View.VISIBLE
         }
     }
