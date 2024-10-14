@@ -1,16 +1,20 @@
 package com.overnightstay.view.choose_pers
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.databinding.FragmentChoosePersBinding
+import com.overnightstay.domain.AppState
+import com.overnightstay.domain.models.User
 import com.overnightstay.view.MainActivity
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.launch
@@ -38,30 +42,65 @@ class ChoosePersFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
-        println("ChoosePersFragment onViewCreated")
 
         viewModel =
             ViewModelProvider(this, vmFactory)[ChoosePersViewModel::class.java]
 
         viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.appState.collect {
+                when (it) {
+                    is AppState.Success<*> -> {
+                        when (it.data) {
+                            is User -> {
+                                println("ChoosePersViewModel it: $it")
+                                if (it.data.userName?.isNotEmpty() == true) {
+                                    binding.etLogin.setText(it.data.userName)
+                                } else {
+                                    binding.etLogin.setText("${it.data.first_name} ${it.data.last_name}")
+                                }
 
-            println("ChoosePersViewModel lifecycleScope.launch")
+                                if (it.data.gender?.isNotEmpty() == true) {
+                                    if (it.data.gender == "M") {
+                                        binding.ivMan.isSelected = true
+                                        binding.ivWoman.isSelected = false
+                                    } else {
+                                        binding.ivMan.isSelected = false
+                                        binding.ivWoman.isSelected = true
+                                    }
+                                } else {
+                                    binding.ivWoman.isSelected = false
+                                    binding.ivMan.isSelected = false
+                                }
+                            }
 
-            viewModel.userName.collect {
-                println("ChoosePersViewModel it: $it")
-                if (it.isNotEmpty()) binding.etLogin.setText(it)
-            }
-        }
+                            is Boolean -> {
+                                if (it.data) {
+                                    startActivity(Intent(activity, MainActivity::class.java))
+                                    activity?.finish()
+                                } else {
+                                    binding.btnBegin.isEnabled = true
+                                    binding.loadingLayout.root.isGone = true
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.isEntry.collect {
-                println("ChoosePersViewModel isEntry: $it")
-                if (it) {
-                    startActivity(Intent(activity, MainActivity::class.java))
-                    activity?.finish()
+                                    Snackbar.make(
+                                        binding.root,
+                                        "Ошибка сервера.",
+                                        Snackbar.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
+                        }
+                    }
+
+                    is AppState.Error -> {}
+                    AppState.Loading -> {
+                        binding.btnBegin.isEnabled = false
+                        binding.loadingLayout.root.isGone = false
+                    }
+
+                    AppState.None -> {}
                 }
             }
         }
@@ -105,7 +144,7 @@ class ChoosePersFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
-            val gender = if(ivMan.isSelected) "M" else "Ж"
+            val gender = if (ivMan.isSelected) "M" else "Ж"
             viewModel.updatePlayer(etLogin.text.toString(), gender)
 
         }

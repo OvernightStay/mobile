@@ -10,13 +10,15 @@ class UserStorage @Inject constructor(
     private val sharedPreferences: SharedPreferences
 ) : IUserStorage {
     override fun get(): User {
-        val first_name = sharedPreferences.getString(USER_NAME, "")
+        val userName = sharedPreferences.getString(USER_NAME, "")
+        val first_name = sharedPreferences.getString(USER_FIRSTNAME, "")
         val last_nam = sharedPreferences.getString(USER_LASTNAME, "")
         val phone = sharedPreferences.getString(USER_PHONE, "")
         val email = sharedPreferences.getString(USER_EMAIL, "")
         val gender = sharedPreferences.getString(USER_EMAIL, "")
         val trainingCheck = sharedPreferences.getBoolean(USER_EMAIL, false)
         return User(
+            userName = userName,
             first_name = first_name,
             last_name = last_nam,
             phone = phone,

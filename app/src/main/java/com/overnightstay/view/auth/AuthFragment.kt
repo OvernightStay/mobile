@@ -51,27 +51,6 @@ class AuthFragment : Fragment() {
             ViewModelProvider(this, vmFactory)[AuthViewModel::class.java]
 
         viewLifecycleOwner.lifecycleScope.launch {
-            println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
-            viewModel.isEntry.collect {
-                if (it.first) {
-                    if (it.second == null) {
-                        findNavController().navigate(R.id.action_authFragment_to_choosePersFragment)
-                    } else {
-                        startActivity(Intent(activity, MainActivity::class.java))
-                        activity?.finish()
-                    }
-                } else {
-                    Snackbar.make(
-                        binding.root,
-                        "Ошибка сервера.",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
-            }
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            println("AuthFragment: запуск authFragmentViewModel.isEntry outside")
             viewModel.appState.collect {
                 when(it){
 
