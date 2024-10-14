@@ -162,6 +162,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/cup"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/img_cup"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/meal_1"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -195,6 +207,18 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/meal"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="394dp"
+        android:layout_marginBottom="57dp"
+        android:background="@drawable/img_meal"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/bread_1"
@@ -231,6 +255,18 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/bread"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="333dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/img_bread"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/cat_status"

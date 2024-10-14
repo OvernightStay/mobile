@@ -13,7 +13,7 @@
 
         <!--         Status bar color.-->
 <!--        <item name="android:statusBarColor">?attr/colorOnPrimary</item>-->
-        <item name="android:windowTranslucentStatus">true</item>
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
 
         <!-- Основной цвет текста -->
         <item name="android:textColor">?attr/colorOnSecondary</item>

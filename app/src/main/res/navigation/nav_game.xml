@@ -93,5 +93,9 @@
         android:id="@+id/contentsOfBookFragment"
         android:name="com.overnightstay.view.book.contents.ContentsOfBookFragment"
         android:label="ContentsOfBookFragment"
-        tools:layout="@layout/fragment_contents_of_book" />
+        tools:layout="@layout/fragment_contents_of_book" >
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
 </navigation>
