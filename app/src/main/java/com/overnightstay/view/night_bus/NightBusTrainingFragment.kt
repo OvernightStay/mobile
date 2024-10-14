@@ -27,6 +27,15 @@ class NightBusTrainingFragment : Fragment() {
         ValueAnimator.ofInt(0, 0)
     }
 
+    private var answer = mutableListOf(
+        mutableListOf(4, 1, 0),
+        mutableListOf(6, 1, 0),
+        mutableListOf(8, 2, 0),
+        mutableListOf(11, 2, 0),
+        mutableListOf(13, 1, 0),
+        mutableListOf(15, 2, 0),
+    )
+
     private var array = mutableListOf(
         "Давайте поближе познакомимся с работой Ночного автобуса. Сегодня к вам подошёл\nМихаил. Ваша задача — не только накормить его, но и рассказать о возможностях,\nкоторые мы предоставляем, и о правилах, которые нужно соблюдать.",
         "Хочу обратить твое внимание на интерфейс, в нем находится шкала стресса. \nЗдесь ошибки будут накапливаться в стресс.",
@@ -76,14 +85,33 @@ class NightBusTrainingFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            if (!binding.radioGroup.isGone && !binding.radioButton1.isChecked && !binding.radioButton2.isChecked) {
-                Snackbar.make(
-                    binding.root,
-                    "Выберите одну из опций.",
-                    Snackbar.LENGTH_LONG
-                ).show()
-                return@setOnClickListener
+            if (!binding.radioGroup.isGone) {
+                if (!binding.radioButton1.isChecked && !binding.radioButton2.isChecked) {
+                    Snackbar.make(
+                        binding.root,
+                        "Выберите одну из опций.",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                    return@setOnClickListener
+                }
+                val index = answer.indexOfFirst { it[0] == count }
+                if (index != -1) {
+                    if (binding.radioButton1.isChecked) {
+                        answer[index][2] = 1
+                    } else {
+                        answer[index][2] = 2
+                    }
+                    if (answer[index][1] != answer[index][2]) {
+                        Snackbar.make(
+                            binding.root,
+                            "Ответ не правильный.",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+                }
+                println("answer $answer")
             }
+
 
             count++
 
@@ -110,7 +138,7 @@ class NightBusTrainingFragment : Fragment() {
                         }
                     }
 
-                    4, 6, 8, 11, 15 -> animateChoise()
+                    4, 6, 8, 11, 15 -> animateChoise(count)
                     5, 7 -> {
                         status()
                         binding.radioGroup.visibility = View.GONE
@@ -150,7 +178,7 @@ class NightBusTrainingFragment : Fragment() {
 
                     13 -> {
                         binding.cards.visibility = View.VISIBLE
-                        animateChoise()
+                        animateChoise(count)
                     }
 
                     14 -> {
@@ -189,18 +217,13 @@ class NightBusTrainingFragment : Fragment() {
         }
     }
 
-    private fun animateChoise() {
-
-        println("animateChoise radioButton1.isChecked = ${binding.radioButton1.isChecked}")
-
+    private fun animateChoise(pos: Int) {
         with(binding) {
             userName.visibility = View.VISIBLE
             statusName.visibility = View.INVISIBLE
             rectangle.setBackgroundResource(R.drawable.rectangle_user)
 
-            radioButton1.isChecked = false
-            radioButton2.isChecked = false
-
+            radioGroup.clearCheck()
             radioGroup.visibility = View.VISIBLE
         }
     }
