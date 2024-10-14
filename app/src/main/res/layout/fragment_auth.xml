@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:fontFamily="sans-serif"
-        android:text="Введен нервный логин или пароль"
+        android:text="Введен неверный логин или пароль"
         android:textColor="@color/error_text"
         android:textSize="12sp"
         android:visibility="invisible"
