@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:maxHeight="420dp"
     android:background="@drawable/bg_dating"
+    android:maxHeight="420dp"
     tools:context=".view.mini_games.GameToFeedTheNeedyFragment">
 
     <ImageView
@@ -48,12 +48,10 @@
         android:id="@+id/needy"
         android:layout_width="520dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="80dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <View
             android:id="@+id/stress_bar_1"
@@ -111,8 +109,7 @@
             android:importantForAccessibility="no"
             android:src="@drawable/img_the_needy_3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -298,6 +295,13 @@
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.653" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
