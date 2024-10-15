@@ -88,6 +88,9 @@ class LocationMapFragment : Fragment() {
     }
 
     private fun initBtnListeners() = with(binding) {
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_locationMapFragment_to_houseFragment)
+        }
         rules.setOnClickListener {
             findNavController().navigate(R.id.action_locationMapFragment_to_contentsOfBookFragment)
         }
