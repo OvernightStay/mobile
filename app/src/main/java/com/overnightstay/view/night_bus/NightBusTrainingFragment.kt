@@ -3,11 +3,11 @@ package com.overnightstay.view.night_bus
 import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isGone
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +19,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class NightBusTrainingFragment : Fragment() {
+
+    var stress = Stress.GREEN
 
     private var _binding: FragmentNightBusTrainingBinding? = null
     private val binding get() = _binding!!
@@ -102,11 +104,17 @@ class NightBusTrainingFragment : Fragment() {
                         answer[index][2] = 2
                     }
                     if (answer[index][1] != answer[index][2]) {
-                        Snackbar.make(
+
+/*                        Snackbar.make(
                             binding.root,
                             "Ответ не правильный.",
                             Snackbar.LENGTH_LONG
-                        ).show()
+                        ).show()*/
+
+                        stress.getNextStress()?.let {
+                            binding.stress.setImageResource(it.idImg)
+                            stress = it
+                        }
                     }
                 }
                 println("answer $answer")
@@ -225,6 +233,18 @@ class NightBusTrainingFragment : Fragment() {
 
             radioGroup.clearCheck()
             radioGroup.visibility = View.VISIBLE
+        }
+    }
+
+    enum class Stress(val idImg: Int, val pos: Int) {
+        GREEN(R.drawable.img_stress, 0),
+        YELLOW(R.drawable.img_stress_yellow, 1),
+        ORANGE(R.drawable.img_stress_orange, 2),
+        RED(R.drawable.img_stress_red, 3);
+
+        fun getNextStress(): Stress? {
+            return if (pos < entries.size - 1) entries[pos + 1] else
+                if (pos == 3) entries[pos] else null
         }
     }
 }

@@ -24,7 +24,7 @@ class AuthViewModel(
 
             /*** На время разработки пропускаем пустую строку*/
             if (user.login?.isEmpty() == true) {
-//                _appState.emit(AppState.Success(Pair(true, null)))
+                _appState.emit(AppState.Success(Pair(true, null)))
             } else {
 
                 _appState.emit(AppState.Loading)
