@@ -1,28 +1,32 @@
-package com.overnightstay.view.mini_games
+package com.overnightstay.view.night_bus.minigame
 
 import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.core.view.isGone
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentGameToFeedTheNeedyBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class GameToFeedTheNeedyFragment : Fragment() {
-    val places = PlacesPersons(
-        Persons.entries.toTypedArray().random(),
-        Persons.entries.toTypedArray().random(),
-        Persons.entries.toTypedArray().random()
-    )
+
+    private lateinit var person1: Person
+    private lateinit var person2: Person
+    private lateinit var person3: Person
 
     private var _binding: FragmentGameToFeedTheNeedyBinding? = null
     private val binding get() = _binding!!
@@ -37,10 +41,14 @@ class GameToFeedTheNeedyFragment : Fragment() {
     )
     private var count: Int = 0
 
+    private lateinit var viewModel: GameNightBusViewModel
+
+    @Inject
+    lateinit var vmFactory: GameNightBusViewModel.Factory
+
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
-
     }
 
     override fun onCreateView(
@@ -53,6 +61,32 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel =
+            ViewModelProvider(this, vmFactory)[GameNightBusViewModel::class.java]
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.countNegativ.collect {
+                if (it == 0) return@collect
+                Snackbar.make(
+                    binding.root,
+                    "Довольных = ${viewModel.countPositiv.value}, Недовольных = $it",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.countPositiv.collect {
+                if (it == 0) return@collect
+                Snackbar.make(
+                    binding.root,
+                    "Довольных = $it, Недовольных = ${viewModel.countNegativ.value}",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        }
+
+        initNeedies()
 
         binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
@@ -79,9 +113,14 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
                 2 -> {
                     with(binding) {
-                        theNeedy1.setImageResource(places.left.idImg)
-                        theNeedy2.setImageResource(places.center.idImg)
-                        theNeedy3.setImageResource(places.right.idImg)
+//                        startTimer1(20000L)
+
+                        theNeedy1.setImageResource(person2.needy.idImg)
+                        person2.startTimer()
+                        theNeedy2.setImageResource(person1.needy.idImg)
+                        person1.startTimer()
+                        theNeedy3.setImageResource(person3.needy.idImg)
+                        person3.startTimer()
 
                         catStatus.visibility = View.GONE
                         rectangle.visibility = View.GONE
@@ -115,6 +154,26 @@ class GameToFeedTheNeedyFragment : Fragment() {
         initBtnListeners()
     }
 
+    private fun initNeedies() {
+        person1 = Person(
+            pos = PlacesPersons.CENTER,
+            progressStatus = binding.pbStress1,
+            needy = Needies.entries.toTypedArray().random()
+        ) { viewModel.timerFinish() }
+        person2 = Person(
+            pos = PlacesPersons.LEFT,
+            progressStatus = binding.pbStress2,
+            needy = Needies.entries.toTypedArray().filter { it != person1.needy }.random()
+//            needy = Needies.entries.toTypedArray().random()
+        ) { viewModel.timerFinish() }
+        person3 = Person(
+            pos = PlacesPersons.RIGHT,
+            progressStatus = binding.pbStress3,
+            needy = Needies.entries.toTypedArray()
+                .filter { it != person1.needy && it != person2.needy }.random()
+        ) { viewModel.timerFinish() }
+    }
+
     private fun initBtnListeners() = with(binding) {
         listOf(cup1, cup2, cup3).forEach { cup -> cup.setOnClickListener { add_cup(it) } }
         listOf(meal1, meal2, meal3).forEach { meal -> meal.setOnClickListener { add_meal(it) } }
@@ -143,9 +202,9 @@ class GameToFeedTheNeedyFragment : Fragment() {
             binding.bread3.isGone = false
 
             eat_needy()
-            binding.theNeedy1.setImageResource(places.left.idImg)
-            binding.theNeedy2.setImageResource(places.center.idImg)
-            binding.theNeedy3.setImageResource(places.right.idImg)
+            binding.theNeedy1.setImageResource(person2.needy.idImg)
+            binding.theNeedy2.setImageResource(person1.needy.idImg)
+            binding.theNeedy3.setImageResource(person3.needy.idImg)
         }
     }
 
@@ -171,19 +230,81 @@ class GameToFeedTheNeedyFragment : Fragment() {
     }
 
     private fun eat_needy() {
-        places.center =places.left
-        places.left = places.right
-        places.right = Persons.entries.toTypedArray().random()
+
+        if (person1.progressStatus.progress != 0) {
+            viewModel.addPositiv()
+        }
+
+        person1.stopTimer()
+        person1 = person2
+        person1.pos = PlacesPersons.CENTER
+        person1.progressStatus = binding.pbStress2
+        person2 = person3
+        person2.pos = PlacesPersons.LEFT
+        person2.progressStatus = binding.pbStress1
+        person3 = Person(
+            pos = PlacesPersons.RIGHT,
+            progressStatus = binding.pbStress3,
+            needy = Needies.entries.toTypedArray()
+                .filter { it != person1.needy && it != person2.needy }.random()
+        ) { viewModel.timerFinish() }
+        person3.startTimer()
     }
 
-    data class PlacesPersons(var left: Persons, var center: Persons, var right: Persons)
+    enum class PlacesPersons {
+        CENTER,
+        LEFT,
+        RIGHT,
+    }
 
-    enum class Persons(val idImg: Int) {
+    enum class Needies(val idImg: Int) {
         NEEDY1(R.drawable.img_the_needy_1),
         NEEDY2(R.drawable.img_the_needy_2),
         NEEDY3(R.drawable.img_the_needy_3),
         NEEDY4(R.drawable.img_the_needy_4),
         NEEDY5(R.drawable.img_the_needy_5),
         NEEDY6(R.drawable.img_the_needy_6);
+    }
+
+    class Person(
+        var pos: PlacesPersons,
+        var progressStatus: ProgressBar,
+        val needy: Needies,
+        private val onTimerFinish: () -> Unit
+    ) {
+        private var timer: CountDownTimer? = null
+
+        init {
+            progressStatus.max = TIMER_STRESS_BAR.toInt()
+
+            timer = object : CountDownTimer(TIMER_STRESS_BAR, INTERVAL_TIMER_STRESS_BAR) {
+                override fun onTick(millisUntilFinished: Long) {
+                    setProgress(millisUntilFinished)
+                }
+
+                override fun onFinish() {
+                    onTimerFinish()
+                }
+
+            }
+        }
+
+        fun stopTimer() {
+            timer?.cancel()
+        }
+
+        fun startTimer() {
+            timer?.start()
+        }
+
+        fun setProgress(milis: Long) {
+            progressStatus.progress = milis.toInt()
+        }
+    }
+
+    companion object {
+        private const val TIMER_STRESS_BAR = 25000L
+        private const val INTERVAL_TIMER_STRESS_BAR = 100L
+
     }
 }

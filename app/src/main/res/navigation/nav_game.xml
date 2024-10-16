@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameToFeedTheNeedyFragment"
-        android:name="com.overnightstay.view.mini_games.GameToFeedTheNeedyFragment"
+        android:name="com.overnightstay.view.night_bus.minigame.GameToFeedTheNeedyFragment"
         android:label="fragment_game_to_feed_the_needy"
         tools:layout="@layout/fragment_game_to_feed_the_needy">
         <action
