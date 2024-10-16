@@ -98,17 +98,12 @@
         android:label="ContentsOfBookFragment"
         tools:layout="@layout/fragment_contents_of_book" >
         <action
-            android:id="@+id/action_contentsOfBookFragment_to_overNightStayProjectsFragment"
-            app:destination="@id/overNightStayProjectsFragment" />
-        <action
             android:id="@+id/action_contentsOfBookFragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/overNightStayProjectsFragment"
-        android:name="com.overnightstay.view.book.overnightstay_projects.OverNightStayProjectsFragment"
-        android:label="fragment_over_night_stay_projects"
-        tools:layout="@layout/fragment_over_night_stay_projects" />
     <fragment
         android:id="@+id/houseFragment"
         android:name="com.overnightstay.view.house.HouseFragment"
@@ -121,4 +116,9 @@
             android:id="@+id/action_houseFragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.overnightstay.view.book.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

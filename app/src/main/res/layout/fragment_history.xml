@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.book.history.HistoryFragment">
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/stress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="28dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_stress"
+        app:layout_constraintStart_toEndOf="@id/home"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/gear_wheel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:background="@drawable/img_gear_wheel"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backpack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/img_backpack"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/gear_wheel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/img_rules"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/backpack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cat_avatar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/img_cat_avatar"
+        android:importantForAccessibility="no"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gear_wheel" />
+
+    <ImageView
+        android:id="@+id/map"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/img_map"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cat_avatar" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_max="760dp"
+        android:layout_marginTop="20dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home"
+        tools:ignore="ScrollViewCount">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/year_1"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_history_year"
+                android:padding="2dp"
+                android:text="1990"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/text_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_1"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/year_1" />
+
+            <TextView
+                android:id="@+id/text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_2"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_1" />
+
+            <TextView
+                android:id="@+id/text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_3"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_2" />
+
+            <ImageView
+                android:id="@+id/bg_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-40dp"
+                android:src="@drawable/bg_book_history_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@+id/text_3" />
+
+            <TextView
+                android:id="@+id/year_2"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="1991-1992"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_1" />
+
+            <TextView
+                android:id="@+id/text_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_4"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_2" />
+
+            <TextView
+                android:id="@+id/text_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_5"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_4" />
+
+            <TextView
+                android:id="@+id/text_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_6"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_5" />
+
+            <ImageView
+                android:id="@+id/bg_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg_book_history_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@+id/text_6" />
+
+            <TextView
+                android:id="@+id/year_3"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="1993-1994"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_2" />
+
+            <TextView
+                android:id="@+id/text_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_7"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_3" />
+
+            <TextView
+                android:id="@+id/text_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_8"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_7" />
+
+            <TextView
+                android:id="@+id/year_4"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="1995-1997"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_8" />
+
+            <TextView
+                android:id="@+id/text_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_9"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_4" />
+
+            <TextView
+                android:id="@+id/text_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_10"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_9" />
+
+            <TextView
+                android:id="@+id/text_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_11"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_10" />
+
+            <ImageView
+                android:id="@+id/bg_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/bg_book_history_3"
+                app:layout_constraintEnd_toEndOf="@id/text_11"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@+id/text_11" />
+
+            <TextView
+                android:id="@+id/year_5"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2000"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_3" />
+
+            <TextView
+                android:id="@+id/text_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_12"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_5" />
+
+            <TextView
+                android:id="@+id/text_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_13"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_12" />
+
+            <TextView
+                android:id="@+id/year_6"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2002"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_13" />
+
+            <TextView
+                android:id="@+id/text_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_14"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_6" />
+
+            <TextView
+                android:id="@+id/text_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_13"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_14" />
+
+            <ImageView
+                android:id="@+id/bg_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/bg_book_history_4"
+                app:layout_constraintEnd_toEndOf="@id/text_15"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@+id/text_15" />
+
+            <TextView
+                android:id="@+id/year_7"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2005"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_4" />
+
+            <TextView
+                android:id="@+id/text_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_16"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_7" />
+
+            <TextView
+                android:id="@+id/text_17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_17"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_16" />
+
+            <TextView
+                android:id="@+id/year_8"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2009"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_17" />
+
+            <TextView
+                android:id="@+id/text_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_18"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_8" />
+
+            <TextView
+                android:id="@+id/text_19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_19"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_18" />
+
+            <ImageView
+                android:id="@+id/bg_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/bg_book_history_5"
+                app:layout_constraintEnd_toEndOf="@id/text_19"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@+id/text_19" />
+
+            <TextView
+                android:id="@+id/year_9"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2011"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_5" />
+
+            <TextView
+                android:id="@+id/text_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_20"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_9" />
+
+            <TextView
+                android:id="@+id/text_21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_21"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_20" />
+
+            <TextView
+                android:id="@+id/text_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_22"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_21" />
+
+            <ImageView
+                android:id="@+id/bg_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-40dp"
+                android:src="@drawable/bg_book_history_6"
+                app:layout_constraintBottom_toBottomOf="@id/text_22"
+                app:layout_constraintStart_toEndOf="@id/text_21"
+                app:layout_constraintTop_toTopOf="@id/text_20" />
+
+            <TextView
+                android:id="@+id/year_10"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2013-2016"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_22" />
+
+            <TextView
+                android:id="@+id/text_23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_23"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_10" />
+
+            <TextView
+                android:id="@+id/text_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/text_24"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_23" />
+
+            <ImageView
+                android:id="@+id/bg_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/bg_book_history_7"
+                app:layout_constraintStart_toEndOf="@id/text_24"
+                app:layout_constraintTop_toBottomOf="@id/text_23" />
+
+            <TextView
+                android:id="@+id/year_11"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2017"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_7" />
+
+            <TextView
+                android:id="@+id/text_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_25"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_11" />
+
+            <TextView
+                android:id="@+id/text_26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_26"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_25" />
+
+            <TextView
+                android:id="@+id/text_27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_27"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_26" />
+
+            <ImageView
+                android:id="@+id/bg_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-40dp"
+                android:src="@drawable/bg_book_history_8"
+                app:layout_constraintEnd_toEndOf="@id/text_26"
+                app:layout_constraintStart_toStartOf="@id/text_26"
+                app:layout_constraintTop_toBottomOf="@id/text_27" />
+
+            <TextView
+                android:id="@+id/year_12"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2018"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_8" />
+
+            <TextView
+                android:id="@+id/text_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_28"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_12" />
+
+            <TextView
+                android:id="@+id/text_29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_29"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_28" />
+
+            <ImageView
+                android:id="@+id/bg_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/bg_book_history_9"
+                app:layout_constraintEnd_toEndOf="@id/text_29"
+                app:layout_constraintStart_toStartOf="@id/text_29"
+                app:layout_constraintTop_toBottomOf="@id/text_29" />
+
+            <TextView
+                android:id="@+id/year_13"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2020"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_9" />
+
+            <TextView
+                android:id="@+id/text_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_30"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_13" />
+
+            <TextView
+                android:id="@+id/text_31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_31"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_30" />
+
+            <TextView
+                android:id="@+id/text_32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_32"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_31" />
+
+            <ImageView
+                android:id="@+id/bg_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-130dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/bg_book_history_10"
+                app:layout_constraintStart_toEndOf="@id/text_32"
+                app:layout_constraintTop_toTopOf="@id/text_32" />
+
+            <TextView
+                android:id="@+id/year_14"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2022"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg_10" />
+
+            <TextView
+                android:id="@+id/text_33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_33"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_14" />
+
+            <TextView
+                android:id="@+id/text_34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_34"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_33" />
+
+            <ImageView
+                android:id="@+id/bg_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg_history_11"
+                app:layout_constraintEnd_toStartOf="@id/text_33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_33" />
+
+            <ImageView
+                android:id="@+id/bg_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg_history_12"
+                app:layout_constraintBottom_toBottomOf="@id/text_34"
+                app:layout_constraintStart_toEndOf="@id/text_33"
+                app:layout_constraintTop_toTopOf="@id/text_33" />
+
+            <TextView
+                android:id="@+id/year_15"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_history_year"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:text="2022"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_34" />
+
+            <TextView
+                android:id="@+id/text_35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_35"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/year_15" />
+
+            <TextView
+                android:id="@+id/text_36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_36"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_35" />
+
+            <TextView
+                android:id="@+id/text_37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_37"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_36" />
+
+            <TextView
+                android:id="@+id/text_38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_38"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintStart_toStartOf="@id/text_1"
+                app:layout_constraintTop_toBottomOf="@id/text_37" />
+
+            <ImageView
+                android:id="@+id/bg_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/bg_history_13"
+                app:layout_constraintEnd_toEndOf="@id/text_38"
+                app:layout_constraintTop_toBottomOf="@id/text_38"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

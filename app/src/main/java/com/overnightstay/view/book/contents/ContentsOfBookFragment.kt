@@ -43,10 +43,6 @@ class ContentsOfBookFragment : Fragment() {
         viewModel =
             ViewModelProvider(this, vmFactory)[ContentsOfBookViewModel::class.java]
 
-        binding.tvProjects.setOnClickListener {
-            findNavController().navigate(R.id.action_contentsOfBookFragment_to_overNightStayProjectsFragment)
-        }
-
 //        viewLifecycleOwner.lifecycleScope.launch {
 //            viewModel.appState.collect {
 //                when (it) {
@@ -108,6 +104,8 @@ class ContentsOfBookFragment : Fragment() {
 
 
     private fun initBtnListeners() = with(binding) {
-
+        tvHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_contentsOfBookFragment_to_historyFragment)
+        }
     }
 }
