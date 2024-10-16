@@ -3,7 +3,7 @@ package com.overnightstay.di.modules
 import com.overnightstay.view.MainActivity
 import com.overnightstay.view.auth.AuthFragment
 import com.overnightstay.view.book.contents.ContentsOfBookFragment
-import com.overnightstay.view.book.overnightstay_projects.OverNightStayProjectsFragment
+import com.overnightstay.view.book.history.HistoryFragment
 import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
@@ -52,6 +52,6 @@ interface MainModule {
     @ContributesAndroidInjector
     fun bindContentsOfBookFragment(): ContentsOfBookFragment
     @ContributesAndroidInjector
-    fun bindOverNightStayProjectsFragment(): OverNightStayProjectsFragment
+    fun bindOverNightStayProjectsFragment(): HistoryFragment
 
 }
