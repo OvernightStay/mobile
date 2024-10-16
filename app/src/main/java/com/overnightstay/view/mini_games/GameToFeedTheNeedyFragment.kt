@@ -3,10 +3,12 @@ package com.overnightstay.view.mini_games
 import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -18,11 +20,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class GameToFeedTheNeedyFragment : Fragment() {
-    val places = PlacesPersons(
-        Persons.entries.toTypedArray().random(),
-        Persons.entries.toTypedArray().random(),
-        Persons.entries.toTypedArray().random()
-    )
+
+    private lateinit var person1: Person
+    private lateinit var person2: Person
+    private lateinit var person3: Person
+//    private var timer1: CountDownTimer? = null
 
     private var _binding: FragmentGameToFeedTheNeedyBinding? = null
     private val binding get() = _binding!!
@@ -54,6 +56,8 @@ class GameToFeedTheNeedyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initNeedies()
+
         binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
 
@@ -79,9 +83,14 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
                 2 -> {
                     with(binding) {
-                        theNeedy1.setImageResource(places.left.idImg)
-                        theNeedy2.setImageResource(places.center.idImg)
-                        theNeedy3.setImageResource(places.right.idImg)
+//                        startTimer1(20000L)
+
+                        theNeedy1.setImageResource(person2.needy.idImg)
+                        person2.startTimer()
+                        theNeedy2.setImageResource(person1.needy.idImg)
+                        person1.startTimer()
+                        theNeedy3.setImageResource(person3.needy.idImg)
+                        person3.startTimer()
 
                         catStatus.visibility = View.GONE
                         rectangle.visibility = View.GONE
@@ -115,6 +124,24 @@ class GameToFeedTheNeedyFragment : Fragment() {
         initBtnListeners()
     }
 
+    private fun initNeedies() {
+        person1 = Person(
+            pos = PlacesPersons.CENTER,
+            progressStatus = binding.pbStress1,
+            needy = Needies.entries.toTypedArray().random()
+        )
+        person2 = Person(
+            pos = PlacesPersons.LEFT,
+            progressStatus = binding.pbStress2,
+            needy = Needies.entries.toTypedArray().random()
+        )
+        person3 = Person(
+            pos = PlacesPersons.RIGHT,
+            progressStatus = binding.pbStress3,
+            needy = Needies.entries.toTypedArray().random()
+        )
+    }
+
     private fun initBtnListeners() = with(binding) {
         listOf(cup1, cup2, cup3).forEach { cup -> cup.setOnClickListener { add_cup(it) } }
         listOf(meal1, meal2, meal3).forEach { meal -> meal.setOnClickListener { add_meal(it) } }
@@ -143,9 +170,9 @@ class GameToFeedTheNeedyFragment : Fragment() {
             binding.bread3.isGone = false
 
             eat_needy()
-            binding.theNeedy1.setImageResource(places.left.idImg)
-            binding.theNeedy2.setImageResource(places.center.idImg)
-            binding.theNeedy3.setImageResource(places.right.idImg)
+            binding.theNeedy1.setImageResource(person2.needy.idImg)
+            binding.theNeedy2.setImageResource(person1.needy.idImg)
+            binding.theNeedy3.setImageResource(person3.needy.idImg)
         }
     }
 
@@ -171,19 +198,108 @@ class GameToFeedTheNeedyFragment : Fragment() {
     }
 
     private fun eat_needy() {
-        places.center =places.left
-        places.left = places.right
-        places.right = Persons.entries.toTypedArray().random()
+        person1.stopTimer()
+        person1 = person2
+        person1.pos = PlacesPersons.CENTER
+        person1.progressStatus = binding.pbStress2
+        person2 = person3
+        person2.pos = PlacesPersons.LEFT
+        person2.progressStatus = binding.pbStress1
+        person3 = Person(
+            pos = PlacesPersons.RIGHT,
+            progressStatus = binding.pbStress3,
+            needy = Needies.entries.toTypedArray().random()
+        )
+        person3.startTimer()
+//        places.center = places.left
+//        places.left = places.right
+//        places.right = Needies.entries.toTypedArray().random()
     }
 
-    data class PlacesPersons(var left: Persons, var center: Persons, var right: Persons)
+/*    private fun startTimer1(milis: Long) {
+        timer1?.cancel()
 
-    enum class Persons(val idImg: Int) {
+        println("startTimer milis: $milis")
+
+        timer1 = object : CountDownTimer(milis, 100L) {
+            override fun onTick(millisUntilFinished: Long) {
+
+                println("startTimer millisUntilFinished: $millisUntilFinished")
+
+                person1.setProgress(millisUntilFinished)
+            }
+
+            override fun onFinish() {
+//                TODO("Not yet implemented")
+            }
+
+        }.start()
+    }*/
+
+    enum class PlacesPersons {
+        CENTER,
+        LEFT,
+        RIGHT,
+    }
+
+
+    enum class Needies(val idImg: Int) {
         NEEDY1(R.drawable.img_the_needy_1),
         NEEDY2(R.drawable.img_the_needy_2),
         NEEDY3(R.drawable.img_the_needy_3),
         NEEDY4(R.drawable.img_the_needy_4),
         NEEDY5(R.drawable.img_the_needy_5),
         NEEDY6(R.drawable.img_the_needy_6);
+    }
+
+    class Person(
+        var pos: PlacesPersons,
+        var progressStatus: ProgressBar,
+        val needy: Needies
+    ) {
+        private var timer: CountDownTimer? = null
+
+        init {
+            progressStatus.max = TIMER_STRESS_BAR.toInt()
+
+            timer = object : CountDownTimer(TIMER_STRESS_BAR, INTERVAL_TIMER_STRESS_BAR) {
+                override fun onTick(millisUntilFinished: Long) {
+                    setProgress(millisUntilFinished)
+                }
+
+                override fun onFinish() {
+//                TODO("Not yet implemented")
+                }
+
+            }
+        }
+
+        fun stopTimer() {
+            timer?.cancel()
+        }
+
+        fun startTimer() {
+            timer?.start()
+        }
+
+//        fun cnangeProgress() {
+//            progressStatus.progress = milis.toInt()
+//        }
+
+        fun setProgress(milis: Long) {
+            progressStatus.progress = milis.toInt()
+        }
+
+        fun decreaseProgress(milis: Long) {
+            if (progressStatus.progress > 0) {
+                progressStatus.progress -= milis.toInt()
+            }
+        }
+    }
+
+    companion object {
+        private const val TIMER_STRESS_BAR = 25000L
+        private const val INTERVAL_TIMER_STRESS_BAR = 100L
+
     }
 }
