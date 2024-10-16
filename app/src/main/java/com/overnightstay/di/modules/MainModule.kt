@@ -8,7 +8,7 @@ import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
 import com.overnightstay.view.location_map.LocationMapFragment
-import com.overnightstay.view.mini_games.GameToFeedTheNeedyFragment
+import com.overnightstay.view.night_bus.minigame.GameToFeedTheNeedyFragment
 import com.overnightstay.view.house_shower.DialogInTheBuildingFragment
 import com.overnightstay.view.house_shower.DialogOnTheStreetFragment
 import com.overnightstay.view.night_bus.NightBusFragment

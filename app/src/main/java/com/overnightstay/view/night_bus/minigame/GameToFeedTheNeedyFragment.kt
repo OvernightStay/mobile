@@ -1,30 +1,32 @@
-package com.overnightstay.view.mini_games
+package com.overnightstay.view.night_bus.minigame
 
 import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.core.view.isGone
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentGameToFeedTheNeedyBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class GameToFeedTheNeedyFragment : Fragment() {
 
     private lateinit var person1: Person
     private lateinit var person2: Person
     private lateinit var person3: Person
-//    private var timer1: CountDownTimer? = null
 
     private var _binding: FragmentGameToFeedTheNeedyBinding? = null
     private val binding get() = _binding!!
@@ -39,10 +41,14 @@ class GameToFeedTheNeedyFragment : Fragment() {
     )
     private var count: Int = 0
 
+    private lateinit var viewModel: GameNightBusViewModel
+
+    @Inject
+    lateinit var vmFactory: GameNightBusViewModel.Factory
+
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
-
     }
 
     override fun onCreateView(
@@ -55,6 +61,30 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel =
+            ViewModelProvider(this, vmFactory)[GameNightBusViewModel::class.java]
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.countNegativ.collect {
+                if (it == 0) return@collect
+                Snackbar.make(
+                    binding.root,
+                    "Довольных = ${viewModel.countPositiv.value}, Недовольных = $it",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.countPositiv.collect {
+                if (it == 0) return@collect
+                Snackbar.make(
+                    binding.root,
+                    "Довольных = $it, Недовольных = ${viewModel.countNegativ.value}",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        }
 
         initNeedies()
 
@@ -129,17 +159,19 @@ class GameToFeedTheNeedyFragment : Fragment() {
             pos = PlacesPersons.CENTER,
             progressStatus = binding.pbStress1,
             needy = Needies.entries.toTypedArray().random()
-        )
+        ) { viewModel.timerFinish() }
         person2 = Person(
             pos = PlacesPersons.LEFT,
             progressStatus = binding.pbStress2,
-            needy = Needies.entries.toTypedArray().random()
-        )
+            needy = Needies.entries.toTypedArray().filter { it != person1.needy }.random()
+//            needy = Needies.entries.toTypedArray().random()
+        ) { viewModel.timerFinish() }
         person3 = Person(
             pos = PlacesPersons.RIGHT,
             progressStatus = binding.pbStress3,
-            needy = Needies.entries.toTypedArray().random()
-        )
+            needy = Needies.entries.toTypedArray()
+                .filter { it != person1.needy && it != person2.needy }.random()
+        ) { viewModel.timerFinish() }
     }
 
     private fun initBtnListeners() = with(binding) {
@@ -198,6 +230,11 @@ class GameToFeedTheNeedyFragment : Fragment() {
     }
 
     private fun eat_needy() {
+
+        if (person1.progressStatus.progress != 0) {
+            viewModel.addPositiv()
+        }
+
         person1.stopTimer()
         person1 = person2
         person1.pos = PlacesPersons.CENTER
@@ -208,40 +245,17 @@ class GameToFeedTheNeedyFragment : Fragment() {
         person3 = Person(
             pos = PlacesPersons.RIGHT,
             progressStatus = binding.pbStress3,
-            needy = Needies.entries.toTypedArray().random()
-        )
+            needy = Needies.entries.toTypedArray()
+                .filter { it != person1.needy && it != person2.needy }.random()
+        ) { viewModel.timerFinish() }
         person3.startTimer()
-//        places.center = places.left
-//        places.left = places.right
-//        places.right = Needies.entries.toTypedArray().random()
     }
-
-/*    private fun startTimer1(milis: Long) {
-        timer1?.cancel()
-
-        println("startTimer milis: $milis")
-
-        timer1 = object : CountDownTimer(milis, 100L) {
-            override fun onTick(millisUntilFinished: Long) {
-
-                println("startTimer millisUntilFinished: $millisUntilFinished")
-
-                person1.setProgress(millisUntilFinished)
-            }
-
-            override fun onFinish() {
-//                TODO("Not yet implemented")
-            }
-
-        }.start()
-    }*/
 
     enum class PlacesPersons {
         CENTER,
         LEFT,
         RIGHT,
     }
-
 
     enum class Needies(val idImg: Int) {
         NEEDY1(R.drawable.img_the_needy_1),
@@ -255,7 +269,8 @@ class GameToFeedTheNeedyFragment : Fragment() {
     class Person(
         var pos: PlacesPersons,
         var progressStatus: ProgressBar,
-        val needy: Needies
+        val needy: Needies,
+        private val onTimerFinish: () -> Unit
     ) {
         private var timer: CountDownTimer? = null
 
@@ -268,7 +283,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
                 }
 
                 override fun onFinish() {
-//                TODO("Not yet implemented")
+                    onTimerFinish()
                 }
 
             }
@@ -282,18 +297,8 @@ class GameToFeedTheNeedyFragment : Fragment() {
             timer?.start()
         }
 
-//        fun cnangeProgress() {
-//            progressStatus.progress = milis.toInt()
-//        }
-
         fun setProgress(milis: Long) {
             progressStatus.progress = milis.toInt()
-        }
-
-        fun decreaseProgress(milis: Long) {
-            if (progressStatus.progress > 0) {
-                progressStatus.progress -= milis.toInt()
-            }
         }
     }
 

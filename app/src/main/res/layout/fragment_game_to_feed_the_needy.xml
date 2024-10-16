@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:background="@drawable/bg_dating"
     android:maxHeight="420dp"
-    tools:context=".view.mini_games.GameToFeedTheNeedyFragment">
+    tools:context=".view.night_bus.minigame.GameToFeedTheNeedyFragment">
 
     <ImageView
         android:id="@+id/gear_wheel"
