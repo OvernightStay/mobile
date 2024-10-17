@@ -2,6 +2,7 @@ package com.overnightstay.di.modules
 
 import com.overnightstay.view.MainActivity
 import com.overnightstay.view.auth.AuthFragment
+import com.overnightstay.view.backpack.BackpackFragment
 import com.overnightstay.view.book.contents.ContentsOfBookFragment
 import com.overnightstay.view.book.history.HistoryFragment
 import com.overnightstay.view.book.projects.ProjectsFragment
@@ -50,11 +51,11 @@ interface MainModule {
     @ContributesAndroidInjector
     fun bindLocationMapFragment(): LocationMapFragment
     @ContributesAndroidInjector
-    fun bindGameToFeedTheNeedy(): GameToFeedTheNeedyFragment
+    fun bindGameToFeedTheNeedyFragment(): GameToFeedTheNeedyFragment
     @ContributesAndroidInjector
-    fun bindDialogOnTheStreet(): DialogOnTheStreetFragment
+    fun bindDialogOnTheStreetFragment(): DialogOnTheStreetFragment
     @ContributesAndroidInjector
-    fun bindDialogInTheBuilding(): DialogInTheBuildingFragment
+    fun bindDialogInTheBuildingFragment(): DialogInTheBuildingFragment
     @ContributesAndroidInjector
     fun bindContentsOfBookFragment(): ContentsOfBookFragment
     @ContributesAndroidInjector
@@ -62,14 +63,16 @@ interface MainModule {
     @ContributesAndroidInjector
     fun bindProjectsFragment(): ProjectsFragment
     @ContributesAndroidInjector
-    fun bindProjectNightBus(): ProjectNightBusFragment
+    fun bindProjectNightBusFragment(): ProjectNightBusFragment
     @ContributesAndroidInjector
-    fun bindProjectHouseShower(): ProjectHouseShowerFragment
+    fun bindProjectHouseShowerFragment(): ProjectHouseShowerFragment
     @ContributesAndroidInjector
-    fun bindProjectHouseRehabilitation(): ProjectHouseRehabilitationFragment
+    fun bindProjectHouseRehabilitationFragment(): ProjectHouseRehabilitationFragment
     @ContributesAndroidInjector
-    fun bindProjectHouseOfDistribution(): ProjectHouseOfDistributionFragment
+    fun bindProjectHouseOfDistributionFragment(): ProjectHouseOfDistributionFragment
     @ContributesAndroidInjector
-    fun bindProjectHouseWarm(): ProjectHouseWarmFragment
+    fun bindProjectHouseWarmFragment(): ProjectHouseWarmFragment
+    @ContributesAndroidInjector
+    fun bindBackpackFragment(): BackpackFragment
 
 }

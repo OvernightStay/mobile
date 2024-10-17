@@ -95,8 +95,8 @@ class LocationMapFragment : Fragment() {
             findNavController().navigate(R.id.action_locationMapFragment_to_contentsOfBookFragment)
         }
 
-        map.setOnClickListener {
-            findNavController().navigate(R.id.action_contentsOfBookFragment_to_locationMapFragment)
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_locationMapFragment_to_backpackFragment)
         }
 
         // Устанавливаем общий обработчик клика на все ImageView элементы
