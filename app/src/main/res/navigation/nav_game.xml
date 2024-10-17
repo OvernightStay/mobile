@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_locationMapFragment_to_houseFragment"
             app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_locationMapFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/nightBusTrainingFragment2"
@@ -170,4 +173,13 @@
         android:name="com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment"
         android:label="fragment_project_house_warm"
         tools:layout="@layout/fragment_project_house_warm" />
+    <fragment
+        android:id="@+id/backpackFragment"
+        android:name="com.overnightstay.view.backpack.BackpackFragment"
+        android:label="fragment_backpack"
+        tools:layout="@layout/fragment_backpack" >
+        <action
+            android:id="@+id/action_backpackFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
 </navigation>

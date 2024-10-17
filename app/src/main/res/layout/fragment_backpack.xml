@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    tools:context=".view.backpack.BackpackFragment">
+
+    <View
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_backpack_frame"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="20dp" />
+
+    <ImageView
+        android:id="@+id/backpack"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="-15dp"
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/bg_backpack"
+        app:layout_constraintStart_toStartOf="@id/bg"
+        app:layout_constraintTop_toTopOf="@id/bg"/>
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:text="закрыть"
+        app:layout_constraintTop_toTopOf="@id/bg"
+        app:layout_constraintEnd_toEndOf="@id/bg"/>
+
+    <View
+        android:id="@+id/frame_1"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintEnd_toStartOf="@id/frame_2"
+        app:layout_constraintBottom_toTopOf="@id/frame_4"/>
+    <ImageView
+        android:id="@+id/rug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_rug"
+        app:layout_constraintStart_toStartOf="@id/frame_1"
+        app:layout_constraintTop_toTopOf="@+id/frame_1"
+        app:layout_constraintBottom_toBottomOf="@id/frame_1"/>
+
+    <TextView
+        android:id="@+id/rug_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Плед горячих идей"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/rug"
+        app:layout_constraintStart_toEndOf="@+id/rug"
+        app:layout_constraintBottom_toTopOf="@id/rug_how_to_get"/>
+
+    <TextView
+        android:id="@+id/rug_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди локацию Пункт обогрева"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rug"
+        app:layout_constraintStart_toStartOf="@id/rug_title"
+        app:layout_constraintTop_toBottomOf="@id/rug_title" />
+
+    <View
+        android:id="@+id/frame_2"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintStart_toStartOf="@id/bg"
+        app:layout_constraintEnd_toEndOf="@id/bg"
+        app:layout_constraintBottom_toTopOf="@id/frame_5" />
+
+    <ImageView
+        android:id="@+id/tea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_tea"
+        app:layout_constraintStart_toStartOf="@id/frame_2"
+        app:layout_constraintTop_toTopOf="@+id/frame_2"
+        app:layout_constraintBottom_toBottomOf="@id/frame_2"/>
+
+    <TextView
+        android:id="@+id/tea_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="#565554"
+        android:text="Чай всегда и везде"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/tea"
+        app:layout_constraintStart_toEndOf="@+id/tea"
+        app:layout_constraintBottom_toTopOf="@id/tea_how_to_get"/>
+
+    <TextView
+        android:id="@+id/tea_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Локация в разработке"
+        android:textColor="#565554"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tea"
+        app:layout_constraintStart_toStartOf="@id/tea_title"
+        app:layout_constraintTop_toBottomOf="@id/tea_title" />
+
+    <View
+        android:id="@+id/frame_3"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintBottom_toTopOf="@id/frame_6"
+        app:layout_constraintStart_toEndOf="@id/frame_2"/>
+
+    <ImageView
+        android:id="@+id/soup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_soup"
+        app:layout_constraintStart_toStartOf="@id/frame_3"
+        app:layout_constraintTop_toTopOf="@+id/frame_3"
+        app:layout_constraintBottom_toBottomOf="@id/frame_3"/>
+
+    <TextView
+        android:id="@+id/soup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="#565554"
+        android:text="Суп для побед"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/soup"
+        app:layout_constraintStart_toEndOf="@+id/soup"
+        app:layout_constraintBottom_toTopOf="@id/soup_how_to_get"/>
+
+    <TextView
+        android:id="@+id/soup_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#565554"
+        android:text="Локация в разработке"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/soup"
+        app:layout_constraintStart_toStartOf="@id/soup_title"
+        app:layout_constraintTop_toBottomOf="@id/soup_title" />
+
+    <View
+        android:id="@+id/frame_4"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintBottom_toTopOf="@id/frame_7"
+        app:layout_constraintStart_toStartOf="@+id/frame_1" />
+
+    <ImageView
+        android:id="@+id/shoulder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_shoulder"
+        app:layout_constraintStart_toStartOf="@id/frame_4"
+        app:layout_constraintTop_toTopOf="@+id/frame_4"
+        app:layout_constraintBottom_toBottomOf="@id/frame_4"/>
+
+    <TextView
+        android:id="@+id/shoulder_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Плечики опоры"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/shoulder"
+        app:layout_constraintStart_toEndOf="@+id/shoulder"
+        app:layout_constraintBottom_toTopOf="@id/shoulder_how_to_get"/>
+
+    <TextView
+        android:id="@+id/shoulder_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди локацию Пункт выдачи"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shoulder"
+        app:layout_constraintStart_toStartOf="@id/shoulder_title"
+        app:layout_constraintTop_toBottomOf="@id/shoulder_title" />
+
+    <View
+        android:id="@+id/frame_5"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintBottom_toTopOf="@+id/frame_8"
+        app:layout_constraintStart_toStartOf="@+id/frame_2" />
+
+    <ImageView
+        android:id="@+id/daily_planner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_daily_planner"
+        app:layout_constraintStart_toStartOf="@id/frame_5"
+        app:layout_constraintTop_toTopOf="@+id/frame_5"
+        app:layout_constraintBottom_toBottomOf="@id/frame_5"/>
+
+    <TextView
+        android:id="@+id/daily_planner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Ежедневник труда"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/daily_planner"
+        app:layout_constraintStart_toEndOf="@+id/daily_planner"
+        app:layout_constraintBottom_toTopOf="@id/daily_planner_how_to_get"/>
+
+    <TextView
+        android:id="@+id/daily_planner_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди роль администратора"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/daily_planner"
+        app:layout_constraintStart_toStartOf="@id/daily_planner_title"
+        app:layout_constraintTop_toBottomOf="@id/daily_planner_title" />
+
+    <View
+        android:id="@+id/frame_6"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintBottom_toTopOf="@id/frame_9"
+        app:layout_constraintStart_toStartOf="@+id/frame_3"/>
+
+    <ImageView
+        android:id="@+id/hanger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_hanger"
+        app:layout_constraintStart_toStartOf="@id/frame_6"
+        app:layout_constraintTop_toTopOf="@+id/frame_6"
+        app:layout_constraintBottom_toBottomOf="@id/frame_6"/>
+
+    <TextView
+        android:id="@+id/hanger_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="#565554"
+        android:text="Вешалка надежд"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/hanger"
+        app:layout_constraintStart_toEndOf="@+id/hanger"
+        app:layout_constraintBottom_toTopOf="@id/hanger_how_to_get"/>
+
+    <TextView
+        android:id="@+id/hanger_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#565554"
+        android:text="Локация в разработке"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hanger"
+        app:layout_constraintStart_toStartOf="@id/hanger_title"
+        app:layout_constraintTop_toBottomOf="@id/hanger_title" />
+
+    <View
+        android:id="@+id/frame_7"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toTopOf="@+id/bg"
+        app:layout_constraintBottom_toBottomOf="@id/bg"
+        app:layout_constraintStart_toStartOf="@+id/frame_4" />
+
+    <ImageView
+        android:id="@+id/jalousie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_jalousie"
+        app:layout_constraintStart_toStartOf="@id/frame_7"
+        app:layout_constraintTop_toTopOf="@+id/frame_7"
+        app:layout_constraintBottom_toBottomOf="@id/frame_7"/>
+
+    <TextView
+        android:id="@+id/jalousie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="#565554"
+        android:text="Жалюзи желаний"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/jalousie"
+        app:layout_constraintStart_toEndOf="@+id/jalousie"
+        app:layout_constraintBottom_toTopOf="@id/jalousie_how_to_get"/>
+
+    <TextView
+        android:id="@+id/jalousie_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#565554"
+        android:text="Локация в разработке"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/jalousie"
+        app:layout_constraintStart_toStartOf="@id/jalousie_title"
+        app:layout_constraintTop_toBottomOf="@id/jalousie_title" />
+
+    <View
+        android:id="@+id/frame_8"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toTopOf="@id/bg"
+        app:layout_constraintBottom_toBottomOf="@id/bg"
+        app:layout_constraintStart_toStartOf="@+id/frame_5" />
+
+    <ImageView
+        android:id="@+id/towel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_towel"
+        app:layout_constraintStart_toStartOf="@id/frame_8"
+        app:layout_constraintTop_toTopOf="@+id/frame_8"
+        app:layout_constraintBottom_toBottomOf="@id/frame_8"/>
+
+    <TextView
+        android:id="@+id/towel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Полотенце чистоты"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/towel"
+        app:layout_constraintStart_toEndOf="@+id/towel"
+        app:layout_constraintBottom_toTopOf="@id/towel_how_to_get"/>
+
+    <TextView
+        android:id="@+id/towel_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди локацию Неравнодуш"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/towel"
+        app:layout_constraintStart_toStartOf="@id/towel_title"
+        app:layout_constraintTop_toBottomOf="@id/towel_title" />
+
+    <View
+        android:id="@+id/frame_9"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toTopOf="@id/bg"
+        app:layout_constraintBottom_toBottomOf="@id/bg"
+        app:layout_constraintStart_toStartOf="@+id/frame_6"/>
+
+    <ImageView
+        android:id="@+id/mugs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_mugs"
+        app:layout_constraintStart_toStartOf="@id/frame_9"
+        app:layout_constraintTop_toTopOf="@+id/frame_9"
+        app:layout_constraintBottom_toBottomOf="@id/frame_9"/>
+
+    <TextView
+        android:id="@+id/mugs_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Кружки дружбы"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/mugs"
+        app:layout_constraintStart_toEndOf="@+id/mugs"
+        app:layout_constraintBottom_toTopOf="@id/mugs_how_to_get"/>
+
+    <TextView
+        android:id="@+id/mugs_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди локацию Ночной автобус"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/towel"
+        app:layout_constraintStart_toStartOf="@id/mugs_title"
+        app:layout_constraintTop_toBottomOf="@id/mugs_title" />
+
+    <View
+        android:id="@+id/frame_10"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toBottomOf="@+id/frame_7"
+        app:layout_constraintStart_toStartOf="@+id/frame_7" />
+
+    <ImageView
+        android:id="@+id/potholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_potholder"
+        app:layout_constraintStart_toStartOf="@id/frame_10"
+        app:layout_constraintTop_toTopOf="@+id/frame_10"
+        app:layout_constraintBottom_toBottomOf="@id/frame_10"/>
+
+    <TextView
+        android:id="@+id/potholder_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="#565554"
+        android:text="Прихватка удачи"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/potholder"
+        app:layout_constraintStart_toEndOf="@+id/potholder"
+        app:layout_constraintBottom_toTopOf="@id/potholder_how_to_get"/>
+
+    <TextView
+        android:id="@+id/potholder_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#565554"
+        android:text="Локация в разработке"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/potholder"
+        app:layout_constraintStart_toStartOf="@id/potholder_title"
+        app:layout_constraintTop_toBottomOf="@id/potholder_title" />
+
+    <View
+        android:id="@+id/frame_11"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toBottomOf="@+id/frame_8"
+        app:layout_constraintStart_toStartOf="@+id/frame_8" />
+
+    <ImageView
+        android:id="@+id/carpet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_carpet"
+        app:layout_constraintStart_toStartOf="@id/frame_11"
+        app:layout_constraintTop_toTopOf="@+id/frame_11"
+        app:layout_constraintBottom_toBottomOf="@id/frame_11"/>
+
+    <TextView
+        android:id="@+id/carpet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Коврик любимый"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/carpet"
+        app:layout_constraintStart_toEndOf="@+id/carpet"
+        app:layout_constraintBottom_toTopOf="@id/carpet_how_to_get"/>
+
+    <TextView
+        android:id="@+id/carpet_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди роль Завхоза"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/carpet"
+        app:layout_constraintStart_toStartOf="@id/carpet_title"
+        app:layout_constraintTop_toBottomOf="@id/carpet_title" />
+
+    <View
+        android:id="@+id/frame_12"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toBottomOf="@+id/frame_9"
+        app:layout_constraintStart_toStartOf="@+id/frame_9"/>
+
+    <ImageView
+        android:id="@+id/aloe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_aloe"
+        app:layout_constraintStart_toStartOf="@id/frame_12"
+        app:layout_constraintTop_toTopOf="@+id/frame_12"
+        app:layout_constraintBottom_toBottomOf="@id/frame_12"/>
+
+    <TextView
+        android:id="@+id/aloe_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Алое веры"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/aloe"
+        app:layout_constraintStart_toEndOf="@+id/aloe"
+        app:layout_constraintBottom_toTopOf="@id/aloe_how_to_get"/>
+
+    <TextView
+        android:id="@+id/aloe_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди роль Дежурного"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/aloe"
+        app:layout_constraintStart_toStartOf="@id/aloe_title"
+        app:layout_constraintTop_toBottomOf="@id/aloe_title" />
+
+    <View
+        android:id="@+id/frame_13"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toBottomOf="@+id/frame_10"
+        app:layout_constraintStart_toStartOf="@+id/frame_10" />
+
+    <ImageView
+        android:id="@+id/stamps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_stamps"
+        app:layout_constraintStart_toStartOf="@id/frame_13"
+        app:layout_constraintTop_toTopOf="@+id/frame_13"
+        app:layout_constraintBottom_toBottomOf="@id/frame_13"/>
+
+    <TextView
+        android:id="@+id/stamps_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Марки судьбы"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/stamps"
+        app:layout_constraintStart_toEndOf="@+id/stamps"
+        app:layout_constraintBottom_toTopOf="@id/stamps_how_to_get"/>
+
+    <TextView
+        android:id="@+id/stamps_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди роль Социального работника"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stamps"
+        app:layout_constraintStart_toStartOf="@id/stamps_title"
+        app:layout_constraintTop_toBottomOf="@id/stamps_title" />
+
+    <View
+        android:id="@+id/frame_14"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toBottomOf="@+id/frame_11"
+        app:layout_constraintStart_toStartOf="@+id/frame_11" />
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_picture"
+        app:layout_constraintStart_toStartOf="@id/frame_14"
+        app:layout_constraintTop_toTopOf="@+id/frame_14"
+        app:layout_constraintBottom_toBottomOf="@id/frame_14"/>
+
+    <TextView
+        android:id="@+id/picture_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Картина мира"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/picture"
+        app:layout_constraintStart_toEndOf="@+id/picture"
+        app:layout_constraintBottom_toTopOf="@id/picture_how_to_get"/>
+
+    <TextView
+        android:id="@+id/picture_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пройди роль психолога"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/picture"
+        app:layout_constraintStart_toStartOf="@id/picture_title"
+        app:layout_constraintTop_toBottomOf="@id/picture_title" />
+
+    <View
+        android:id="@+id/frame_15"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_frame_items"
+        app:layout_constraintTop_toBottomOf="@+id/frame_12"
+        app:layout_constraintStart_toStartOf="@+id/frame_12"/>
+
+    <ImageView
+        android:id="@+id/bag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/img_backpack_item_bag"
+        app:layout_constraintStart_toStartOf="@id/frame_15"
+        app:layout_constraintTop_toTopOf="@+id/frame_15"
+        app:layout_constraintBottom_toBottomOf="@id/frame_15"/>
+
+    <TextView
+        android:id="@+id/bag_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="#565554"
+        android:text="Сумка для всего"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/bag"
+        app:layout_constraintStart_toEndOf="@+id/bag"
+        app:layout_constraintBottom_toTopOf="@id/bag_how_to_get"/>
+
+    <TextView
+        android:id="@+id/bag_how_to_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#565554"
+        android:text="Локация в разработке"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bag"
+        app:layout_constraintStart_toStartOf="@id/bag_title"
+        app:layout_constraintTop_toBottomOf="@id/bag_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
