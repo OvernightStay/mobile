@@ -107,5 +107,8 @@ class ContentsOfBookFragment : Fragment() {
         tvHistory.setOnClickListener {
             findNavController().navigate(R.id.action_contentsOfBookFragment_to_historyFragment)
         }
+        tvProjects.setOnClickListener {
+            findNavController().navigate(R.id.action_contentsOfBookFragment_to_projectsFragment)
+        }
     }
 }
