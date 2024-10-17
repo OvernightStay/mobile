@@ -103,6 +103,9 @@
         <action
             android:id="@+id/action_contentsOfBookFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_projectsFragment"
+            app:destination="@id/projectsFragment" />
     </fragment>
     <fragment
         android:id="@+id/houseFragment"
@@ -121,4 +124,50 @@
         android:name="com.overnightstay.view.book.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/projectsFragment"
+        android:name="com.overnightstay.view.book.projects.ProjectsFragment"
+        android:label="fragment_projects"
+        tools:layout="@layout/fragment_projects" >
+        <action
+            android:id="@+id/action_projectsFragment_to_projectNightBusFragment"
+            app:destination="@id/projectNightBusFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_projectHouseShowerFragment"
+            app:destination="@id/projectHouseShowerFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_projectHouseRehabilitationFragment"
+            app:destination="@id/projectHouseRehabilitationFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_projectHouseOfDistributionFragment"
+            app:destination="@id/projectHouseOfDistributionFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_projectHouseWarmFragment"
+            app:destination="@id/projectHouseWarmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/projectNightBusFragment"
+        android:name="com.overnightstay.view.book.projects.night_bus.ProjectNightBusFragment"
+        android:label="fragment_project_night_bus"
+        tools:layout="@layout/fragment_project_night_bus" />
+    <fragment
+        android:id="@+id/projectHouseShowerFragment"
+        android:name="com.overnightstay.view.book.projects.house_shower.ProjectHouseShowerFragment"
+        android:label="fragment_project_house_shower"
+        tools:layout="@layout/fragment_project_house_shower" />
+    <fragment
+        android:id="@+id/projectHouseRehabilitationFragment"
+        android:name="com.overnightstay.view.book.projects.house_rehabilitation.ProjectHouseRehabilitationFragment"
+        android:label="fragment_project_house_rehabilitation"
+        tools:layout="@layout/fragment_project_house_rehabilitation" />
+    <fragment
+        android:id="@+id/projectHouseOfDistributionFragment"
+        android:name="com.overnightstay.view.book.projects.house_of_distribution.ProjectHouseOfDistributionFragment"
+        android:label="fragment_house_of_distribution"
+        tools:layout="@layout/fragment_house_of_distribution" />
+    <fragment
+        android:id="@+id/projectHouseWarmFragment"
+        android:name="com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment"
+        android:label="fragment_project_house_warm"
+        tools:layout="@layout/fragment_project_house_warm" />
 </navigation>
