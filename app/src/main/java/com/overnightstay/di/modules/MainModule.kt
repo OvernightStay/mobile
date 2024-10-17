@@ -4,6 +4,12 @@ import com.overnightstay.view.MainActivity
 import com.overnightstay.view.auth.AuthFragment
 import com.overnightstay.view.book.contents.ContentsOfBookFragment
 import com.overnightstay.view.book.history.HistoryFragment
+import com.overnightstay.view.book.projects.ProjectsFragment
+import com.overnightstay.view.book.projects.house_of_distribution.ProjectHouseOfDistributionFragment
+import com.overnightstay.view.book.projects.house_rehabilitation.ProjectHouseRehabilitationFragment
+import com.overnightstay.view.book.projects.house_shower.ProjectHouseShowerFragment
+import com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment
+import com.overnightstay.view.book.projects.night_bus.ProjectNightBusFragment
 import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
@@ -53,5 +59,17 @@ interface MainModule {
     fun bindContentsOfBookFragment(): ContentsOfBookFragment
     @ContributesAndroidInjector
     fun bindOverNightStayProjectsFragment(): HistoryFragment
+    @ContributesAndroidInjector
+    fun bindProjectsFragment(): ProjectsFragment
+    @ContributesAndroidInjector
+    fun bindProjectNightBus(): ProjectNightBusFragment
+    @ContributesAndroidInjector
+    fun bindProjectHouseShower(): ProjectHouseShowerFragment
+    @ContributesAndroidInjector
+    fun bindProjectHouseRehabilitation(): ProjectHouseRehabilitationFragment
+    @ContributesAndroidInjector
+    fun bindProjectHouseOfDistribution(): ProjectHouseOfDistributionFragment
+    @ContributesAndroidInjector
+    fun bindProjectHouseWarm(): ProjectHouseWarmFragment
 
 }
