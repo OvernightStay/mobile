@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -69,33 +70,45 @@ class GameToFeedTheNeedyFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.countNegativ.collect {
                 if (it == 0) return@collect
-                Snackbar.make(
-                    binding.root,
-                    "Довольных = ${viewModel.countPositiv.value}, Недовольных = $it",
-                    Snackbar.LENGTH_LONG
-                ).show()
+//                Snackbar.make(
+//                    binding.root,
+//                    "Довольных = ${viewModel.countPositiv.value}, Недовольных = $it",
+//                    Snackbar.LENGTH_LONG
+//                ).show()
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.countPositiv.collect {
                 if (it == 0) return@collect
-                Snackbar.make(
-                    binding.root,
-                    "Довольных = $it, Недовольных = ${viewModel.countNegativ.value}",
-                    Snackbar.LENGTH_LONG
-                ).show()
+//                Snackbar.make(
+//                    binding.root,
+//                    "Довольных = $it, Недовольных = ${viewModel.countNegativ.value}",
+//                    Snackbar.LENGTH_LONG
+//                ).show()
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.isGameOver.collect {
                 if (it) {
-                    Snackbar.make(
-                        binding.root,
-                        "Конец игры. Довольных = ${viewModel.countPositiv.value}, Недовольных = ${viewModel.countNegativ.value}",
-                        Snackbar.LENGTH_LONG
-                    ).show()
+
+                    println("GameToFeedTheNeedyFragment: viewModel.isGameOver \"countPositiv\" to ${viewModel.countPositiv.value}, \"countNegativ\" to ${viewModel.countNegativ.value}")
+                    val bundle = bundleOf(
+                        "countPositiv" to viewModel.countPositiv.value,
+                        "countNegativ" to viewModel.countNegativ.value
+                    )
+
+                    findNavController().navigate(
+                        R.id.action_gameToFeedTheNeedyFragment_to_finishGameNightBusFragment,
+                        bundle
+                    )
+
+//                    Snackbar.make(
+//                        binding.root,
+//                        "Конец игры. Довольных = ${viewModel.countPositiv.value}, Недовольных = ${viewModel.countNegativ.value}",
+//                        Snackbar.LENGTH_LONG
+//                    ).show()
                 }
             }
         }
@@ -150,13 +163,17 @@ class GameToFeedTheNeedyFragment : Fragment() {
                         bread1.visibility = View.VISIBLE
                         bread2.visibility = View.VISIBLE
                         bread3.visibility = View.VISIBLE
-                        map.visibility = View.VISIBLE
+//                        map.visibility = View.VISIBLE
+
+                        rules.visibility = View.INVISIBLE
+                        gearWheel.visibility = View.INVISIBLE
+
                     }
                 }
             }
-            binding.map.setOnClickListener {
-                findNavController().navigate(R.id.action_gameToFeedTheNeedyFragment_to_locationMapFragment)
-            }
+//            binding.map.setOnClickListener {
+//                findNavController().navigate(R.id.action_gameToFeedTheNeedyFragment_to_locationMapFragment)
+//            }
         }
 
         binding.rules.setOnClickListener {

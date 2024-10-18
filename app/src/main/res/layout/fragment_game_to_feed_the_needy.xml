@@ -32,17 +32,17 @@
         app:layout_constraintEnd_toEndOf="@id/gear_wheel"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/map"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/img_map"
-        android:importantForAccessibility="no"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gear_wheel" />
+<!--    <ImageView-->
+<!--        android:id="@+id/map"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="@drawable/img_map"-->
+<!--        android:importantForAccessibility="no"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@id/gear_wheel" />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/needy"

@@ -24,11 +24,12 @@
         android:id="@+id/stress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="28dp"
+        android:layout_marginStart="32dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/img_stress"
+        android:src="@drawable/img_stress_white"
         app:layout_constraintStart_toEndOf="@id/home"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/home"
+        app:layout_constraintTop_toTopOf="@id/home" />
 
     <ImageView
         android:id="@+id/gear_wheel"
@@ -163,10 +164,154 @@
         android:layout_width="320dp"
         android:layout_height="328dp"
         android:background="@drawable/background_modal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_modal_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Молодец !"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_finish"
+            style="@style/ModalButtonGreen"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="21dp"
+            android:fontFamily="sans-serif"
+            android:text="Завершить"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_again"
+            style="@style/ModalButtonYellow"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif"
+            android:text="Попробовать снова"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/btn_finish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_positiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="89dp"
+            android:text="Довольные"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/btn_finish"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_count_positiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="89dp"
+            android:text="5\\6"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/btn_finish"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_negativ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Не довольные"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/btn_finish"
+            app:layout_constraintTop_toBottomOf="@id/tv_positiv" />
+
+        <TextView
+            android:id="@+id/tv_count_negativ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="1\\6"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/btn_finish"
+            app:layout_constraintTop_toBottomOf="@id/tv_positiv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/modal_achieve"
+        android:layout_width="320dp"
+        android:layout_height="328dp"
+        android:background="@drawable/background_modal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_modal_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Кружки дружбы"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/cups"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_achieve_cups"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/btn_take"
+            app:layout_constraintEnd_toEndOf="@id/btn_take"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_take"
+            style="@style/ModalButtonGreen"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="21dp"
+            android:fontFamily="sans-serif"
+            android:text="Забрать"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
