@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +25,8 @@ import javax.inject.Inject
 
 class GameToFeedTheNeedyFragment : Fragment() {
 
+    private var count = 0
+
     private lateinit var person1: Person
     private lateinit var person2: Person
     private lateinit var person3: Person
@@ -39,7 +42,6 @@ class GameToFeedTheNeedyFragment : Fragment() {
         "В Ночлежке мы следим, чтобы наши сотрудники и волонтеры чувствовали себя\nкомфортно, отдыхали.\nЯ тоже предлагаю тебе отдохнуть. Давай сыграем в мини игру.",
         "Нужно накормить нуждающихся. Будь внимателен. На подносе должны быть все три\nсоставляющих ужина. Нужно поторопиться, у клиентов есть шкала ожидания.\nЖелаю удачи!"
     )
-    private var count: Int = 0
 
     private lateinit var viewModel: GameNightBusViewModel
 
@@ -68,21 +70,46 @@ class GameToFeedTheNeedyFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.countNegativ.collect {
                 if (it == 0) return@collect
-                Snackbar.make(
-                    binding.root,
-                    "Довольных = ${viewModel.countPositiv.value}, Недовольных = $it",
-                    Snackbar.LENGTH_LONG
-                ).show()
+//                Snackbar.make(
+//                    binding.root,
+//                    "Довольных = ${viewModel.countPositiv.value}, Недовольных = $it",
+//                    Snackbar.LENGTH_LONG
+//                ).show()
             }
         }
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.countPositiv.collect {
                 if (it == 0) return@collect
-                Snackbar.make(
-                    binding.root,
-                    "Довольных = $it, Недовольных = ${viewModel.countNegativ.value}",
-                    Snackbar.LENGTH_LONG
-                ).show()
+//                Snackbar.make(
+//                    binding.root,
+//                    "Довольных = $it, Недовольных = ${viewModel.countNegativ.value}",
+//                    Snackbar.LENGTH_LONG
+//                ).show()
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.isGameOver.collect {
+                if (it) {
+
+                    println("GameToFeedTheNeedyFragment: viewModel.isGameOver \"countPositiv\" to ${viewModel.countPositiv.value}, \"countNegativ\" to ${viewModel.countNegativ.value}")
+                    val bundle = bundleOf(
+                        "countPositiv" to viewModel.countPositiv.value,
+                        "countNegativ" to viewModel.countNegativ.value
+                    )
+
+                    findNavController().navigate(
+                        R.id.action_gameToFeedTheNeedyFragment_to_finishGameNightBusFragment,
+                        bundle
+                    )
+
+//                    Snackbar.make(
+//                        binding.root,
+//                        "Конец игры. Довольных = ${viewModel.countPositiv.value}, Недовольных = ${viewModel.countNegativ.value}",
+//                        Snackbar.LENGTH_LONG
+//                    ).show()
+                }
             }
         }
 
@@ -113,8 +140,6 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
                 2 -> {
                     with(binding) {
-//                        startTimer1(20000L)
-
                         theNeedy1.setImageResource(person2.needy.idImg)
                         person2.startTimer()
                         theNeedy2.setImageResource(person1.needy.idImg)
@@ -138,13 +163,17 @@ class GameToFeedTheNeedyFragment : Fragment() {
                         bread1.visibility = View.VISIBLE
                         bread2.visibility = View.VISIBLE
                         bread3.visibility = View.VISIBLE
-                        map.visibility = View.VISIBLE
+//                        map.visibility = View.VISIBLE
+
+                        rules.visibility = View.INVISIBLE
+                        gearWheel.visibility = View.INVISIBLE
+
                     }
                 }
             }
-            binding.map.setOnClickListener {
-                findNavController().navigate(R.id.action_gameToFeedTheNeedyFragment_to_locationMapFragment)
-            }
+//            binding.map.setOnClickListener {
+//                findNavController().navigate(R.id.action_gameToFeedTheNeedyFragment_to_locationMapFragment)
+//            }
         }
 
         binding.rules.setOnClickListener {
@@ -231,10 +260,9 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
     private fun eat_needy() {
 
-        if (person1.progressStatus.progress != 0) {
+        if (!person1.getAngry()) {
             viewModel.addPositiv()
         }
-
         person1.stopTimer()
         person1 = person2
         person1.pos = PlacesPersons.CENTER
@@ -249,6 +277,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
                 .filter { it != person1.needy && it != person2.needy }.random()
         ) { viewModel.timerFinish() }
         person3.startTimer()
+
     }
 
     enum class PlacesPersons {
@@ -273,6 +302,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
         private val onTimerFinish: () -> Unit
     ) {
         private var timer: CountDownTimer? = null
+        private var isAngry: Boolean = false
 
         init {
             progressStatus.max = TIMER_STRESS_BAR.toInt()
@@ -283,6 +313,7 @@ class GameToFeedTheNeedyFragment : Fragment() {
                 }
 
                 override fun onFinish() {
+                    setAngry()
                     onTimerFinish()
                 }
 
@@ -300,11 +331,20 @@ class GameToFeedTheNeedyFragment : Fragment() {
         fun setProgress(milis: Long) {
             progressStatus.progress = milis.toInt()
         }
+
+        fun setAngry() {
+            isAngry = true
+        }
+
+        fun getAngry(): Boolean {
+            return isAngry
+        }
     }
 
     companion object {
         private const val TIMER_STRESS_BAR = 25000L
         private const val INTERVAL_TIMER_STRESS_BAR = 100L
+        private const val MAX_NEEDIES = 10
 
     }
 }
