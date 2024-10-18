@@ -217,6 +217,11 @@ class NightBusTrainingFragment : Fragment() {
                 }
 
             } else findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_gameToFeedTheNeedyFragment)
+            } else if (stress == Stress.GREEN) {
+                findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_gameToFeedTheNeedyFragment)
+            } else {
+                findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_contentsOfBookFragment)
+            }
         }
 
     }

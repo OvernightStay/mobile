@@ -14,15 +14,28 @@ class GameNightBusViewModel : ViewModel() {
     private val _countPositiv = MutableStateFlow(0)
     val countPositiv: StateFlow<Int> = _countPositiv
 
+    private val _isGameOver = MutableStateFlow(false)
+    val isGameOver: StateFlow<Boolean> = _isGameOver
+
     fun timerFinish() {
         viewModelScope.launch {
-            _countNegativ.emit(++_countNegativ.value)
+            _countNegativ.value++
+            if (_countNegativ.value + _countPositiv.value < 10) _countNegativ.emit(_countNegativ.value)
+            else gameOver()
         }
     }
 
     fun addPositiv() {
         viewModelScope.launch {
-            _countPositiv.emit(++_countPositiv.value)
+            _countPositiv.value++
+            if (_countNegativ.value + _countPositiv.value < 10) _countPositiv.emit(_countPositiv.value)
+            else gameOver()
+        }
+    }
+
+    fun gameOver() {
+        viewModelScope.launch {
+            _isGameOver.emit(true)
         }
     }
 

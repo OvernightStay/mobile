@@ -21,4 +21,6 @@
     <color name="shadow">#FF9D9D9D</color>
     <color name="download_color">#D3BF46</color>
 
+    <color name="modal_yellow">#FFE74F</color>
+
 </resources>

@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_nightBusTrainingFragment2_to_gameToFeedTheNeedyFragment"
             app:destination="@id/gameToFeedTheNeedyFragment" />
+        <action
+            android:id="@+id/action_nightBusTrainingFragment2_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameToFeedTheNeedyFragment"
@@ -67,6 +70,9 @@
         <action
             android:id="@+id/action_gameToFeedTheNeedyFragment_to_contentsOfBookFragment"
             app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_gameToFeedTheNeedyFragment_to_finishGameNightBusFragment"
+            app:destination="@id/finishGameNightBusFragment" />
     </fragment>
     <fragment
         android:id="@+id/dialogOnTheStreetFragment"
@@ -193,5 +199,18 @@
         <action
             android:id="@+id/action_dialogInTheBuilding2Fragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
+        android:id="@+id/finishGameNightBusFragment"
+        android:name="com.overnightstay.view.night_bus.finishminigame.FinishGameNightBusFragment"
+        android:label="FinishGameNightBusFragment"
+        tools:layout="@layout/fragment_finish_game_night_bus">
+        <action
+            android:id="@+id/action_finishGameNightBusFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_finishGameNightBusFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_finishGameNightBusFragment_to_gameToFeedTheNeedyFragment"
+            app:destination="@id/gameToFeedTheNeedyFragment" />
     </fragment>
 </navigation>
