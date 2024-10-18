@@ -94,6 +94,9 @@
         <action
             android:id="@+id/action_dialogInTheBuildingFragment_to_contentsOfBookFragment"
             app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuildingFragment_to_dialogInTheBuilding2Fragment"
+            app:destination="@id/dialogInTheBuilding2Fragment" />
     </fragment>
     <fragment
         android:id="@+id/contentsOfBookFragment"
@@ -167,7 +170,7 @@
         android:id="@+id/projectHouseOfDistributionFragment"
         android:name="com.overnightstay.view.book.projects.house_of_distribution.ProjectHouseOfDistributionFragment"
         android:label="fragment_house_of_distribution"
-        tools:layout="@layout/fragment_house_of_distribution" />
+        tools:layout="@layout/fragment_project_house_of_distribution" />
     <fragment
         android:id="@+id/projectHouseWarmFragment"
         android:name="com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment"
@@ -180,6 +183,15 @@
         tools:layout="@layout/fragment_backpack" >
         <action
             android:id="@+id/action_backpackFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dialogInTheBuilding2Fragment"
+        android:name="com.overnightstay.view.house_shower.DialogInTheBuilding2Fragment"
+        android:label="fragment_dialog_in_the_building2"
+        tools:layout="@layout/fragment_dialog_in_the_building2" >
+        <action
+            android:id="@+id/action_dialogInTheBuilding2Fragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
     </fragment>
 </navigation>

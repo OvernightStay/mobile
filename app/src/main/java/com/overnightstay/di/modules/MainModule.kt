@@ -14,6 +14,7 @@ import com.overnightstay.view.book.projects.night_bus.ProjectNightBusFragment
 import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
+import com.overnightstay.view.house_shower.DialogInTheBuilding2Fragment
 import com.overnightstay.view.location_map.LocationMapFragment
 import com.overnightstay.view.night_bus.minigame.GameToFeedTheNeedyFragment
 import com.overnightstay.view.house_shower.DialogInTheBuildingFragment
@@ -74,5 +75,7 @@ interface MainModule {
     fun bindProjectHouseWarmFragment(): ProjectHouseWarmFragment
     @ContributesAndroidInjector
     fun bindBackpackFragment(): BackpackFragment
+    @ContributesAndroidInjector
+    fun bindDialogInTheBuilding2Fragment(): DialogInTheBuilding2Fragment
 
 }

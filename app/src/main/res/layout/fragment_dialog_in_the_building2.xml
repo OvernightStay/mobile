@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.house_shower.DialogInTheBuildingFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.house_shower.DialogInTheBuilding2Fragment">
 
     <ImageView
         android:id="@+id/bg_house_shower_01"
@@ -21,68 +21,13 @@
         android:id="@+id/bg_michael"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:layout_goneMarginStart="183dp"
+        android:visibility="gone"
         android:importantForAccessibility="no"
         android:src="@drawable/bg_house_shower_michael"
         app:layout_constraintStart_toEndOf="@id/cat_status"
-        app:layout_constraintBottom_toTopOf="@id/text" />
-
-    <ImageView
-        android:id="@+id/bg_house_shower_02"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginStart="-40dp"
-        android:layout_marginBottom="-10dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_shower_building_02"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_02"
-        app:layout_constraintStart_toStartOf="@id/guideline"/>
-
-    <ImageView
-        android:id="@+id/bg_vladimir"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:visibility="gone"
-        android:src="@drawable/bg_house_shower_old_vladimir"
-        app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_02"/>
-
-    <ImageView
-        android:id="@+id/bg_michael_02"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginEnd="20dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_shower_michael"
-        app:layout_constraintEnd_toStartOf="@id/bg_vladimir"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_02" />
-
-    <ImageView
-        android:id="@+id/leaflet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:src="@drawable/bg_house_shower_leaflet"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="62dp"
-        app:layout_constraintStart_toStartOf="@id/bg_house_shower_02"
-        app:layout_constraintBottom_toBottomOf="@id/bg_house_shower_02"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67430025" />
+        app:layout_constraintBottom_toTopOf="@id/gudeline" />
 
     <ImageView
         android:id="@+id/home"
@@ -171,6 +116,25 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/vladimir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_vladimir"
+        android:visibility="gone"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/vladimir_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-10dp"
+        android:src="@drawable/bg_vladimir"
+        app:layout_constraintStart_toEndOf="@id/cat_status"
+        app:layout_constraintBottom_toTopOf="@id/gudeline"/>
+
+    <ImageView
         android:id="@+id/user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -185,7 +149,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="14dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/dialog_house_shower_status"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -240,19 +203,52 @@
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toEndOf="@id/rectangle" />
 
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_next"
+        app:layout_constraintStart_toStartOf="@id/rectangle"
+        app:layout_constraintTop_toTopOf="@id/gudeline">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_button_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RadioGroup>
+
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/cat_status"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/cat_status"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
-        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+        app:layout_constraintTop_toTopOf="@+id/gudeline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gudeline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
