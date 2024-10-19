@@ -32,17 +32,17 @@
         app:layout_constraintEnd_toEndOf="@id/gear_wheel"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/map"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="80dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:background="@drawable/img_map"-->
-<!--        android:importantForAccessibility="no"-->
-<!--        android:visibility="gone"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@id/gear_wheel" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/map"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="80dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:background="@drawable/img_map"-->
+    <!--        android:importantForAccessibility="no"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/gear_wheel" />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/needy"
@@ -63,15 +63,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <View-->
-<!--            android:id="@+id/stress_bar_1"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="12dp"-->
-<!--            android:layout_marginStart="30dp"-->
-<!--            android:background="@drawable/stress_bar_the_needy"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_1"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <View-->
+        <!--            android:id="@+id/stress_bar_1"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="12dp"-->
+        <!--            android:layout_marginStart="30dp"-->
+        <!--            android:background="@drawable/stress_bar_the_needy"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_1"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ProgressBar
             android:id="@+id/pb_stress2"
@@ -84,15 +84,15 @@
             app:layout_constraintStart_toEndOf="@id/pb_stress1"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <View-->
-<!--            android:id="@+id/stress_bar_2"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="12dp"-->
-<!--            android:background="@drawable/stress_bar_the_needy"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_2"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/stress_bar_3"-->
-<!--            app:layout_constraintStart_toEndOf="@id/pb_stress1"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <View-->
+        <!--            android:id="@+id/stress_bar_2"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="12dp"-->
+        <!--            android:background="@drawable/stress_bar_the_needy"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_2"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/stress_bar_3"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/pb_stress1"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ProgressBar
             android:id="@+id/pb_stress3"
@@ -104,15 +104,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <View-->
-<!--            android:id="@+id/stress_bar_3"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="12dp"-->
-<!--            android:layout_marginEnd="36dp"-->
-<!--            android:background="@drawable/stress_bar_the_needy"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_3"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <View-->
+        <!--            android:id="@+id/stress_bar_3"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="12dp"-->
+        <!--            android:layout_marginEnd="36dp"-->
+        <!--            android:background="@drawable/stress_bar_the_needy"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_3"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ImageView
             android:id="@+id/the_needy_1"
@@ -323,12 +323,13 @@
     <TextView
         android:id="@+id/status_name"
         android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:paddingBottom="4dp"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"

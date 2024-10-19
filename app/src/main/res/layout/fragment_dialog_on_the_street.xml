@@ -7,7 +7,7 @@
     tools:context=".view.house_shower.DialogOnTheStreetFragment">
 
     <ImageView
-        android:id="@+id/bg_neravnodush"
+        android:id="@+id/bg_house_shower"
         android:layout_width="0dp"
         android:layout_height="350dp"
         android:importantForAccessibility="no"
@@ -124,17 +124,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-
     <TextView
         android:id="@+id/status_name"
         android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:paddingBottom="4dp"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -144,16 +143,17 @@
     <TextView
         android:id="@+id/user_name"
         android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:paddingBottom="4dp"
         android:text="Пользователь"
-        android:visibility="gone"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle"
         tools:ignore="RtlSymmetry" />
@@ -176,11 +176,12 @@
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="50dp"
-        android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/cat_status"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />

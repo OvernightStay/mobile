@@ -1,120 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_night_bus_01"
-    tools:context=".view.night_bus.NightBusTrainingFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.house_shower.DialogInTheBuilding2Fragment">
+
+    <ImageView
+        android:id="@+id/bg_house_shower_01"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/bg_house_shower_building_01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bg_michael"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:layout_goneMarginStart="183dp"
+        android:visibility="gone"
+        android:importantForAccessibility="no"
+        android:src="@drawable/bg_house_shower_michael"
+        app:layout_constraintStart_toEndOf="@id/cat_status"
+        app:layout_constraintBottom_toTopOf="@id/guideline" />
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/stress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="14dp"
+        android:layout_margin="28dp"
         android:importantForAccessibility="no"
         android:src="@drawable/img_stress"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/home"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/gear_wheel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="14dp"
+        android:layout_margin="14dp"
         android:background="@drawable/img_gear_wheel"
         android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/rules"
+        android:id="@+id/backpack"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/img_backpack"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/gear_wheel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/img_rules"
         android:importantForAccessibility="no"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/gear_wheel"
+        app:layout_constraintEnd_toStartOf="@id/backpack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/michael"
+        android:id="@+id/cat_avatar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/img_michael"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cat_status"
-        app:layout_goneMarginStart="14dp" />
-
-    <ImageView
-        android:id="@+id/user"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="14dp"
-        android:background="@drawable/man"
+        android:background="@drawable/img_cat_avatar"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <View
-        android:id="@+id/bg_transparent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#90000000"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/gear_wheel" />
+
+    <ImageView
+        android:id="@+id/map"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/img_map"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cat_avatar" />
 
     <ImageView
         android:id="@+id/cat_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/img_cat_status"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/psycholog"
+        android:id="@+id/vladimir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/img_psychologist"
-        android:importantForAccessibility="no"
+        android:src="@drawable/img_vladimir"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/user"
-        app:layout_constraintStart_toEndOf="@id/cat_status" />
+        android:layout_marginBottom="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
-        android:id="@+id/cards"
+        android:id="@+id/vladimir_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-10dp"
+        android:src="@drawable/bg_vladimir"
+        app:layout_constraintStart_toEndOf="@id/cat_status"
+        app:layout_constraintBottom_toTopOf="@id/guideline"/>
+
+    <ImageView
+        android:id="@+id/user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/cards"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/img_user_house_shower"
         android:importantForAccessibility="no"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle"
-        app:layout_constraintEnd_toStartOf="@+id/user"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:id="@+id/rectangle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="14dp"
-        android:background="@drawable/rectangle_100"
+        android:background="@drawable/dialog_house_shower_status"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,11 +159,11 @@
         android:id="@+id/status_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/user_name"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:paddingBottom="4dp"
         android:text="Статус"
         android:textColor="@color/white"
@@ -159,7 +194,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/dating_dialog_next"
         android:importantForAccessibility="no"
         android:src="@drawable/dating_dialog_next"
@@ -172,12 +207,11 @@
         android:id="@+id/radio_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/rectangle"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
-        app:layout_constraintStart_toStartOf="@id/rectangle">
+        app:layout_constraintStart_toStartOf="@id/rectangle"
+        app:layout_constraintTop_toTopOf="@id/guideline">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_button_1"
@@ -198,15 +232,23 @@
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/cat_status"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/cat_status"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
-        app:layout_constraintStart_toStartOf="@id/rectangle"
-        app:layout_constraintTop_toTopOf="@+id/rectangle"
-        app:layout_goneMarginStart="20dp" />
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
