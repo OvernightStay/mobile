@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.overnightstay.databinding.FragmentHouseOfDistributionBinding
+import com.overnightstay.databinding.FragmentProjectHouseOfDistributionBinding
 import dagger.android.support.AndroidSupportInjection
 
 class ProjectHouseOfDistributionFragment : Fragment() {
 
-    private var _binding: FragmentHouseOfDistributionBinding? = null
+    private var _binding: FragmentProjectHouseOfDistributionBinding? = null
     private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
@@ -23,7 +23,7 @@ class ProjectHouseOfDistributionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHouseOfDistributionBinding.inflate(inflater, container, false)
+        _binding = FragmentProjectHouseOfDistributionBinding.inflate(inflater, container, false)
         return binding.root
     }
 

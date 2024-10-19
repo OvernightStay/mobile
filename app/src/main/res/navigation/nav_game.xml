@@ -173,7 +173,7 @@
         android:id="@+id/projectHouseOfDistributionFragment"
         android:name="com.overnightstay.view.book.projects.house_of_distribution.ProjectHouseOfDistributionFragment"
         android:label="fragment_house_of_distribution"
-        tools:layout="@layout/fragment_house_of_distribution" />
+        tools:layout="@layout/fragment_project_house_of_distribution" />
     <fragment
         android:id="@+id/projectHouseWarmFragment"
         android:name="com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment"
