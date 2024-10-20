@@ -49,7 +49,6 @@ class FinishGameNightBusViewModel : ViewModel() {
         nextStage()
     }
 
-
     class Factory(
     ) : ViewModelProvider.Factory {
 

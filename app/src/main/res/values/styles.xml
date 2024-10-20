@@ -26,6 +26,16 @@
         <item name="fontFamily">sans-serif</item>
         <!-- Другие стили для кнопки -->
     </style>
+    <style name="MemoCardBack">
+        <item name="android:background">@drawable/background_memo_backcard</item>
+    </style>
+
+    <style name="MemoCardBackStyle">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@drawable/background_memo_backcard</item>
+    </style>
 
 <!--    <style name="w2wmatch.TextStyle" parent="@android:style/TextAppearance">-->
 <!--        <item name="fontFamily">sans-serif</item>-->

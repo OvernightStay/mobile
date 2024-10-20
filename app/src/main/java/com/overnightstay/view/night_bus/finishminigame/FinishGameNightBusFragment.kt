@@ -70,7 +70,6 @@ class FinishGameNightBusFragment : Fragment() {
         initBtnListeners()
     }
 
-
     private fun initBtnListeners() = with(binding) {
         btnAgain.setOnClickListener {
             findNavController().navigate(R.id.action_finishGameNightBusFragment_to_gameToFeedTheNeedyFragment)
@@ -84,6 +83,11 @@ class FinishGameNightBusFragment : Fragment() {
             viewModel.takeAchieve()
         }
         dialogNext.setOnClickListener {
+            if (currentAnimator.isRunning) {
+                currentAnimator.end()
+                return@setOnClickListener
+            }
+
             viewModel.nextStage()
         }
         map.setOnClickListener {
