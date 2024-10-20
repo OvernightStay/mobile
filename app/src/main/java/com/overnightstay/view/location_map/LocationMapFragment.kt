@@ -71,10 +71,6 @@ class LocationMapFragment : Fragment() {
                     animator = currentAnimator
                 )
 
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
-
             } else if (count == 3) {
                 binding.rectangle.visibility = View.INVISIBLE
                 binding.catStatus.visibility = View.INVISIBLE

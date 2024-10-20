@@ -174,9 +174,6 @@ class DialogInTheBuilding2Fragment : Fragment() {
                     text = array[count],
                     animator = currentAnimator
                 )
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
 
             } else if (stress == Stress.GREEN) {
                 findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_locationMapFragment)
