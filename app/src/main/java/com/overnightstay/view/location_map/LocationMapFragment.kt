@@ -71,10 +71,6 @@ class LocationMapFragment : Fragment() {
                     animator = currentAnimator
                 )
 
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
-
             } else if (count == 3) {
                 binding.rectangle.visibility = View.INVISIBLE
                 binding.catStatus.visibility = View.INVISIBLE
@@ -144,7 +140,7 @@ class LocationMapFragment : Fragment() {
         IMG_HOUSE_REHABILITATION(R.id.img_house_rehabilitation),
         IMG_HOUSE_CONSULTATION(R.id.img_house_consultation),
         IMG_HOUSE_HALFPATH(R.id.img_house_halfpath),
-        IMG_HOUSE_WARM(R.id.img_house_warm),
+        IMG_HOUSE_WARM(R.id.img_house_warm, R.id.action_locationMapFragment_to_houseWarmFragment),
         IMG_HOUSE_OF_DISTRIBUTION(R.id.img_house_of_distribution),
         IMG_HOUSE_NIGHT(R.id.img_house_night),
         IMG_HOUSE_PSYCHOLOGIST(R.id.img_house_psychologist);

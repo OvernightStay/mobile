@@ -19,7 +19,6 @@ import com.overnightstay.R
 import com.overnightstay.databinding.FragmentGameToFeedTheNeedyBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -133,9 +132,6 @@ class GameToFeedTheNeedyFragment : Fragment() {
                         text = array[count],
                         animator = currentAnimator
                     )
-                    lifecycleScope.launch {
-                        delay(25L * array[count].length.toLong())
-                    }
                 }
 
                 2 -> {
