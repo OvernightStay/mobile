@@ -482,7 +482,7 @@ class HouseOfDistributionFragment : Fragment() {
                 }
             }
             HouseOfDistributionEnum.DISTRIBUTION_STAGE_FINISH -> {
-
+                findNavController().navigate(R.id.action_houseOfDistributionFragment_to_gameMemoDistrFragment)
             }
         }
     }

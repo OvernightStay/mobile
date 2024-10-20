@@ -15,6 +15,7 @@ import com.overnightstay.view.choose_pers.ChoosePersFragment
 import com.overnightstay.view.congr.CongrFragment
 import com.overnightstay.view.dating.DatingFragment
 import com.overnightstay.view.house_of_distribution.HouseOfDistributionFragment
+import com.overnightstay.view.house_of_distribution.minigame.GameMemoDistrFragment
 import com.overnightstay.view.house_shower.DialogInTheBuilding2Fragment
 import com.overnightstay.view.location_map.LocationMapFragment
 import com.overnightstay.view.night_bus.minigame.GameToFeedTheNeedyFragment
@@ -89,5 +90,7 @@ interface MainModule {
     fun bindHouseWarmFragment(): HouseWarmFragment
     @ContributesAndroidInjector
     fun bindGameHouseWarmFragment(): GameHouseWarmFragment
+    @ContributesAndroidInjector
+    fun bindGameMemoDistrFragment(): GameMemoDistrFragment
 
 }
