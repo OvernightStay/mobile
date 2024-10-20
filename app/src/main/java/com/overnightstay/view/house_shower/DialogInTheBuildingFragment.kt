@@ -7,14 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDialogInTheBuildingBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class DialogInTheBuildingFragment : Fragment() {
 
@@ -82,6 +79,7 @@ class DialogInTheBuildingFragment : Fragment() {
                     }
                     2 -> {
                         with(binding) {
+                            catStatus.setBackgroundResource(R.drawable.img_cat_status_emotions)
                             rectangle.setBackgroundResource(R.drawable.dialog_house_shower_status)
                             statusName.visibility = View.VISIBLE
                             userName.visibility = View.GONE
@@ -94,6 +92,7 @@ class DialogInTheBuildingFragment : Fragment() {
                     }
                     3 -> {
                         with(binding) {
+                            catStatus.setBackgroundResource(R.drawable.img_cat_status)
                             bgHouseShower02.visibility = View.GONE
                             bgMichael02.visibility = View.GONE
                             bgVladimir.visibility = View.GONE
@@ -174,9 +173,6 @@ class DialogInTheBuildingFragment : Fragment() {
                     text = array[count],
                     animator = currentAnimator
                 )
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
 
             } else findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_dialogInTheBuilding2Fragment)
         }

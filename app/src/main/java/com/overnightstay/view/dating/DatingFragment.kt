@@ -70,9 +70,6 @@ class DatingFragment : Fragment() {
 
             if (count < array.size) {
                 binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
             } else findNavController().navigate(R.id.action_datingFragment_to_locationMapFragment)
         }
     }

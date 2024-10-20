@@ -7,14 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentNightBusBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class NightBusFragment : Fragment() {
 
@@ -74,10 +71,6 @@ class NightBusFragment : Fragment() {
 
             if (count < array.size) {
                 binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
-
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
 
                 when (count) {
                     2, 4, 7, 10, 13 -> user()

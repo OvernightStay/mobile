@@ -20,6 +20,8 @@ import com.overnightstay.view.location_map.LocationMapFragment
 import com.overnightstay.view.night_bus.minigame.GameToFeedTheNeedyFragment
 import com.overnightstay.view.house_shower.DialogInTheBuildingFragment
 import com.overnightstay.view.house_shower.DialogOnTheStreetFragment
+import com.overnightstay.view.house_warm.HouseWarmFragment
+import com.overnightstay.view.house_warm.minigame.GameHouseWarmFragment
 import com.overnightstay.view.night_bus.NightBusFragment
 import com.overnightstay.view.night_bus.NightBusTrainingFragment
 import com.overnightstay.view.night_bus.finishminigame.FinishGameNightBusFragment
@@ -83,5 +85,9 @@ interface MainModule {
     fun bindDialogInTheBuilding2Fragment(): DialogInTheBuilding2Fragment
     @ContributesAndroidInjector
     fun bindHouseOfDistributionFragment(): HouseOfDistributionFragment
+    @ContributesAndroidInjector
+    fun bindHouseWarmFragment(): HouseWarmFragment
+    @ContributesAndroidInjector
+    fun bindGameHouseWarmFragment(): GameHouseWarmFragment
 
 }
