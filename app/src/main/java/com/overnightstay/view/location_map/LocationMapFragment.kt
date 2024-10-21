@@ -140,8 +140,8 @@ class LocationMapFragment : Fragment() {
         IMG_HOUSE_REHABILITATION(R.id.img_house_rehabilitation),
         IMG_HOUSE_CONSULTATION(R.id.img_house_consultation),
         IMG_HOUSE_HALFPATH(R.id.img_house_halfpath),
+        IMG_HOUSE_OF_DISTRIBUTION(R.id.img_house_of_distribution, R.id.action_locationMapFragment_to_houseOfDistributionFragment),
         IMG_HOUSE_WARM(R.id.img_house_warm, R.id.action_locationMapFragment_to_houseWarmFragment),
-        IMG_HOUSE_OF_DISTRIBUTION(R.id.img_house_of_distribution),
         IMG_HOUSE_NIGHT(R.id.img_house_night),
         IMG_HOUSE_PSYCHOLOGIST(R.id.img_house_psychologist);
 

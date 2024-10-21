@@ -9,6 +9,8 @@ import com.overnightstay.view.auth.AuthViewModel
 import com.overnightstay.view.book.contents.ContentsOfBookViewModel
 import com.overnightstay.view.choose_pers.ChoosePersViewModel
 import com.overnightstay.view.congr.CongrViewModel
+import com.overnightstay.view.house_of_distribution.HouseOfDistributionViewModel
+import com.overnightstay.view.house_of_distribution.minigame.GameMemoDistrViewModel
 import com.overnightstay.view.night_bus.finishminigame.FinishGameNightBusViewModel
 import com.overnightstay.view.night_bus.minigame.GameNightBusViewModel
 import com.overnightstay.view.reg.RegViewModel
@@ -66,5 +68,17 @@ class AppModule() {
     fun provideFinishGameNightBusViewModelFactory(
 
         ) = FinishGameNightBusViewModel.Factory(
+    )
+
+    @Provides
+    fun provideHouseOfDistributionViewModelFactory(
+
+        ) = HouseOfDistributionViewModel.Factory(
+    )
+
+    @Provides
+    fun provideGameMemoDistrViewModelFactory(
+
+        ) = GameMemoDistrViewModel.Factory(
     )
 }

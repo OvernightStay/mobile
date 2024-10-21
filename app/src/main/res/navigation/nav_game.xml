@@ -47,6 +47,9 @@
             android:id="@+id/action_locationMapFragment_to_backpackFragment"
             app:destination="@id/backpackFragment" />
         <action
+            android:id="@+id/action_locationMapFragment_to_houseOfDistributionFragment"
+            app:destination="@id/houseOfDistributionFragment" />
+        <action
             android:id="@+id/action_locationMapFragment_to_houseWarmFragment"
             app:destination="@id/houseWarmFragment" />
     </fragment>
@@ -176,7 +179,7 @@
         android:id="@+id/projectHouseOfDistributionFragment"
         android:name="com.overnightstay.view.book.projects.house_of_distribution.ProjectHouseOfDistributionFragment"
         android:label="fragment_house_of_distribution"
-        tools:layout="@layout/fragment_house_of_distribution" />
+        tools:layout="@layout/fragment_project_house_of_distribution" />
     <fragment
         android:id="@+id/projectHouseWarmFragment"
         android:name="com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment"
@@ -214,9 +217,24 @@
         <action
             android:id="@+id/action_dialogInTheBuilding2Fragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/houseOfDistributionFragment"
+        android:name="com.overnightstay.view.house_of_distribution.HouseOfDistributionFragment"
+        android:label="fragment_house_of_distribution"
+        tools:layout="@layout/fragment_house_of_distribution" >
+        <action
+            android:id="@+id/action_houseOfDistributionFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_houseOfDistributionFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
         <action
             android:id="@+id/action_dialogInTheBuilding2Fragment_to_contentsOfBookFragment"
             app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_houseOfDistributionFragment_to_gameMemoDistrFragment"
+            app:destination="@id/gameMemoDistrFragment" />
     </fragment>
     <fragment
         android:id="@+id/houseWarmFragment"
@@ -237,6 +255,12 @@
         tools:layout="@layout/fragment_game_house_warm" >
         <action
             android:id="@+id/action_gameHouseWarmFragment_to_backpackFragment"
-            app:destination="@id/backpackFragment" />
+            app:destination="@id/backpackFragment"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/gameMemoDistrFragment"
+        android:name="com.overnightstay.view.house_of_distribution.minigame.GameMemoDistrFragment"
+        android:label="GameMemoDistrFragment"
+        tools:layout="@layout/fragment_game_memo_distr"/>
 </navigation>
