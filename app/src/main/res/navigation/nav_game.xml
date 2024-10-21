@@ -255,9 +255,9 @@
         tools:layout="@layout/fragment_game_house_warm" >
         <action
             android:id="@+id/action_gameHouseWarmFragment_to_backpackFragment"
-            app:destination="@id/backpackFragment" />
+            app:destination="@id/backpackFragment"/>
     </fragment>
-        tools:layout="@layout/fragment_game_house_warm" />
+
     <fragment
         android:id="@+id/gameMemoDistrFragment"
         android:name="com.overnightstay.view.house_of_distribution.minigame.GameMemoDistrFragment"
