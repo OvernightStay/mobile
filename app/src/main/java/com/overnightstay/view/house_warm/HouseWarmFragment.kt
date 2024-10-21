@@ -284,7 +284,7 @@ class HouseWarmFragment : Fragment() {
                     }
                 }
             } else if (stress == Stress.GREEN) {
-                findNavController().navigate(R.id.action_houseWarmFragment_to_locationMapFragment)
+                findNavController().navigate(R.id.action_houseWarmFragment_to_gameHouseWarmFragment)
             } else {
                 findNavController().navigate(R.id.action_houseWarmFragment_to_contentsOfBookFragment)
             }
