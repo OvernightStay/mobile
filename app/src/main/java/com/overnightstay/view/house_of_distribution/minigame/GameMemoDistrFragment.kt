@@ -9,6 +9,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentGameMemoDistrBinding
 import com.overnightstay.domain.models.IndexMemoGame
@@ -60,9 +61,6 @@ class GameMemoDistrFragment : Fragment() {
                 println("GameMemoDistrFragment: счетчик пар мемо = ${GameMemoDistrState.count}")
 
                 when (it) {
-//                    0 -> {
-//                        println("нулевая ветка: счетчик пар мемо = ${GameMemoDistrState.count}")
-//                    }
                     0 -> {
                         with(binding) {
                             catStatus.show()
@@ -139,7 +137,7 @@ class GameMemoDistrFragment : Fragment() {
         }
     }
 
-    private fun gameLogic(state: GameMemoDistrState) {
+    private suspend fun gameLogic(state: GameMemoDistrState) {
         when (state) {
             GameMemoDistrState.MemoStart -> {
                 initFieldMemo(MemoElementEnum.fillMemoField())
@@ -157,7 +155,9 @@ class GameMemoDistrFragment : Fragment() {
                 }
             }
 
-            is GameMemoDistrState.MemoFinish -> {}
+            is GameMemoDistrState.MemoFinish -> {
+                findNavController().navigate(R.id.action_gameMemoDistrFragment_to_finishGameMemoDistrFragment)
+            }
 
             is GameMemoDistrState.MemoOpenedCard<*> -> {
                 if (state.data is IndexMemoGame) {
@@ -220,7 +220,7 @@ class GameMemoDistrFragment : Fragment() {
                                 arrFieldMemo[secondElement.i][secondElement.j].view.show()
 
                             }
-                        }
+                        }.join()
 
                         viewModel.allReverseCards()
 
