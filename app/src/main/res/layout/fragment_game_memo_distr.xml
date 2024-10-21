@@ -118,7 +118,97 @@
         app:layout_constraintStart_toStartOf="@id/bubble"
         app:layout_constraintTop_toTopOf="@id/bubble" />
 
+    <ImageView
+        android:id="@+id/memo_shampoo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="91dp"
+        android:background="@drawable/img_memo_shampoo"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="@id/field_memo"
+        app:layout_constraintStart_toEndOf="@id/field_memo" />
+
+    <ImageView
+        android:id="@+id/memo_boots"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/img_memo_boots"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/memo_shampoo"
+        app:layout_constraintStart_toStartOf="@id/memo_shampoo" />
+
+    <ImageView
+        android:id="@+id/memo_jacket"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/img_memo_jacket"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/memo_boots"
+        app:layout_constraintStart_toStartOf="@id/memo_boots" />
+
+    <ImageView
+        android:id="@+id/memo_backpack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/img_memo_backpack"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/memo_jacket"
+        app:layout_constraintStart_toStartOf="@id/memo_jacket" />
+
+    <ImageView
+        android:id="@+id/memo_dress"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/img_memo_dress"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="@id/memo_shampoo"
+        app:layout_constraintStart_toEndOf="@id/memo_shampoo" />
+
+    <ImageView
+        android:id="@+id/memo_razor"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/img_memo_razor"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/memo_dress"
+        app:layout_constraintStart_toStartOf="@id/memo_dress" />
+
+    <ImageView
+        android:id="@+id/memo_tooth"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/img_memo_tooth"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/memo_razor"
+        app:layout_constraintStart_toStartOf="@id/memo_razor" />
+
+    <ImageView
+        android:id="@+id/memo_sweater"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/img_memo_sweater"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/memo_tooth"
+        app:layout_constraintStart_toStartOf="@id/memo_tooth" />
+
     <LinearLayout
+        android:id="@+id/field_memo"
         android:layout_width="310dp"
         android:layout_height="310dp"
         android:orientation="vertical"
