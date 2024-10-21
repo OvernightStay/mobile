@@ -164,7 +164,7 @@
         android:layout_width="320dp"
         android:layout_height="328dp"
         android:background="@drawable/background_modal"
-        android:visibility="gone"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
