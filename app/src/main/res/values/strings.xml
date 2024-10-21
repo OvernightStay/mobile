@@ -104,4 +104,12 @@
     <string name="text_distribution_stage4_2">Хорошо, что нужно делать?</string>
     <string name="text_distribution_stage4_3">В игре нужно открывать карточки и искать одинаковые изображения на них. Если вы\nнашли две одинаковые картинки, то они исчезают. Игра продолжается до тех пор, пока\nна поле не останется карточек.</string>
 
+    <!-- Пункт выдачи. Игра Мемо. -->
+    <string name="text_game_memo_start">Найди пару</string>
+    <string name="text_game_memo_first_match">Отличное начало!</string>
+    <string name="text_game_memo_second_match">Так держать!</string>
+    <string name="text_game_memo_not_match">Попробуй еще раз!</string>
+    <string name="text_game_memo_after_not_match">Уже лучше!</string>
+    <string name="text_game_memo_last_pair">Последняя пара!</string>
+
 </resources>

@@ -1,6 +1,5 @@
 package com.overnightstay.view.house_of_distribution.minigame
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -55,40 +54,100 @@ class GameMemoDistrFragment : Fragment() {
                 gameLogic(it)
             }
         }
-    }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.count.collect {
 
-    private suspend fun gameLogic(state: GameMemoDistrState) {
-        when (state) {
-            is GameMemoDistrState.MemoFirstMatch<*> -> {}
-            is GameMemoDistrState.MemoSecondMatch<*> -> {}
-            is GameMemoDistrState.MemoNotMatch<*> -> {
-            }
+                println("GameMemoDistrFragment: счетчик пар мемо = ${GameMemoDistrState.count}")
 
-            is GameMemoDistrState.MemoMatchAfterNot<*> -> {}
-            is GameMemoDistrState.MemoLastMatch<*> -> {}
-            is GameMemoDistrState.MemoFinish<*> -> {}
+                when (it) {
+//                    0 -> {
+//                        println("нулевая ветка: счетчик пар мемо = ${GameMemoDistrState.count}")
+//                    }
+                    0 -> {
+                        with(binding) {
+                            catStatus.show()
+                            bubble.show()
+                            text.setText(R.string.text_game_memo_start)
+                            text.show()
+                        }
 
-            is GameMemoDistrState.MemoOpenedCard<*> -> {
-                if(state.data is IndexMemoGame) {
-                    arrFieldMemo[state.data.i][state.data.j].view.setBackgroundResource(R.drawable.background_memo_card)
-                    arrFieldMemo[state.data.i][state.data.j].view.setImageResource(
-                        arrFieldMemo[state.data.i][state.data.j].memoElement.imageViewId)
+                        delay(3000L)
+
+                        with(binding) {
+                            catStatus.hide()
+                            bubble.hide()
+                            text.text = ""
+                            text.hide()
+                        }
+                    }
+                    1 -> {
+                        with(binding) {
+                            catStatus.show()
+                            bubble.show()
+                            text.setText(R.string.text_game_memo_first_match)
+                            text.show()
+                        }
+
+                        delay(1500L)
+
+                        with(binding) {
+                            catStatus.hide()
+                            bubble.hide()
+                            text.text = ""
+                            text.hide()
+                        }
+                    }
+                    2 -> {
+                        with(binding) {
+                            catStatus.show()
+                            bubble.show()
+                            text.setText(R.string.text_game_memo_second_match)
+                            text.show()
+                        }
+
+                        delay(1500L)
+
+                        with(binding) {
+                            catStatus.hide()
+                            bubble.hide()
+                            text.text = ""
+                            text.hide()
+                        }
+                    }
+                    7 -> {
+/*                        with(binding) {
+                            catStatus.show()
+                            bubble.show()
+                            text.setText(R.string.text_game_memo_last_pair)
+                            text.show()
+                        }
+
+                        delay(1500L)
+
+                        with(binding) {
+                            catStatus.hide()
+                            bubble.hide()
+                            text.text = ""
+                            text.hide()
+                        }*/
+                    }
+                    else -> {
+                        println("ветка else: счетчик пар мемо = ${GameMemoDistrState.count}")
+                    }
                 }
             }
+        }
+    }
 
+    private fun gameLogic(state: GameMemoDistrState) {
+        when (state) {
             GameMemoDistrState.MemoStart -> {
                 initFieldMemo(MemoElementEnum.fillMemoField())
 
+                viewModel.addCount()
+
                 viewModel.allReverseCards()
 
-                /*        arrFieldMemo.forEachIndexed { _, subArray ->
-                            subArray.forEachIndexed { _, value ->
-                                value.view.setOnClickListener {
-                                    value.view.setBackgroundResource(R.drawable.background_memo_card)
-                                    value.view.setImageResource(value.memoElement.imageViewId)
-                                }
-                            }
-                        }*/
                 arrFieldMemo.forEachIndexed { i, subArray ->
                     subArray.forEachIndexed { j, value ->
                         value.view.setOnClickListener {
@@ -98,12 +157,18 @@ class GameMemoDistrFragment : Fragment() {
                 }
             }
 
-            is GameMemoDistrState.MemoSuccess<*> -> {
+            is GameMemoDistrState.MemoFinish -> {}
 
+            is GameMemoDistrState.MemoOpenedCard<*> -> {
+                if (state.data is IndexMemoGame) {
+                    arrFieldMemo[state.data.i][state.data.j].view.setBackgroundResource(R.drawable.background_memo_card)
+                    arrFieldMemo[state.data.i][state.data.j].view.setImageResource(
+                        arrFieldMemo[state.data.i][state.data.j].memoElement.imageViewId
+                    )
+                }
             }
 
             is GameMemoDistrState.MemoCheckingCards<*> -> {
-
 
                 if (state.data is Pair<*, *>) {
                     val firstElement = state.data.first
@@ -111,12 +176,19 @@ class GameMemoDistrFragment : Fragment() {
 
                     if ((firstElement is IndexMemoGame) && (secondElement is IndexMemoGame)) {
                         lifecycleScope.launch {
-                            arrFieldMemo[secondElement.i][secondElement.j].view.setBackgroundResource(R.drawable.background_memo_card)
+                            arrFieldMemo[secondElement.i][secondElement.j].view.setBackgroundResource(
+                                R.drawable.background_memo_card
+                            )
                             arrFieldMemo[secondElement.i][secondElement.j].view.setImageResource(
-                                arrFieldMemo[secondElement.i][secondElement.j].memoElement.imageViewId)
+                                arrFieldMemo[secondElement.i][secondElement.j].memoElement.imageViewId
+                            )
 
-                            delay(2000L)
+
+                            //Проверяем если одинаковые открытые карточки
                             if (arrFieldMemo[firstElement.i][firstElement.j].memoElement == arrFieldMemo[secondElement.i][secondElement.j].memoElement) {
+                                viewModel.addCount()
+                                delay(2000L)
+
                                 arrFieldMemo[firstElement.i][firstElement.j].view.hide()
                                 arrFieldMemo[secondElement.i][secondElement.j].view.hide()
 
@@ -132,6 +204,8 @@ class GameMemoDistrFragment : Fragment() {
                                 }
 
                             } else {
+                                delay(2000L)
+
                                 arrFieldMemo[firstElement.i][firstElement.j].view.setBackgroundResource(
                                     R.drawable.background_memo_backcard
                                 )
@@ -146,7 +220,7 @@ class GameMemoDistrFragment : Fragment() {
                                 arrFieldMemo[secondElement.i][secondElement.j].view.show()
 
                             }
-                        }.join()
+                        }
 
                         viewModel.allReverseCards()
 
@@ -158,7 +232,32 @@ class GameMemoDistrFragment : Fragment() {
                 }
             }
 
-            is GameMemoDistrState.MemoReverseCard<*> -> {}
+            is GameMemoDistrState.MemoReverseCard -> {
+                when(GameMemoDistrState.count){
+                    7 -> {
+                        lifecycleScope.launch {
+                            with(binding) {
+                                catStatus.show()
+                                bubble.show()
+                                text.setText(R.string.text_game_memo_last_pair)
+                                text.show()
+                            }
+
+                            delay(1500L)
+
+                            with(binding) {
+                                catStatus.hide()
+                                bubble.hide()
+                                text.text = ""
+                                text.hide()
+                            }
+                        }
+                    }
+                    8 -> {
+                        viewModel.finish()
+                    }
+                }
+            }
         }
 
     }

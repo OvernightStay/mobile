@@ -91,6 +91,7 @@
         android:layout_marginStart="-10dp"
         android:background="@drawable/img_ku_cat_status"
         android:importantForAccessibility="no"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -102,6 +103,7 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/img_bubble_memo"
         android:importantForAccessibility="no"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/cat_status" />
 
@@ -113,6 +115,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/bubble"
         app:layout_constraintEnd_toEndOf="@id/bubble"
         app:layout_constraintStart_toStartOf="@id/bubble"
