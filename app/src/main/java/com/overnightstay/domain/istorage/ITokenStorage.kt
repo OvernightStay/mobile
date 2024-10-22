@@ -1,8 +1,11 @@
 package com.overnightstay.domain.istorage
 
-import com.overnightstay.domain.models.Tokens
+import com.overnightstay.domain.models.Token
 
 interface ITokenStorage {
-    fun get(): Tokens
-    fun save(tokens: Tokens)
+    fun getAccessToken(): String
+    fun getRefreshToken(): String
+    fun saveAll(token: Token)
+    fun saveAccessToken(token: String)
+    fun saveRefreshToken(token: String)
 }

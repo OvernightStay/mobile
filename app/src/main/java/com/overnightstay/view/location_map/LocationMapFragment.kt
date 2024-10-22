@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -70,10 +71,6 @@ class LocationMapFragment : Fragment() {
                     animator = currentAnimator
                 )
 
-                lifecycleScope.launch {
-                    delay(25L * array[count].length.toLong())
-                }
-
             } else if (count == 3) {
                 binding.rectangle.visibility = View.INVISIBLE
                 binding.catStatus.visibility = View.INVISIBLE
@@ -87,20 +84,35 @@ class LocationMapFragment : Fragment() {
     }
 
     private fun initBtnListeners() = with(binding) {
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_locationMapFragment_to_houseFragment)
+        }
+        rules.setOnClickListener {
+            findNavController().navigate(R.id.action_locationMapFragment_to_contentsOfBookFragment)
+        }
+
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_locationMapFragment_to_backpackFragment)
+        }
+
         // Устанавливаем общий обработчик клика на все ImageView элементы
         val onClickListener = View.OnClickListener { view ->
             if (view.alpha == 0f) {
                 view.alpha = 1f
                 lifecycleScope.launch {
+                    binding.loadingLayout.root.isGone = false
+
                     delay(2000L)
 
                     // Ищем в enum элемент по id
                     val enumValue = ImageViewElements.entries.find { it.imageViewId == view.id }
                     if(enumValue?.actionId != null) {
                         enumValue.onClickImage {
+                            binding.loadingLayout.root.isGone = true
                             findNavController().navigate(enumValue.actionId)
                         }
                     }
+                    binding.loadingLayout.root.isGone = true
                 }
             } else {
                 view.alpha = 0f
@@ -128,8 +140,8 @@ class LocationMapFragment : Fragment() {
         IMG_HOUSE_REHABILITATION(R.id.img_house_rehabilitation),
         IMG_HOUSE_CONSULTATION(R.id.img_house_consultation),
         IMG_HOUSE_HALFPATH(R.id.img_house_halfpath),
-        IMG_HOUSE_WARM(R.id.img_house_warm),
-        IMG_HOUSE_OF_DISTRIBUTION(R.id.img_house_of_distribution),
+        IMG_HOUSE_OF_DISTRIBUTION(R.id.img_house_of_distribution, R.id.action_locationMapFragment_to_houseOfDistributionFragment),
+        IMG_HOUSE_WARM(R.id.img_house_warm, R.id.action_locationMapFragment_to_houseWarmFragment),
         IMG_HOUSE_NIGHT(R.id.img_house_night),
         IMG_HOUSE_PSYCHOLOGIST(R.id.img_house_psychologist);
 

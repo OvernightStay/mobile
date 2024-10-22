@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:maxHeight="420dp"
     android:background="@drawable/bg_dating"
-    tools:context=".view.mini_games.GameToFeedTheNeedyFragment">
+    android:maxHeight="420dp"
+    tools:context=".view.night_bus.minigame.GameToFeedTheNeedyFragment">
 
     <ImageView
         android:id="@+id/gear_wheel"
@@ -32,58 +32,87 @@
         app:layout_constraintEnd_toEndOf="@id/gear_wheel"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/map"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/img_map"
-        android:importantForAccessibility="no"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gear_wheel" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/map"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="80dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:background="@drawable/img_map"-->
+    <!--        android:importantForAccessibility="no"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/gear_wheel" />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/needy"
         android:layout_width="520dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="80dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <View
-            android:id="@+id/stress_bar_1"
+        <ProgressBar
+            android:id="@+id/pb_stress1"
             android:layout_width="100dp"
             android:layout_height="12dp"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/stress_bar_the_needy"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/background_progressbar_stress"
             app:layout_constraintBottom_toTopOf="@+id/the_needy_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/stress_bar_2"
+        <!--        <View-->
+        <!--            android:id="@+id/stress_bar_1"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="12dp"-->
+        <!--            android:layout_marginStart="30dp"-->
+        <!--            android:background="@drawable/stress_bar_the_needy"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_1"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <ProgressBar
+            android:id="@+id/pb_stress2"
             android:layout_width="100dp"
             android:layout_height="12dp"
-            android:background="@drawable/stress_bar_the_needy"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/background_progressbar_stress"
             app:layout_constraintBottom_toTopOf="@+id/the_needy_2"
-            app:layout_constraintEnd_toStartOf="@id/stress_bar_3"
-            app:layout_constraintStart_toEndOf="@id/stress_bar_1"
+            app:layout_constraintEnd_toStartOf="@id/pb_stress3"
+            app:layout_constraintStart_toEndOf="@id/pb_stress1"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/stress_bar_3"
+        <!--        <View-->
+        <!--            android:id="@+id/stress_bar_2"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="12dp"-->
+        <!--            android:background="@drawable/stress_bar_the_needy"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_2"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/stress_bar_3"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/pb_stress1"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <ProgressBar
+            android:id="@+id/pb_stress3"
             android:layout_width="100dp"
             android:layout_height="12dp"
-            android:layout_marginEnd="36dp"
-            android:background="@drawable/stress_bar_the_needy"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/background_progressbar_stress"
             app:layout_constraintBottom_toTopOf="@+id/the_needy_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <View-->
+        <!--            android:id="@+id/stress_bar_3"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="12dp"-->
+        <!--            android:layout_marginEnd="36dp"-->
+        <!--            android:background="@drawable/stress_bar_the_needy"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/the_needy_3"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ImageView
             android:id="@+id/the_needy_1"
@@ -111,8 +140,7 @@
             android:importantForAccessibility="no"
             android:src="@drawable/img_the_needy_3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -165,6 +193,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/cup"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/img_cup"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/meal_1"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -198,6 +238,18 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/meal"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="394dp"
+        android:layout_marginBottom="57dp"
+        android:background="@drawable/img_meal"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/bread_1"
@@ -236,6 +288,18 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
+        android:id="@+id/bread"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="333dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/img_bread"
+        android:importantForAccessibility="no"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/cat_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -259,12 +323,13 @@
     <TextView
         android:id="@+id/status_name"
         android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:paddingBottom="4dp"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -298,6 +363,23 @@
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.653" />
+
+    <include
+        android:id="@+id/screen_saver"
+        layout="@layout/screen_saver_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

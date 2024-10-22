@@ -37,25 +37,31 @@
         android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:text="Поздравляем,\nВы успешно\nзарегистрировались!"
-        android:textColor="@color/black"
         android:fontFamily="sans-serif"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_cat" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/PrimaryBigButton"
         android:id="@+id/btn_main"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
         android:layout_marginTop="280dp"
-        android:backgroundTint="@color/button_active"
-        android:fontFamily="sans-serif"
+        android:clickable="true"
+        android:focusable="true"
         android:text="Главная"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
         app:layout_constraintEnd_toEndOf="@+id/tv_overnightstay"
         app:layout_constraintStart_toStartOf="@+id/tv_overnightstay"/>
+
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

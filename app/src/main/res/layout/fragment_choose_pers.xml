@@ -26,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Выбери героя"
-        android:textColor="@color/black"
         android:fontFamily="sans-serif"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +59,7 @@
         android:layout_width="288dp"
         android:layout_height="48dp"
         android:layout_marginTop="200dp"
-        android:hint="Петров Иван"
+        android:hint="имя персонажа"
         app:endIconMode="clear_text"
         android:textColorHint="@color/stroke"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
@@ -77,18 +76,25 @@
             android:padding="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/PrimaryBigButton"
         android:id="@+id/btn_begin"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
         android:layout_marginTop="273dp"
-        android:backgroundTint="@color/button_active"
-        android:fontFamily="sans-serif"
+        android:clickable="true"
+        android:focusable="true"
         android:text="Начать игру"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/tv_overnightstay"
         app:layout_constraintEnd_toEndOf="@+id/til_login"
         app:layout_constraintStart_toStartOf="@+id/til_login"/>
+
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

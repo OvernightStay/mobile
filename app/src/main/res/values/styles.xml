@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PrimaryBigButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">288dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_primary_big_button</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ModalButtonGreen" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/background_modal_button_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">sans-serif</item>
+        <!-- Другие стили для кнопки -->
+    </style>
+
+    <style name="ModalButtonYellow" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/background_modal_button_yellow</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">sans-serif</item>
+        <!-- Другие стили для кнопки -->
+    </style>
+    <style name="MemoCardBack">
+        <item name="android:background">@drawable/background_memo_backcard</item>
+    </style>
+
+    <style name="MemoCardBackStyle">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@drawable/background_memo_backcard</item>
+    </style>
+
+<!--    <style name="w2wmatch.TextStyle" parent="@android:style/TextAppearance">-->
+<!--        <item name="fontFamily">sans-serif</item>-->
+<!--        <item name="android:textStyle">normal</item>-->
+<!--        <item name="android:textColor">?attr/colorOnSecondary</item>-->
+<!--    </style>-->
+
+</resources>

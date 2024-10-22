@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_house_warm_game"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.house_warm.minigame.GameHouseWarmFragment">
+
+    <ImageView
+        android:id="@+id/img_tent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_house_warm_game_tent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="20dp"
+        android:text="0"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:background="@drawable/bg_house_warm_game_count"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/cat_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/img_house_warm_game_cat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/game_end"
+        android:layout_width="0dp"
+        android:layout_height="328dp"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:background="@drawable/bg_house_warm_game_end_frame"
+        app:layout_constraintStart_toEndOf="@id/cat_message"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/count"/>
+
+    <ImageView
+        android:id="@+id/rug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_item_rug"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/game_end"
+        app:layout_constraintTop_toTopOf="@id/game_end"
+        app:layout_constraintEnd_toEndOf="@id/game_end"
+        app:layout_constraintBottom_toBottomOf="@id/game_end"/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:text="Плед горячих идей"
+        android:background="@drawable/bg_rug_description"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/game_end"
+        app:layout_constraintTop_toTopOf="@id/game_end"
+        app:layout_constraintEnd_toEndOf="@id/game_end"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_finish"
+        style="@style/ModalButtonGreen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Забрать"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/game_end"
+        app:layout_constraintEnd_toEndOf="@id/game_end"
+        app:layout_constraintBottom_toBottomOf="@id/game_end"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
