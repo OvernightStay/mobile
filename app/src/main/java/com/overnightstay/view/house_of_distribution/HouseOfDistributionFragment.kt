@@ -7,26 +7,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentHouseOfDistributionBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import com.overnightstay.utils.gone
 import com.overnightstay.utils.hide
 import com.overnightstay.utils.show
+import com.overnightstay.domain.models.Stress
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HouseOfDistributionFragment : Fragment() {
+    var stressElement = Stress.GREEN
 
     private val currentAnimator: ValueAnimator by lazy {
         ValueAnimator.ofInt(0, 0)
     }
+
+    private var answer = arrayOf(
+        arrayOf(3, 3, 1, 0),
+        arrayOf(3, 5, 1, 0),
+        arrayOf(3, 7, 1, 0),
+        arrayOf(3, 9, 1, 0),
+        arrayOf(3, 11, 1, 0),
+        arrayOf(3, 13, 1, 0),
+    )
 
     private var _binding: FragmentHouseOfDistributionBinding? = null
     private val binding get() = _binding!!
@@ -73,11 +86,55 @@ class HouseOfDistributionFragment : Fragment() {
                 return@setOnClickListener
             }
 
+            if (!binding.radioGroup.isGone) {
+                if (!binding.radioButton1.isChecked && !binding.radioButton2.isChecked) {
+                    Snackbar.make(
+                        binding.root,
+                        "Выберите одну из опций.",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                    return@setOnClickListener
+                }
+
+                when(viewModel.gameStageFlow.value) {
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_3,
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_5,
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_7,
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_9,
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_11,
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_13 -> {
+
+                        /*** RdFlg Поменять большие выражения на короткие имена - TypeAlias*/
+                        val index = answer.indexOfFirst {
+                            it[0] == viewModel.gameStageFlow.value.stage1 &&
+                                    it[1] == viewModel.gameStageFlow.value.stage2
+                        }
+                        if (index != -1) {
+                            if (binding.radioButton1.isChecked) {
+                                answer[index][3] = 1
+                            } else {
+                                answer[index][3] = 2
+                            }
+                            if (answer[index][2] != answer[index][3]) {
+
+                                stressElement.getNextStress()?.let {
+                                    binding.stress.setImageResource(it.idImg)
+                                    stressElement = it
+                                }
+                            }
+                        }
+                    }
+                    else -> {}
+                }
+            }
+
             viewModel.nextStage()
         }
+
         map.setOnClickListener {
             findNavController().navigate(R.id.action_houseOfDistributionFragment_to_locationMapFragment)
         }
+
         rules.setOnClickListener {
             findNavController().navigate(R.id.action_houseOfDistributionFragment_to_contentsOfBookFragment)
         }
@@ -343,6 +400,7 @@ class HouseOfDistributionFragment : Fragment() {
                     womanCenter.show()
                     womanCenterOnLeft.gone()
                     womanLeft.gone()
+                    text.show()
 //                    gameStage.txt.first?.let { text.setText(it) } ?: ""
                     setAnimationText(text, gameStage.txt.first?.let { resources.getString(it) })
                     binding.userName.hide()
@@ -376,17 +434,20 @@ class HouseOfDistributionFragment : Fragment() {
                     womanCenter.gone()
                 }
 
-                when(gameStage){
+                when (gameStage) {
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_2,
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_4,
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_6,
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_8,
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_10,
-                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_12, -> {
+                    HouseOfDistributionEnum.DISTRIBUTION_STAGE3_12,
+                    -> {
                         with(binding) {
                             radioGroup.gone()
 //                            gameStage.txt.first?.let { text.setText(it) } ?: ""
-                            setAnimationText(text, gameStage.txt.first?.let { resources.getString(it) })
+                            setAnimationText(
+                                text,
+                                gameStage.txt.first?.let { resources.getString(it) })
                             text.show()
                             binding.userName.hide()
                             womanCenterOnLeft.gone()
@@ -396,6 +457,7 @@ class HouseOfDistributionFragment : Fragment() {
                             rectangle.setBackgroundResource(R.drawable.dialog_left)
                         }
                     }
+
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_3,
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_5,
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_7,
@@ -404,6 +466,7 @@ class HouseOfDistributionFragment : Fragment() {
                     HouseOfDistributionEnum.DISTRIBUTION_STAGE3_13 -> {
                         with(binding) {
                             text.hide()
+                            radioGroup.clearCheck()
                             radioGroup.show()
                             gameStage.txt.first?.let { radioButton1.setText(it) } ?: ""
                             gameStage.txt.second?.let { radioButton2.setText(it) } ?: ""
@@ -415,6 +478,7 @@ class HouseOfDistributionFragment : Fragment() {
                             rectangle.setBackgroundResource(R.drawable.dialog_right)
                         }
                     }
+
                     else -> {}
                 }
             }
@@ -437,7 +501,7 @@ class HouseOfDistributionFragment : Fragment() {
 //                    gameStage.txt.first?.let { text.setText(it) } ?: ""
                     setAnimationText(text, gameStage.txt.first?.let { resources.getString(it) })
 
-                    when(gameStage) {
+                    when (gameStage) {
                         HouseOfDistributionEnum.DISTRIBUTION_STAGE4_1 -> {
                             with(binding) {
                                 binding.userName.hide()
@@ -446,6 +510,7 @@ class HouseOfDistributionFragment : Fragment() {
                                 rectangle.setBackgroundResource(R.drawable.dialog_left)
                             }
                         }
+
                         HouseOfDistributionEnum.DISTRIBUTION_STAGE4_2 -> {
                             with(binding) {
                                 binding.userName.show()
@@ -454,6 +519,7 @@ class HouseOfDistributionFragment : Fragment() {
                                 statusName.hide()
                             }
                         }
+
                         else -> {}
                     }
                 }
@@ -481,18 +547,25 @@ class HouseOfDistributionFragment : Fragment() {
                     rectangle.setBackgroundResource(R.drawable.dialog_left)
                 }
             }
+
             HouseOfDistributionEnum.DISTRIBUTION_STAGE_FINISH -> {
-                findNavController().navigate(R.id.action_houseOfDistributionFragment_to_gameMemoDistrFragment)
+                if (stressElement == Stress.GREEN) {
+                    findNavController().navigate(R.id.action_houseOfDistributionFragment_to_gameMemoDistrFragment)
+                } else {
+                    /*** flRed Поменять на переход на Книгу Правил*/
+                    findNavController().navigate(R.id.action_houseOfDistributionFragment_to_gameMemoDistrFragment)
+                }
             }
         }
     }
 
-    private fun setAnimationText(view: TextView, text: String?){
+    private fun setAnimationText(view: TextView, text: String?) {
 
-        if(text != null) {
+        if (text != null) {
             view.animateCharacterByCharacter2(
                 text = text,
-                animator = currentAnimator)
+                animator = currentAnimator
+            )
 
             lifecycleScope.launch {
                 delay(25L * text.length.toLong())

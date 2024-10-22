@@ -271,5 +271,9 @@
         android:id="@+id/finishGameMemoDistrFragment"
         android:name="com.overnightstay.view.house_of_distribution.finishminigame.FinishGameMemoDistrFragment"
         android:label="fragment_finish_game_memo_distr"
-        tools:layout="@layout/fragment_finish_game_memo_distr" />
+        tools:layout="@layout/fragment_finish_game_memo_distr" >
+        <action
+            android:id="@+id/action_finishGameMemoDistrFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
 </navigation>
