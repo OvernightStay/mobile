@@ -3,10 +3,12 @@ package com.overnightstay.data.storage
 import android.content.SharedPreferences
 import com.overnightstay.domain.istorage.ITokenStorage
 import com.overnightstay.domain.models.Token
+
 import javax.inject.Inject
 
 class TokenStorage @Inject constructor(
     private val sharedPreferences: SharedPreferences
+
 ) : ITokenStorage {
     override fun getAccessToken(): String {
         return sharedPreferences.getString(ACCESSTOKEN, "") ?: ""
@@ -32,5 +34,6 @@ class TokenStorage @Inject constructor(
     companion object {
         private const val ACCESSTOKEN = "accessToken"
         private const val REFRESHTOKEN = "refreshToken"
+
     }
 }

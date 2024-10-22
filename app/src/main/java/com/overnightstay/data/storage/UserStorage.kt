@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 class UserStorage @Inject constructor(
     private val sharedPreferences: SharedPreferences
+
 ) : IUserStorage {
     override fun get(): User {
         val userName = sharedPreferences.getString(USER_NAME, "")
@@ -37,24 +38,6 @@ class UserStorage @Inject constructor(
         sharedPreferences.edit().putString(USER_GENDER, user.gender).apply()
         sharedPreferences.edit().putBoolean(TRAINONG_CHECK, user.trainingCheck).apply()
     }
-
-//    fun mapperUserSMToUser(user: UserSM): User {
-//        return User(
-//            email = user.email ?: "",
-//            phone = user.phone ?: "",
-//            first_name = user.first_name ?: "",
-//            last_name = user.last_name ?: ""
-//        )
-//    }
-
-//    fun mapperUserToUserSM(user: User): UserSM {
-//        return UserSM(
-//            email = user.email ?: "",
-//            phone = user.phone ?: "",
-//            first_name = user.first_name ?: "",
-//            last_name = user.last_name ?: ""
-//        )
-//    }
 
     companion object {
         private const val USER_NAME = "userName"
