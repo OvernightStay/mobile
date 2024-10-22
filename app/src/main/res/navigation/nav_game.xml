@@ -262,5 +262,18 @@
         android:id="@+id/gameMemoDistrFragment"
         android:name="com.overnightstay.view.house_of_distribution.minigame.GameMemoDistrFragment"
         android:label="GameMemoDistrFragment"
-        tools:layout="@layout/fragment_game_memo_distr"/>
+        tools:layout="@layout/fragment_game_memo_distr">
+        <action
+            android:id="@+id/action_gameMemoDistrFragment_to_finishGameMemoDistrFragment"
+            app:destination="@id/finishGameMemoDistrFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishGameMemoDistrFragment"
+        android:name="com.overnightstay.view.house_of_distribution.finishminigame.FinishGameMemoDistrFragment"
+        android:label="fragment_finish_game_memo_distr"
+        tools:layout="@layout/fragment_finish_game_memo_distr" >
+        <action
+            android:id="@+id/action_finishGameMemoDistrFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+    </fragment>
 </navigation>

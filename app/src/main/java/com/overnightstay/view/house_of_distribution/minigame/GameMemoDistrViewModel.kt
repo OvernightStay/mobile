@@ -13,15 +13,11 @@ class GameMemoDistrViewModel : ViewModel() {
         MutableStateFlow<GameMemoDistrState>(GameMemoDistrState.MemoStart)
     val gameMemoStateFlow: StateFlow<GameMemoDistrState> = _gameMemoStateFlow
 
+    private val _count = MutableStateFlow(GameMemoDistrState.count)
+    val count: StateFlow<Int> = _count
+
     fun openCard(i: Int, j: Int) {
         when(_gameMemoStateFlow.value){
-            is GameMemoDistrState.MemoCheckingCards<*> -> {}
-            is GameMemoDistrState.MemoFinish<*> -> {}
-            is GameMemoDistrState.MemoFirstMatch<*> -> {}
-            is GameMemoDistrState.MemoLastMatch<*> -> {}
-            is GameMemoDistrState.MemoMatchAfterNot<*> -> {}
-            is GameMemoDistrState.MemoNotMatch<*> -> {}
-
             is GameMemoDistrState.MemoOpenedCard<*> -> {
                 if ((_gameMemoStateFlow.value as GameMemoDistrState.MemoOpenedCard<*>).data is IndexMemoGame) {
 
@@ -39,20 +35,35 @@ class GameMemoDistrViewModel : ViewModel() {
                     throw IllegalArgumentException("в этом состоянии должно быть данные индекса открытой карточки")
                 }
             }
-            is GameMemoDistrState.MemoSecondMatch<*> -> {}
-            GameMemoDistrState.MemoStart -> {}
-            is GameMemoDistrState.MemoSuccess<*> -> {}
-            is GameMemoDistrState.MemoReverseCard<*> -> {
+            is GameMemoDistrState.MemoReverseCard -> {
                 viewModelScope.launch {
                     _gameMemoStateFlow.emit(GameMemoDistrState.MemoOpenedCard(IndexMemoGame(i, j)))
                 }
             }
+
+            else ->{}
+//            GameMemoDistrState.MemoStart -> {}
+//            is GameMemoDistrState.MemoFinish<*> -> {}
+//            is GameMemoDistrState.MemoCheckingCards<*> -> {}
         }
     }
 
     fun allReverseCards() {
         viewModelScope.launch {
-            _gameMemoStateFlow.emit(GameMemoDistrState.MemoReverseCard(null))
+            _gameMemoStateFlow.emit(GameMemoDistrState.MemoReverseCard)
+        }
+    }
+
+    fun addCount() {
+        println("счетчик пар мемо = ${GameMemoDistrState.count}")
+        viewModelScope.launch {
+            _count.emit(++GameMemoDistrState.count)
+        }
+    }
+
+    fun finish() {
+        viewModelScope.launch {
+            _gameMemoStateFlow.emit(GameMemoDistrState.MemoFinish)
         }
     }
 

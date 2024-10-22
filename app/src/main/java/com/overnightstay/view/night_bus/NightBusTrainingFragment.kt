@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentNightBusTrainingBinding
+import com.overnightstay.domain.models.Stress
 import com.overnightstay.utils.animateCharacterByCharacter2
 import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
@@ -256,15 +257,4 @@ class NightBusTrainingFragment : Fragment() {
         }
     }
 
-    enum class Stress(val idImg: Int, val pos: Int) {
-        GREEN(R.drawable.img_stress, 0),
-        YELLOW(R.drawable.img_stress_yellow, 1),
-        ORANGE(R.drawable.img_stress_orange, 2),
-        RED(R.drawable.img_stress_red, 3);
-
-        fun getNextStress(): Stress? {
-            return if (pos < entries.size - 1) entries[pos + 1] else
-                if (pos == 3) entries[pos] else null
-        }
-    }
 }

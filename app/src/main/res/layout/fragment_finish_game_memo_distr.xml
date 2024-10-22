@@ -6,102 +6,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".view.house_of_distribution.HouseOfDistributionFragment">
+    android:maxHeight="420dp"
+    tools:context=".view.house_of_distribution.finishminigame.FinishGameMemoDistrFragment">
 
     <ImageView
-        android:id="@+id/bg_house_of_distr1"
+        android:id="@+id/bg_house_of_distr7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="20dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr1"
+        android:src="@drawable/bg_house_of_distr7_finish_minigame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr_minigame"
+        android:id="@+id/bg_house_of_distr8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="20dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr_minigame"
-        android:visibility="gone"
+        android:src="@drawable/bg_house_of_distr8_finish_minigame"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr_memo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/memo_shampoo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/img_memo_shampoo"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr_memo"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/bg_house_of_distr7"
+        app:layout_constraintBottom_toBottomOf="@id/bg_house_of_distr7" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:id="@+id/memo_boots"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_boots"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr2"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/memo_shampoo"
+        app:layout_constraintStart_toEndOf="@id/memo_shampoo" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr2_0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:id="@+id/memo_jacket"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_jacket"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr2_0"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/memo_boots"
+        app:layout_constraintStart_toEndOf="@id/memo_boots" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:id="@+id/memo_backpack"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_backpack"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr3"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/memo_jacket"
+        app:layout_constraintStart_toEndOf="@id/memo_jacket" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:id="@+id/memo_dress"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_dress"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr4"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/memo_backpack"
+        app:layout_constraintStart_toEndOf="@id/memo_backpack" />
 
     <ImageView
-        android:id="@+id/bg_house_of_distr5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:id="@+id/memo_razor"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_razor"
         android:importantForAccessibility="no"
-        android:src="@drawable/bg_house_of_distr5"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/memo_dress"
+        app:layout_constraintStart_toEndOf="@id/memo_dress" />
+
+    <ImageView
+        android:id="@+id/memo_tooth"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_tooth"
+        android:importantForAccessibility="no"
+        app:layout_constraintTop_toTopOf="@id/memo_razor"
+        app:layout_constraintStart_toEndOf="@id/memo_razor" />
+
+    <ImageView
+        android:id="@+id/memo_sweater"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/img_memo_sweater"
+        android:importantForAccessibility="no"
+        app:layout_constraintTop_toTopOf="@id/memo_tooth"
+        app:layout_constraintStart_toEndOf="@id/memo_tooth" />
 
     <ImageView
         android:id="@+id/home"
@@ -179,58 +189,51 @@
         app:layout_constraintTop_toBottomOf="@id/cat_avatar" />
 
     <ImageView
+        android:id="@+id/ku_cat_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-10dp"
+        android:background="@drawable/img_ku_cat_status"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ku_bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-80dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/img_bubble_memo"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ku_cat_status" />
+
+    <TextView
+        android:id="@+id/ku_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Найди пару"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/ku_bubble"
+        app:layout_constraintEnd_toEndOf="@id/ku_bubble"
+        app:layout_constraintStart_toStartOf="@id/ku_bubble"
+        app:layout_constraintTop_toTopOf="@id/ku_bubble" />
+
+    <ImageView
         android:id="@+id/cat_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:background="@drawable/img_cat_status"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/woman_distr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/img_woman_distr"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/woman_center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:background="@drawable/img_tamara_center"
-        android:importantForAccessibility="no"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/woman_center_on_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/img_tamara_center"
-        android:importantForAccessibility="no"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/woman_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/img_tamara_left"
-        android:importantForAccessibility="no"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -242,28 +245,10 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rectangle_100"
         android:importantForAccessibility="no"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/user_name"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="4dp"
-        android:text="Пользователь"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle"
-        app:layout_constraintTop_toTopOf="@+id/rectangle"
-        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/status_name"
@@ -277,6 +262,7 @@
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
@@ -291,33 +277,9 @@
         android:src="@drawable/dating_dialog_next"
         android:stateListAnimator="@animator/anim_btn_next"
         android:textColorHint="#A5D38D"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toEndOf="@id/rectangle" />
-
-    <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/dialog_next"
-        app:layout_constraintStart_toStartOf="@id/rectangle"
-        app:layout_constraintBottom_toBottomOf="@id/rectangle">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radio_button_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radio_button_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-    </RadioGroup>
 
     <TextView
         android:id="@+id/text"
@@ -328,36 +290,68 @@
         android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:visibility="invisible"
+
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
-    <include
-        android:id="@+id/loading_layout"
-        layout="@layout/loading_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/modal_achieve"
+        android:layout_width="320dp"
+        android:layout_height="328dp"
+        android:background="@drawable/background_modal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        <FrameLayout
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_modal_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-<!--    <include-->
-<!--        android:id="@+id/screen_saver"-->
-<!--        layout="@layout/screen_saver_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Плечики опоры"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/cups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_achieve_hanger"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/btn_take"
+            app:layout_constraintEnd_toEndOf="@id/btn_take"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_take"
+            style="@style/ModalButtonGreen"
+            android:layout_width="288dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="21dp"
+            android:fontFamily="sans-serif"
+            android:text="Забрать"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
