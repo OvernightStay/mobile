@@ -245,7 +245,14 @@
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
-
-
+    <include
+        android:id="@+id/screen_saver"
+        layout="@layout/screen_saver_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

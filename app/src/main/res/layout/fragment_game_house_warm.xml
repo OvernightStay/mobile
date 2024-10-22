@@ -89,7 +89,4 @@
         app:layout_constraintEnd_toEndOf="@id/game_end"
         app:layout_constraintBottom_toBottomOf="@id/game_end"/>
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

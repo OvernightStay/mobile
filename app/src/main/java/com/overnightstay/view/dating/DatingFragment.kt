@@ -7,14 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDatingBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class DatingFragment : Fragment() {
 
