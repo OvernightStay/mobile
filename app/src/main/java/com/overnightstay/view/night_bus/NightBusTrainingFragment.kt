@@ -8,13 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentNightBusTrainingBinding
 import com.overnightstay.domain.models.Stress
 import com.overnightstay.utils.animateCharacterByCharacter2
+import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class NightBusTrainingFragment : Fragment() {
 
@@ -35,6 +40,7 @@ class NightBusTrainingFragment : Fragment() {
         mutableListOf(13, 1, 0),
         mutableListOf(15, 2, 0),
     )
+
 
     private var array = mutableListOf(
         "Давайте поближе познакомимся с работой Ночного автобуса. Сегодня к вам подошёл\nМихаил. Ваша задача — не только накормить его, но и рассказать о возможностях,\nкоторые мы предоставляем, и о правилах, которые нужно соблюдать.",
@@ -87,6 +93,16 @@ class NightBusTrainingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val arrayImages = ScreenSaver.images
+        val randomImage1 = arrayImages[Random.nextInt(arrayImages.size)]
+        val randomImage2 = arrayImages[Random.nextInt(arrayImages.size)]
+        binding.screenSaver.screen.setImageResource(randomImage1)
+
+        lifecycleScope.launch {
+            delay(4000)
+            binding.screenSaver.root.isGone = true
+        }
 
         binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
@@ -211,6 +227,7 @@ class NightBusTrainingFragment : Fragment() {
                     17 -> binding.michael.visibility = View.GONE
                 }
             } else if (stress == Stress.GREEN) {
+                binding.screenSaver.screen.setImageResource(randomImage2)
                 findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_gameToFeedTheNeedyFragment)
             } else {
                 findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_contentsOfBookFragment)

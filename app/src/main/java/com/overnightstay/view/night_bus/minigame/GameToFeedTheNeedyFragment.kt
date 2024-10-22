@@ -18,9 +18,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentGameToFeedTheNeedyBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
+import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.random.Random
 
 class GameToFeedTheNeedyFragment : Fragment() {
 
@@ -62,6 +65,8 @@ class GameToFeedTheNeedyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.screenSaver.root.isGone = true
 
         viewModel =
             ViewModelProvider(this, vmFactory)[GameNightBusViewModel::class.java]
@@ -132,6 +137,15 @@ class GameToFeedTheNeedyFragment : Fragment() {
                         text = array[count],
                         animator = currentAnimator
                     )
+                    val arrayImages = ScreenSaver.images
+                    val randomImage = arrayImages[Random.nextInt(arrayImages.size)]
+                    binding.screenSaver.screen.setImageResource(randomImage)
+                    binding.screenSaver.root.isGone = false
+
+                    lifecycleScope.launch {
+                        delay(4000)
+                        binding.screenSaver.root.isGone = true
+                    }
                 }
 
                 2 -> {

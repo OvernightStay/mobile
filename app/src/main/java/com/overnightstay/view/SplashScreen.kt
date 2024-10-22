@@ -88,7 +88,7 @@ class SplashScreen : AppCompatActivity() {
                                     binding.progress.progress = progressStatus
                                 }
                             }
-                            startActivity(Intent(this@SplashScreen, AuthActivity::class.java))
+                            startActivity(Intent(this@SplashScreen, MainActivity::class.java))
                             finish()
                         }.start()
                     }
