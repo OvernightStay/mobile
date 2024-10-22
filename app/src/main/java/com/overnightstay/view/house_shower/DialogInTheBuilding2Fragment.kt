@@ -14,9 +14,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDialogInTheBuilding2Binding
 import com.overnightstay.utils.animateCharacterByCharacter2
+import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class DialogInTheBuilding2Fragment : Fragment() {
 
@@ -82,6 +85,16 @@ class DialogInTheBuilding2Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val arrayImages = ScreenSaver.images
+        val randomImage1 = arrayImages[Random.nextInt(arrayImages.size)]
+        val randomImage2 = arrayImages[Random.nextInt(arrayImages.size)]
+        binding.screenSaver.screen.setImageResource(randomImage1)
+
+        lifecycleScope.launch {
+            delay(4000)
+            binding.screenSaver.root.isGone = true
+        }
 
         binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
@@ -176,7 +189,12 @@ class DialogInTheBuilding2Fragment : Fragment() {
                 )
 
             } else if (stress == Stress.GREEN) {
-                findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_locationMapFragment)
+                lifecycleScope.launch {
+                    binding.screenSaver.screen.setImageResource(randomImage2)
+                    binding.screenSaver.root.isGone = false
+                    delay(4000)
+                    findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_locationMapFragment)
+                }
             } else {
                 findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_contentsOfBookFragment)
             }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -17,10 +18,12 @@ import com.overnightstay.utils.animateCharacterByCharacter2
 import com.overnightstay.utils.gone
 import com.overnightstay.utils.hide
 import com.overnightstay.utils.show
+import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.random.Random
 
 class HouseOfDistributionFragment : Fragment() {
 
@@ -52,6 +55,8 @@ class HouseOfDistributionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+
+        binding.screenSaver.root.isGone = true
 
         viewModel =
             ViewModelProvider(this, vmFactory)[HouseOfDistributionViewModel::class.java]
@@ -329,7 +334,17 @@ class HouseOfDistributionFragment : Fragment() {
             }
 
 
-            HouseOfDistributionEnum.DISTRIBUTION_STAGE3_1,
+            HouseOfDistributionEnum.DISTRIBUTION_STAGE3_1 -> {
+                val arrayImages = ScreenSaver.images
+                val randomImage1 = arrayImages[Random.nextInt(arrayImages.size)]
+                binding.screenSaver.screen.setImageResource(randomImage1)
+                binding.screenSaver.root.isGone = false
+
+                lifecycleScope.launch {
+                    delay(4000)
+                    binding.screenSaver.root.isGone = true
+                }
+            }
             HouseOfDistributionEnum.DISTRIBUTION_STAGE3_14 -> {
                 with(binding) {
                     bgHouseOfDistr1.gone()
@@ -482,7 +497,15 @@ class HouseOfDistributionFragment : Fragment() {
                 }
             }
             HouseOfDistributionEnum.DISTRIBUTION_STAGE_FINISH -> {
-                findNavController().navigate(R.id.action_houseOfDistributionFragment_to_gameMemoDistrFragment)
+                val arrayImages = ScreenSaver.images
+                val randomImage2 = arrayImages[Random.nextInt(arrayImages.size)]
+                binding.screenSaver.screen.setImageResource(randomImage2)
+                lifecycleScope.launch {
+                    binding.screenSaver.root.isGone = false
+                    delay(4000)
+                    findNavController().navigate(R.id.action_houseOfDistributionFragment_to_gameMemoDistrFragment)
+                }
+
             }
         }
     }

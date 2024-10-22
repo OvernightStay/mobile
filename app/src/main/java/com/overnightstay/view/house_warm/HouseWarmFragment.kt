@@ -8,12 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isGone
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentHouseWarmBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
+import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class HouseWarmFragment : Fragment() {
 
@@ -99,6 +104,12 @@ class HouseWarmFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val arrayImages = ScreenSaver.images
+        val randomImage1 = arrayImages[Random.nextInt(arrayImages.size)]
+        val randomImage2 = arrayImages[Random.nextInt(arrayImages.size)]
+        binding.screenSaver.screen.setImageResource(randomImage1)
+        binding.screenSaver.root.isGone = true
 
         binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
         binding.dialogNext.isClickable = true
@@ -238,6 +249,11 @@ class HouseWarmFragment : Fragment() {
                         binding.text.visibility = View.VISIBLE
                     }
                     21 -> {
+                        lifecycleScope.launch {
+                            binding.screenSaver.root.isGone = false
+                            delay(4000)
+                            binding.screenSaver.root.isGone = true
+                        }
                         binding.item.visibility = View.GONE
                         binding.bg2.setImageResource(R.drawable.bg_house_warm_05)
                         binding.matwei.visibility = View.VISIBLE
@@ -284,7 +300,13 @@ class HouseWarmFragment : Fragment() {
                     }
                 }
             } else if (stress == Stress.GREEN) {
-                findNavController().navigate(R.id.action_houseWarmFragment_to_gameHouseWarmFragment)
+                binding.screenSaver.screen.setImageResource(randomImage2)
+                lifecycleScope.launch {
+                    binding.screenSaver.root.isGone = false
+                    delay(4000)
+                    findNavController().navigate(R.id.action_houseWarmFragment_to_gameHouseWarmFragment)
+                }
+
             } else {
                 findNavController().navigate(R.id.action_houseWarmFragment_to_contentsOfBookFragment)
             }
