@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/bg_house_shower_01"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:importantForAccessibility="no"
         android:src="@drawable/bg_house_shower_building_01"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -166,6 +166,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:paddingBottom="4dp"
+        android:fontFamily="@font/open_sans"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -182,6 +183,7 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:paddingBottom="4dp"
+        android:fontFamily="@font/open_sans"
         android:text="Пользователь"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -208,10 +210,10 @@
         android:id="@+id/radio_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="45dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@id/rectangle"
         app:layout_constraintTop_toTopOf="@id/rectangle">
@@ -221,25 +223,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:text="Мы тщательно обрабатываем Неравнодуш один раз в месяц."
+            android:textSize="12sp"
+            android:fontFamily="@font/open_sans" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_button_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:text="У нас тщательная обработка душевых кабинок, туалетов, зоны ожидания: уборка после каждого клиента, уборка в конце рабочего дня, и генеральная уборка один раз в месяц."
+            android:textSize="12sp"
+            android:fontFamily="@font/open_sans" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans"
         android:text="@string/cat_status"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"

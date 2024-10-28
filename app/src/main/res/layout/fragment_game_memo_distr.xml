@@ -111,6 +111,7 @@
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
         android:text="Найди пару"
         android:textAlignment="center"
         android:textColor="@color/black"

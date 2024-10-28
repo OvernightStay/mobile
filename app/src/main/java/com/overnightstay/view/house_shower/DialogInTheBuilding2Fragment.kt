@@ -16,7 +16,6 @@ import com.overnightstay.databinding.FragmentDialogInTheBuilding2Binding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random

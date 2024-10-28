@@ -80,9 +80,10 @@
                 android:paddingBottom="2dp"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
+                android:fontFamily="@font/open_sans"
                 android:text="Пункт обогрева"
                 android:textAlignment="center"
-                android:textSize="@dimen/text_size"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -92,8 +93,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="@string/text_house_warm"
-                android:textSize="@dimen/text_size"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/night_bus" />

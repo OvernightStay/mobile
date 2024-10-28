@@ -216,6 +216,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:fontFamily="@font/open_sans"
         android:text="Найди пару"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -259,6 +260,7 @@
         android:background="@drawable/user_name"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:fontFamily="@font/open_sans"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -287,11 +289,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans"
         android:text="@string/cat_status"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:visibility="invisible"
-
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
@@ -321,6 +323,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/open_sans"
                 android:text="Плечики опоры"
                 android:textColor="@color/black"
                 android:textSize="24sp" />

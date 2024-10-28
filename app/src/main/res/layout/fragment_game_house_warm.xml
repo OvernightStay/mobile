@@ -17,8 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-
-
     <TextView
         android:id="@+id/count"
         android:layout_width="56dp"
@@ -69,6 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
+        android:fontFamily="@font/open_sans"
         android:text="Плед горячих идей"
         android:background="@drawable/bg_rug_description"
         android:textSize="20sp"
