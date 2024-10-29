@@ -88,4 +88,13 @@
         app:layout_constraintEnd_toEndOf="@id/game_end"
         app:layout_constraintBottom_toBottomOf="@id/game_end"/>
 
+    <View
+        android:id="@+id/playing_field"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="76dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/count"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
