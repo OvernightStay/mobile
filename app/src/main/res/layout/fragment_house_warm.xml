@@ -173,6 +173,7 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:paddingBottom="4dp"
+        android:fontFamily="@font/open_sans"
         android:text="Статус"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -189,6 +190,7 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:paddingBottom="4dp"
+        android:fontFamily="@font/open_sans"
         android:text="Пользователь"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -228,14 +230,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:fontFamily="@font/open_sans"
+            android:textSize="14sp" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_button_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:fontFamily="@font/open_sans"
+            android:textSize="14sp" />
     </RadioGroup>
 
     <TextView
@@ -246,7 +250,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="45dp"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:fontFamily="@font/open_sans"
+        android:textSize="14sp"
         android:text="@string/cat_status"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@+id/rectangle"

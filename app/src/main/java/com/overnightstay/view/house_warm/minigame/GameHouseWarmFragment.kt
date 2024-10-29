@@ -13,12 +13,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.overnightstay.R
 import com.overnightstay.databinding.FragmentGameHouseWarmBinding
-import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -124,7 +122,7 @@ class GameHouseWarmFragment : Fragment() {
         rootLayout.addView(fallingObject)
 
         // Устанавливаем случайную начальную позицию по горизонтали
-        fallingObject.x = Random.nextInt(0, screenWidth - fallingObject.width).toFloat()
+        fallingObject.x = Random.nextInt(0, binding.playingField.width - fallingObject.width).toFloat()
         fallingObject.y = 0f
 
         // Анимация падения объекта с использованием ObjectAnimator
