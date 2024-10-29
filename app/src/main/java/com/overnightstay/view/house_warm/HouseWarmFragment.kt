@@ -16,6 +16,7 @@ import com.overnightstay.databinding.FragmentHouseWarmBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import com.overnightstay.view.domain.ScreenSaver
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -42,7 +43,7 @@ class HouseWarmFragment : Fragment() {
     private var array = mutableListOf(
         "Рад тебя видеть! Мы еще на шаг ближе к помощи нашим подопечным! Мы в Пункте Обогрева",
         "Интересно, как здесь все устроено?",
-        "Палатка или Пункт Обогрева еще называем Точкой Входа в Ночлежку. Цель проекта: \n • сохранение жизни и здоровья наших гостей. \n • мы не только предлагаем переночевать, но и рассказываем о других проектах и услугах.",
+        "Палатка или Пункт Обогрева еще называем Точкой Входа в Ночлежку. Цель проекта:\n • сохранение жизни и здоровья наших гостей. \n • мы не только предлагаем переночевать, но и рассказываем о других проектах и услугах.",
         "Это так здорово! А как гости находят локацию? ",
         "После установки Палатки, мы устанавливаем навигационные таблички в этом районе, а также раздаем листовки с информацией о пункте. Их также можно распечатать желающим на нашем сайте. На улице становится прохладно, пойдем покажу что внутри.",
         "Здесь гораздо теплее! Расскажи пожалуйста, как в таких спартанских условиях создается работа?",
@@ -301,7 +302,7 @@ class HouseWarmFragment : Fragment() {
                 }
             } else if (stress == Stress.GREEN) {
                 binding.screenSaver.screen.setImageResource(randomImage2)
-                lifecycleScope.launch {
+                lifecycleScope.launch(Dispatchers.Main) {
                     binding.screenSaver.root.isGone = false
                     delay(4000)
                     findNavController().navigate(R.id.action_houseWarmFragment_to_gameHouseWarmFragment)

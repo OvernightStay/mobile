@@ -94,7 +94,7 @@
         android:layout_width="288dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:hint="Телефон*"
+        android:hint="Телефон* от 11 до 15 цифр"
         app:endIconMode="clear_text"
         android:textColorHint="@color/stroke"
         app:layout_constraintTop_toBottomOf="@+id/til_email"

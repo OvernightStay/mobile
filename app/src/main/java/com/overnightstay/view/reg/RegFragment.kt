@@ -17,6 +17,7 @@ import com.overnightstay.R
 import com.overnightstay.databinding.FragmentRegBinding
 import com.overnightstay.domain.AppState
 import com.overnightstay.domain.models.User
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -99,6 +100,10 @@ class RegFragment : Fragment() {
             }
         }
 
+        val listener = MaskedTextChangedListener( "+7[0000000000]", binding.etPhone)
+        binding.etPhone.addTextChangedListener(listener)
+        binding.etPhone.onFocusChangeListener = listener
+
         initBtnListeners()
         initEtListeners()
     }
@@ -148,7 +153,7 @@ class RegFragment : Fragment() {
                     login = binding.etLogin.text.toString(),
                     password = binding.etPass.text.toString(),
                     email = binding.etEmail.text.toString(),
-                    phone = binding.etPhone.text.toString(),
+                    phone = binding.etPhone.text.toString().removePrefix("+"),
                     first_name = binding.etName.text.toString(),
                     last_name = binding.etSecname.text.toString()
                 )
