@@ -144,7 +144,7 @@ class ChoosePersFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
-            val gender = if (ivMan.isSelected) "M" else "Ж"
+            val gender = if (ivMan.isSelected) "M" else "F"
             viewModel.updatePlayer(etLogin.text.toString(), gender)
 
         }
