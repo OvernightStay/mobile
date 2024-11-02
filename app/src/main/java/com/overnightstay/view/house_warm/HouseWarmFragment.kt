@@ -312,6 +312,8 @@ class HouseWarmFragment : Fragment() {
                 findNavController().navigate(R.id.action_houseWarmFragment_to_contentsOfBookFragment)
             }
         }
+
+        initBtnListeners()
     }
 
     private fun status() {
@@ -334,6 +336,21 @@ class HouseWarmFragment : Fragment() {
         fun getNextStress(): Stress? {
             return if (pos < entries.size - 1) entries[pos + 1] else
                 if (pos == 3) entries[pos] else null
+        }
+    }
+
+    private fun initBtnListeners() = with(binding) {
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_houseWarmFragment_to_houseFragment)
+        }
+        rules.setOnClickListener {
+            findNavController().navigate(R.id.action_houseWarmFragment_to_contentsOfBookFragment)
+        }
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_houseWarmFragment_to_backpackFragment)
+        }
+        map.setOnClickListener {
+            findNavController().navigate(R.id.action_houseWarmFragment_to_locationMapFragment)
         }
     }
 

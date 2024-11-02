@@ -10,37 +10,23 @@
 
     <ImageView
         android:id="@+id/stress"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
+        style="@style/stress"
         android:layout_marginTop="14dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_stress"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/gear_wheel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="14dp"
-        android:background="@drawable/img_gear_wheel"
-        android:importantForAccessibility="no"
+        style="@style/gear_wheel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/rules"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="70dp"
-        android:background="@drawable/img_rules"
-        android:importantForAccessibility="no"
+        style="@style/rules"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/gear_wheel"
+        app:layout_constraintEnd_toStartOf="@id/gear_wheel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -172,10 +158,10 @@
         android:id="@+id/radio_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/open_sans"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/rectangle"
         app:layout_constraintEnd_toStartOf="@+id/dialog_next"
         app:layout_constraintStart_toStartOf="@id/rectangle">
@@ -184,16 +170,16 @@
             android:id="@+id/radio_button_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_button_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </RadioGroup>
 
@@ -201,8 +187,8 @@
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="46dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/open_sans"
         android:text="@string/cat_status"
@@ -218,9 +204,9 @@
         layout="@layout/screen_saver_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

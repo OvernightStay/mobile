@@ -10,11 +10,7 @@
 
     <ImageView
         android:id="@+id/gear_wheel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:background="@drawable/img_gear_wheel"
-        android:importantForAccessibility="no"
+        style="@style/gear_wheel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

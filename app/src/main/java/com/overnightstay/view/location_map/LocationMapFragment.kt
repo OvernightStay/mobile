@@ -50,34 +50,44 @@ class LocationMapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
-        binding.dialogNext.isClickable = true
+            binding.text.animateCharacterByCharacter2(text = array[0], animator = currentAnimator)
+            binding.dialogNext.isClickable = true
 
-        binding.dialogNext.setOnClickListener {
-            if (currentAnimator.isRunning) {
+            binding.dialogNext.setOnClickListener {
+                if (currentAnimator.isRunning) {
 
-                currentAnimator.end()
-                return@setOnClickListener
-            }
-
-            count++
-            if (count < array.size) {
-
-                when (count) {
-                    1 -> binding.catAvatar.visibility = View.VISIBLE
+                    currentAnimator.end()
+                    return@setOnClickListener
                 }
-                binding.text.animateCharacterByCharacter2(
-                    text = array[count],
-                    animator = currentAnimator
-                )
 
-            } else if (count == 3) {
-                binding.rectangle.visibility = View.INVISIBLE
-                binding.catStatus.visibility = View.INVISIBLE
-                binding.statusName.visibility = View.INVISIBLE
-                binding.text.visibility = View.INVISIBLE
-                binding.dialogNext.visibility = View.INVISIBLE
+                count++
+                if (count < array.size) {
+
+                    when (count) {
+                        1 -> binding.catAvatar.visibility = View.VISIBLE
+                    }
+                    binding.text.animateCharacterByCharacter2(
+                        text = array[count],
+                        animator = currentAnimator
+                    )
+
+                } else if (count == 3) {
+                    binding.rectangle.visibility = View.INVISIBLE
+                    binding.catStatus.visibility = View.INVISIBLE
+                    binding.statusName.visibility = View.INVISIBLE
+                    binding.text.visibility = View.INVISIBLE
+                    binding.dialogNext.visibility = View.INVISIBLE
+                    binding.closedDialog.visibility = View.INVISIBLE
+                }
             }
+
+        binding.closedDialog.setOnClickListener {
+            binding.rectangle.visibility = View.INVISIBLE
+            binding.catStatus.visibility = View.INVISIBLE
+            binding.statusName.visibility = View.INVISIBLE
+            binding.text.visibility = View.INVISIBLE
+            binding.dialogNext.visibility = View.INVISIBLE
+            binding.closedDialog.visibility = View.INVISIBLE
         }
 
         initBtnListeners()

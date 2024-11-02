@@ -34,7 +34,7 @@ class BackpackFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.close.setOnClickListener {
-            findNavController().navigate(R.id.action_backpackFragment_to_locationMapFragment)
+            activity?.supportFragmentManager?.popBackStack()
         }
     }
 

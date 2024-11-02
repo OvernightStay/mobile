@@ -138,6 +138,12 @@ class HouseOfDistributionFragment : Fragment() {
         rules.setOnClickListener {
             findNavController().navigate(R.id.action_houseOfDistributionFragment_to_contentsOfBookFragment)
         }
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_houseOfDistributionFragment_to_backpackFragment)
+        }
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_houseOfDistributionFragment_to_houseFragment)
+        }
     }
 
     private fun renderData(gameStage: HouseOfDistributionEnum) {
