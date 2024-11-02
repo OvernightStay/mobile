@@ -12,6 +12,7 @@ import com.overnightstay.R
 import com.overnightstay.databinding.FragmentDialogOnTheStreetBinding
 import com.overnightstay.utils.animateCharacterByCharacter2
 import dagger.android.support.AndroidSupportInjection
+
 class DialogOnTheStreetFragment : Fragment() {
 
     private var _binding: FragmentDialogOnTheStreetBinding? = null
@@ -59,7 +60,7 @@ class DialogOnTheStreetFragment : Fragment() {
 
             if (count < array.size) {
 
-                when(count) {
+                when (count) {
                     1 -> {
                         with(binding) {
                             rectangle.setBackgroundResource(R.drawable.dialog_house_shower_user)
@@ -67,6 +68,7 @@ class DialogOnTheStreetFragment : Fragment() {
                             userName.visibility = View.VISIBLE
                         }
                     }
+
                     2 -> {
                         with(binding) {
                             rectangle.setBackgroundResource(R.drawable.dialog_house_shower_status)
@@ -76,13 +78,30 @@ class DialogOnTheStreetFragment : Fragment() {
                     }
                 }
 
-                binding.text.animateCharacterByCharacter2(text = array[count], animator = currentAnimator)
+                binding.text.animateCharacterByCharacter2(
+                    text = array[count],
+                    animator = currentAnimator
+                )
 
             } else findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_dialogInTheBuildingFragment)
         }
 
-        binding.rules.setOnClickListener {
+        initBtnListeners()
+    }
+
+    private fun initBtnListeners() = with(binding) {
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_houseFragment)
+        }
+        rules.setOnClickListener {
             findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_contentsOfBookFragment)
+        }
+
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_backpackFragment3)
+        }
+        map.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogOnTheStreetFragment_to_locationMapFragment)
         }
     }
 }

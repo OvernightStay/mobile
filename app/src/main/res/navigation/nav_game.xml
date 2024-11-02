@@ -31,6 +31,9 @@
         android:name="com.overnightstay.view.location_map.LocationMapFragment"
         android:label="fragment_location_map"
         tools:layout="@layout/fragment_location_map">
+        <argument
+            android:name="count"
+            app:argType="integer"/>
         <action
             android:id="@+id/action_locationMapFragment_to_nightBusFragment"
             app:destination="@id/nightBusFragment" />
@@ -94,6 +97,12 @@
         <action
             android:id="@+id/action_dialogOnTheStreetFragment_to_contentsOfBookFragment"
             app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_dialogOnTheStreetFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_dialogOnTheStreetFragment_to_backpackFragment3"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/dialogInTheBuildingFragment"
@@ -106,6 +115,15 @@
         <action
             android:id="@+id/action_dialogInTheBuildingFragment_to_dialogInTheBuilding2Fragment"
             app:destination="@id/dialogInTheBuilding2Fragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuildingFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuildingFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuildingFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
     </fragment>
     <fragment
         android:id="@+id/contentsOfBookFragment"
@@ -121,6 +139,12 @@
         <action
             android:id="@+id/action_contentsOfBookFragment_to_projectsFragment"
             app:destination="@id/projectsFragment" />
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_contentsOfBookFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/houseFragment"
@@ -133,12 +157,28 @@
         <action
             android:id="@+id/action_houseFragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_houseFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.overnightstay.view.book.history.HistoryFragment"
         android:label="fragment_history"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+    </fragment>
     <fragment
         android:id="@+id/projectsFragment"
         android:name="com.overnightstay.view.book.projects.ProjectsFragment"
@@ -159,32 +199,109 @@
         <action
             android:id="@+id/action_projectsFragment_to_projectHouseWarmFragment"
             app:destination="@id/projectHouseWarmFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_projectsFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/projectNightBusFragment"
         android:name="com.overnightstay.view.book.projects.night_bus.ProjectNightBusFragment"
         android:label="fragment_project_night_bus"
-        tools:layout="@layout/fragment_project_night_bus" />
+        tools:layout="@layout/fragment_project_night_bus" >
+        <action
+            android:id="@+id/action_projectNightBusFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_projectNightBusFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_projectNightBusFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_projectNightBusFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+    </fragment>
     <fragment
         android:id="@+id/projectHouseShowerFragment"
         android:name="com.overnightstay.view.book.projects.house_shower.ProjectHouseShowerFragment"
         android:label="fragment_project_house_shower"
-        tools:layout="@layout/fragment_project_house_shower" />
+        tools:layout="@layout/fragment_project_house_shower" >
+        <action
+            android:id="@+id/action_projectHouseShowerFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+        <action
+            android:id="@+id/action_projectHouseShowerFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_projectHouseShowerFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_projectHouseShowerFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/projectHouseRehabilitationFragment"
         android:name="com.overnightstay.view.book.projects.house_rehabilitation.ProjectHouseRehabilitationFragment"
         android:label="fragment_project_house_rehabilitation"
-        tools:layout="@layout/fragment_project_house_rehabilitation" />
+        tools:layout="@layout/fragment_project_house_rehabilitation" >
+        <action
+            android:id="@+id/action_projectHouseRehabilitationFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+        <action
+            android:id="@+id/action_projectHouseRehabilitationFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_projectHouseRehabilitationFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_projectHouseRehabilitationFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/projectHouseOfDistributionFragment"
         android:name="com.overnightstay.view.book.projects.house_of_distribution.ProjectHouseOfDistributionFragment"
         android:label="fragment_house_of_distribution"
-        tools:layout="@layout/fragment_project_house_of_distribution" />
+        tools:layout="@layout/fragment_project_house_of_distribution" >
+        <action
+            android:id="@+id/action_projectHouseOfDistributionFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_projectHouseOfDistributionFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_projectHouseOfDistributionFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_projectHouseOfDistributionFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+    </fragment>
     <fragment
         android:id="@+id/projectHouseWarmFragment"
         android:name="com.overnightstay.view.book.projects.house_warm.ProjectHouseWarmFragment"
         android:label="fragment_project_house_warm"
-        tools:layout="@layout/fragment_project_house_warm" />
+        tools:layout="@layout/fragment_project_house_warm" >
+        <action
+            android:id="@+id/action_projectHouseWarmFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_projectHouseWarmFragment_to_contentsOfBookFragment"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_projectHouseWarmFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_projectHouseWarmFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+    </fragment>
     <fragment
         android:id="@+id/backpackFragment"
         android:name="com.overnightstay.view.backpack.BackpackFragment"
@@ -217,6 +334,15 @@
         <action
             android:id="@+id/action_dialogInTheBuilding2Fragment_to_locationMapFragment"
             app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuilding2Fragment_to_contentsOfBookFragment2"
+            app:destination="@id/contentsOfBookFragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuilding2Fragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_dialogInTheBuilding2Fragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/houseOfDistributionFragment"
@@ -235,6 +361,12 @@
         <action
             android:id="@+id/action_houseOfDistributionFragment_to_gameMemoDistrFragment"
             app:destination="@id/gameMemoDistrFragment" />
+        <action
+            android:id="@+id/action_houseOfDistributionFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+        <action
+            android:id="@+id/action_houseOfDistributionFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
         android:id="@+id/houseWarmFragment"
@@ -247,6 +379,15 @@
         <action
             android:id="@+id/action_houseWarmFragment_to_gameHouseWarmFragment"
             app:destination="@id/gameHouseWarmFragment" />
+        <action
+            android:id="@+id/action_houseWarmFragment_to_backpackFragment"
+            app:destination="@id/backpackFragment" />
+        <action
+            android:id="@+id/action_houseWarmFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_houseWarmFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameHouseWarmFragment"

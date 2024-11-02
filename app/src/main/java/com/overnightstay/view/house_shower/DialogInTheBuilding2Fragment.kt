@@ -199,9 +199,7 @@ class DialogInTheBuilding2Fragment : Fragment() {
             }
         }
 
-        binding.rules.setOnClickListener {
-            findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_contentsOfBookFragment)
-        }
+        initBtnListeners()
     }
 
     enum class Stress(val idImg: Int, val pos: Int) {
@@ -213,6 +211,21 @@ class DialogInTheBuilding2Fragment : Fragment() {
         fun getNextStress(): Stress? {
             return if (pos < entries.size - 1) entries[pos + 1] else
                 if (pos == 3) entries[pos] else null
+        }
+    }
+
+    private fun initBtnListeners() = with(binding) {
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_houseFragment)
+        }
+        rules.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_contentsOfBookFragment)
+        }
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_backpackFragment)
+        }
+        map.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuilding2Fragment_to_locationMapFragment)
         }
     }
 

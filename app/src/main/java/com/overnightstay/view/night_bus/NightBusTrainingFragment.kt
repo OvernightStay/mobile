@@ -233,6 +233,10 @@ class NightBusTrainingFragment : Fragment() {
                 findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_contentsOfBookFragment)
             }
         }
+
+        binding.rules.setOnClickListener {
+            findNavController().navigate(R.id.action_nightBusTrainingFragment2_to_contentsOfBookFragment)
+        }
     }
 
 

@@ -32,6 +32,24 @@ class ProjectsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        with(binding) {
+            home.setOnClickListener {
+                findNavController().navigate(R.id.action_projectsFragment_to_houseFragment)
+            }
+            rules.setOnClickListener {
+                findNavController().navigate(R.id.action_projectsFragment_to_contentsOfBookFragment)
+            }
+            backpack.setOnClickListener {
+                findNavController().navigate(R.id.action_projectsFragment_to_backpackFragment)
+            }
+            map.setOnClickListener {
+                findNavController().navigate(R.id.action_projectsFragment_to_locationMapFragment)
+            }
+            backArrow.setOnClickListener {
+                activity?.supportFragmentManager?.popBackStack()
+            }
+        }
+
         initBtnListeners()
     }
 

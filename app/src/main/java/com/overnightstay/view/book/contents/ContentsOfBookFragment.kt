@@ -99,6 +99,21 @@ class ContentsOfBookFragment : Fragment() {
 //            }
 //        }
 
+        with(binding) {
+            home.setOnClickListener {
+                findNavController().navigate(R.id.action_contentsOfBookFragment_to_houseFragment)
+            }
+            backpack.setOnClickListener {
+                findNavController().navigate(R.id.action_contentsOfBookFragment_to_backpackFragment)
+            }
+            map.setOnClickListener {
+                findNavController().navigate(R.id.action_contentsOfBookFragment_to_locationMapFragment)
+            }
+            backArrow.setOnClickListener {
+                activity?.supportFragmentManager?.popBackStack()
+            }
+        }
+
         initBtnListeners()
     }
 

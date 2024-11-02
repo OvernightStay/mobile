@@ -177,8 +177,23 @@ class DialogInTheBuildingFragment : Fragment() {
             } else findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_dialogInTheBuilding2Fragment)
         }
 
-        binding.rules.setOnClickListener {
+        initBtnListeners()
+
+    }
+
+    private fun initBtnListeners() = with(binding) {
+        home.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_houseFragment)
+        }
+        rules.setOnClickListener {
             findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_contentsOfBookFragment)
         }
+        backpack.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_backpackFragment)
+        }
+        map.setOnClickListener {
+            findNavController().navigate(R.id.action_dialogInTheBuildingFragment_to_locationMapFragment)
+        }
     }
+
 }

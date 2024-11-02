@@ -8,53 +8,32 @@
 
     <ImageView
         android:id="@+id/home"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_home"
+        style="@style/home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/stress"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="28dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/img_stress"
+        style="@style/stress"
         app:layout_constraintStart_toEndOf="@id/home"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/home"
+        app:layout_constraintBottom_toBottomOf="@id/home"/>
 
     <ImageView
         android:id="@+id/gear_wheel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:background="@drawable/img_gear_wheel"
-        android:importantForAccessibility="no"
+        style="@style/gear_wheel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/backpack"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/img_backpack"
-        android:importantForAccessibility="no"
+        style="@style/backpack"
         app:layout_constraintEnd_toStartOf="@id/gear_wheel"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/rules" />
 
     <ImageView
         android:id="@+id/rules"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/img_rules"
-        android:importantForAccessibility="no"
+        style="@style/rules"
         app:layout_constraintEnd_toStartOf="@id/backpack"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,26 +96,21 @@
 
     <ImageView
         android:id="@+id/cat_avatar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="14dp"
-        android:background="@drawable/img_cat_avatar"
-        android:importantForAccessibility="no"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/cat_avatar"
+        app:layout_constraintEnd_toEndOf="@id/gear_wheel"
         app:layout_constraintTop_toBottomOf="@id/gear_wheel" />
 
     <ImageView
         android:id="@+id/map"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="14dp"
-        android:background="@drawable/img_map"
-        android:importantForAccessibility="no"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/map"
+        app:layout_constraintEnd_toEndOf="@id/gear_wheel"
         app:layout_constraintTop_toBottomOf="@id/cat_avatar" />
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        style="@style/back_arrow"
+        app:layout_constraintTop_toBottomOf="@id/map"
+        app:layout_constraintEnd_toEndOf="@id/gear_wheel"/>
 
 
 
